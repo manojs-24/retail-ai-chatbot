@@ -1,0 +1,120 @@
+"""
+Shared RAG node.
+
+Used by both the customer graph and the manager graph — do NOT duplicate
+this logic.  The node:
+
+1. Calls :func:`~backend.rag.retriever.get_retriever` to fetch the top-K
+   most relevant policy document chunks.
+2. Formats the retrieved context into a prompt.
+3. Calls the OpenAI chat model to synthesise a grounded answer.
+4. Returns ``retrieved_documents`` and ``response`` merged into the state.
+
+If no relevant context is found, the node responds politely that the
+information is not currently available in the knowledge base.
+"""
+
+from __future__ import annotations
+
+import logging
+import os
+from typing import Any
+
+from dotenv import load_dotenv
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_openai import ChatOpenAI
+
+from backend.rag.retriever import get_retriever
+
+# Load .env so the node works whether called from a script or FastAPI.
+load_dotenv()
+
+logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# System prompt — strictly grounds the LLM in the retrieved context.
+# ---------------------------------------------------------------------------
+_SYSTEM_PROMPT = """You are a helpful retail assistant for RetailHub Technologies.
+Answer the user's question ONLY using the context provided below.
+If the answer is not found in the context, respond with:
+"I'm sorry, I don't have information about that in our knowledge base. \
+Please contact our support team for further assistance."
+
+Do NOT make up information. Do NOT use outside knowledge.
+Be concise, friendly, and professional."""
+
+
+def rag_node(state: dict[str, Any]) -> dict[str, Any]:
+    """
+    Shared RAG node — retrieves relevant policy documents and generates an answer.
+
+    This node is intentionally generic: it operates on any state dict that
+    carries a ``"query"`` key, making it reusable across both the customer
+    and manager graphs.
+
+    Args:
+        state: The current LangGraph state dict.  Must contain ``"query"``.
+
+    Returns:
+        A partial state dict with:
+
+        - ``retrieved_documents`` — list of dicts, each with
+          ``"page_content"`` and ``"metadata"`` keys.
+        - ``response`` — the LLM-generated answer grounded in the retrieved context.
+    """
+    query: str = state.get("query", "")
+    logger.info("RAG node — query=%r", query[:80])
+
+    # ------------------------------------------------------------------
+    # 1. Retrieve relevant chunks from ChromaDB.
+    # ------------------------------------------------------------------
+    retriever = get_retriever()
+    docs = retriever.invoke(query)
+
+    # Serialise documents for storage in state (LangGraph state must be
+    # JSON-serialisable to support persistence / checkpointing).
+    serialised_docs: list[dict[str, Any]] = [
+        {"page_content": doc.page_content, "metadata": doc.metadata}
+        for doc in docs
+    ]
+    logger.info("RAG node — retrieved %d document chunks", len(serialised_docs))
+
+    # ------------------------------------------------------------------
+    # 2. Build a grounded context string from the retrieved chunks.
+    # ------------------------------------------------------------------
+    if serialised_docs:
+        context_parts: list[str] = []
+        for i, doc in enumerate(serialised_docs, start=1):
+            source = doc["metadata"].get("document_name", "Unknown")
+            page = doc["metadata"].get("page", "?")
+            context_parts.append(
+                f"[Source {i}: {source}, page {page}]\n{doc['page_content']}"
+            )
+        context = "\n\n---\n\n".join(context_parts)
+    else:
+        context = ""
+
+    # ------------------------------------------------------------------
+    # 3. Call the LLM to generate a grounded answer.
+    # ------------------------------------------------------------------
+    api_key = os.environ.get("OPENAI_API_KEY", "")
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=api_key)
+
+    messages = [
+        SystemMessage(content=_SYSTEM_PROMPT),
+        HumanMessage(
+            content=(
+                f"Context:\n{context}\n\n"
+                f"Question: {query}"
+            )
+        ),
+    ]
+
+    response_message = llm.invoke(messages)
+    response: str = response_message.content  # type: ignore[assignment]
+    logger.info("RAG node — response generated (%d chars)", len(response))
+
+    return {
+        "retrieved_documents": serialised_docs,
+        "response": response,
+    }

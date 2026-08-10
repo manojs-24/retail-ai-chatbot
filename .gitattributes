@@ -1,0 +1,10 @@
+﻿# Normalise line endings to LF in the repository
+* text=auto eol=lf
+
+# Force binary files to remain binary
+*.pdf binary
+*.db  binary
+*.sqlite binary
+*.sqlite3 binary
+*.bin binary
+*.pyc binary

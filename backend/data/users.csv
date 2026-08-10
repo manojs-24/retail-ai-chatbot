@@ -1,0 +1,501 @@
+user_id,full_name,email,password,role,phone,gender,age,city,state,join_date,total_orders,total_spent,preferred_category,loyalty_level
+U0001,Vivaan Joshi,vivaan.joshi1@gmail.com,Pwd@87397,customer,+919001338908,Male,26,Bhopal,Madhya Pradesh,2025-03-23,6,196136.82,Fashion,Platinum
+U0002,Tarun Mukherjee,tarun.mukherjee2@hotmail.com,Pwd@10851,customer,+917654235116,Male,46,Varanasi,Uttar Pradesh,2025-03-20,2,249153.11,Sports,Platinum
+U0003,Sunil Mishra,sunil.mishra3@rediffmail.com,Pwd@59615,customer,+916849593103,Male,64,Visakhapatnam,Andhra Pradesh,2024-09-20,9,370190.75,Fashion,Platinum
+U0004,Ira Kapoor,ira.kapoor4@rediffmail.com,Pwd@31319,customer,+918534192832,Female,35,Pune,Maharashtra,2025-08-31,2,52657.79,Beauty,Gold
+U0005,Aditi Joshi,aditi.joshi5@gmail.com,Pwd@14207,customer,+918641395376,Female,38,Thane,Maharashtra,2026-07-09,2,419794.08,Books,Platinum
+U0006,Anika Shah,anika.shah6@hotmail.com,Pwd@86622,customer,+919965328710,Female,65,Jaipur,Rajasthan,2025-04-16,2,29273.26,Sports,Silver
+U0007,Rohan Iyer,rohan.iyer7@rediffmail.com,Pwd@88104,customer,+919848018451,Male,22,Amritsar,Punjab,2026-04-09,5,139834.6,Furniture,Platinum
+U0008,Kavita Iyer,kavita.iyer8@outlook.com,Pwd@76542,customer,+916489325288,Female,64,Chandigarh,Chandigarh,2024-08-10,2,111803.21,Home Appliances,Platinum
+U0009,Advait Agarwal,advait.agarwal9@outlook.com,Pwd@41385,customer,+916391171822,Male,25,Kochi,Kerala,2024-08-26,4,213980.53,Sports,Platinum
+U0010,Nidhi Iyer,nidhi.iyer10@rediffmail.com,Pwd@80686,customer,+917465787133,Female,56,Visakhapatnam,Andhra Pradesh,2026-01-29,2,137976.1,Books,Platinum
+U0011,Anil Verma,anil.verma11@gmail.com,Pwd@92719,customer,+916310518347,Male,32,Thane,Maharashtra,2026-04-01,0,0.0,Fashion,Bronze
+U0012,Dev Nair,dev.nair12@rediffmail.com,Pwd@22363,customer,+916656670106,Male,48,Mysuru,Karnataka,2025-04-12,10,528851.62,Books,Platinum
+U0013,Myra Mehta,myra.mehta13@rediffmail.com,Pwd@65296,customer,+917473178108,Female,52,Nagpur,Maharashtra,2025-02-17,8,443583.94,Home Appliances,Platinum
+U0014,Sai Mehta,sai.mehta14@rediffmail.com,Pwd@62565,customer,+916260647468,Male,49,Lucknow,Uttar Pradesh,2025-09-27,4,171953.61,Books,Platinum
+U0015,Anika Chopra,anika.chopra15@hotmail.com,Pwd@51104,customer,+916097882081,Female,21,Vadodara,Gujarat,2025-03-17,5,227063.27,Electronics,Platinum
+U0016,Arjun Dutta,arjun.dutta16@rediffmail.com,Pwd@84668,customer,+917990916998,Male,33,Chennai,Tamil Nadu,2026-06-29,5,423271.71,Fashion,Platinum
+U0017,Divya Malhotra,divya.malhotra17@rediffmail.com,Pwd@98039,customer,+918751079911,Female,34,Ludhiana,Punjab,2025-04-08,6,213073.52,Home Appliances,Platinum
+U0018,Siddharth Shah,siddharth.shah18@yahoo.com,Pwd@47353,customer,+917784980841,Male,22,Jaipur,Rajasthan,2025-07-30,4,143609.77,Beauty,Platinum
+U0019,Ajay Rao,ajay.rao19@outlook.com,Pwd@89276,customer,+917534874016,Male,27,Pune,Maharashtra,2026-02-24,4,218564.1,Sports,Platinum
+U0020,Aadhya Sharma,aadhya.sharma20@outlook.com,Pwd@67912,customer,+919801128059,Female,58,Agra,Uttar Pradesh,2024-12-18,4,131490.45,Home Appliances,Platinum
+U0021,Vijay Nair,vijay.nair21@gmail.com,Pwd@37535,customer,+917158692322,Male,41,Bengaluru,Karnataka,2025-06-18,2,69196.58,Beauty,Gold
+U0022,Aanya Iyengar,aanya.iyengar22@yahoo.com,Pwd@30866,customer,+916607337543,Female,60,Agra,Uttar Pradesh,2025-10-02,10,397950.29,Sports,Platinum
+U0023,Vivaan Chopra,vivaan.chopra23@gmail.com,Pwd@56025,customer,+919850142940,Male,35,Rajkot,Gujarat,2025-07-09,3,33033.85,Sports,Silver
+U0024,Advait Rathore,advait.rathore24@hotmail.com,Pwd@60488,customer,+917406088356,Male,45,Nashik,Maharashtra,2025-06-24,5,236673.39,Fashion,Platinum
+U0025,Pankaj Bansal,pankaj.bansal25@outlook.com,Pwd@97410,customer,+919564823662,Male,25,Ludhiana,Punjab,2026-06-17,4,207005.04,Sports,Platinum
+U0026,Rani Das,rani.das26@yahoo.com,Pwd@86019,customer,+918777387214,Female,36,Mumbai,Maharashtra,2025-06-14,0,0.0,Furniture,Bronze
+U0027,Ira Mehta,ira.mehta27@yahoo.com,Pwd@16057,customer,+917791769367,Female,30,Ghaziabad,Uttar Pradesh,2025-03-25,6,645354.9,Electronics,Platinum
+U0028,Sneha Menon,sneha.menon28@yahoo.com,Pwd@77889,customer,+919083172788,Female,45,Mumbai,Maharashtra,2024-11-24,14,965252.22,Home Appliances,Platinum
+U0029,Alisha Thakur,alisha.thakur29@rediffmail.com,Pwd@72216,customer,+919434873471,Female,53,Guwahati,Assam,2025-10-17,1,689.0,Home Appliances,Bronze
+U0030,Sneha Joshi,sneha.joshi30@gmail.com,Pwd@29769,customer,+917623166587,Female,52,Agra,Uttar Pradesh,2025-06-30,3,144731.34,Home Appliances,Platinum
+U0031,Ananya Malhotra,ananya.malhotra31@gmail.com,Pwd@72518,customer,+916546688937,Female,55,Varanasi,Uttar Pradesh,2025-09-09,4,203430.08,Furniture,Platinum
+U0032,Sanjay Rathore,sanjay.rathore32@outlook.com,Pwd@31632,customer,+919298069901,Male,42,Kochi,Kerala,2024-09-05,3,171841.13,Furniture,Platinum
+U0033,Pari Bhatt,pari.bhatt33@rediffmail.com,Pwd@37742,customer,+919556464170,Female,34,Kanpur,Uttar Pradesh,2024-09-27,4,614473.81,Beauty,Platinum
+U0034,Sunil Kapoor,sunil.kapoor34@gmail.com,Pwd@36130,customer,+916923271937,Male,20,Chennai,Tamil Nadu,2026-06-05,4,306671.85,Books,Platinum
+U0035,Charu Pandey,charu.pandey35@gmail.com,Pwd@50768,customer,+916904966319,Female,56,Lucknow,Uttar Pradesh,2026-04-19,9,165860.85,Home Appliances,Platinum
+U0036,Reyansh Pillai,reyansh.pillai36@outlook.com,Pwd@96706,customer,+918185067165,Male,20,Ahmedabad,Gujarat,2026-03-09,5,106411.63,Furniture,Platinum
+U0037,Sarika Menon,sarika.menon37@hotmail.com,Pwd@90728,customer,+919769453147,Female,64,Amritsar,Punjab,2025-02-03,1,14867.0,Sports,Bronze
+U0038,Abhishek Bhatt,abhishek.bhatt38@rediffmail.com,Pwd@33834,customer,+919354549480,Male,19,Meerut,Uttar Pradesh,2025-07-17,1,124716.29,Beauty,Platinum
+U0039,Sai Mehta,sai.mehta39@yahoo.com,Pwd@94659,customer,+919701436349,Male,53,Varanasi,Uttar Pradesh,2025-12-20,3,52352.66,Groceries,Gold
+U0040,Lata Das,lata.das40@hotmail.com,Pwd@56112,customer,+919444313518,Female,45,Bhubaneswar,Odisha,2025-07-25,18,319892.96,Beauty,Platinum
+U0041,Amit Malhotra,amit.malhotra41@hotmail.com,Pwd@23176,customer,+917435240824,Male,64,Mysuru,Karnataka,2025-05-17,12,620291.91,Sports,Platinum
+U0042,Vihaan Das,vihaan.das42@rediffmail.com,Pwd@11607,customer,+918777520471,Male,26,Vadodara,Gujarat,2026-07-22,8,363628.26,Fashion,Platinum
+U0043,Nitin Naidu,nitin.naidu43@gmail.com,Pwd@29555,customer,+918131869993,Male,58,Chennai,Tamil Nadu,2026-03-20,23,1576447.85,Home Appliances,Platinum
+U0044,Rekha Thakur,rekha.thakur44@outlook.com,Pwd@89905,customer,+916334123281,Female,45,Ghaziabad,Uttar Pradesh,2026-04-01,19,796223.57,Electronics,Platinum
+U0045,Aarav Chauhan,aarav.chauhan45@rediffmail.com,Pwd@14278,customer,+917447134936,Male,56,Coimbatore,Tamil Nadu,2026-07-13,7,228001.5,Sports,Platinum
+U0046,Dev Kapoor,dev.kapoor46@gmail.com,Pwd@31747,customer,+918994717464,Male,27,Surat,Gujarat,2025-05-06,5,140739.25,Electronics,Platinum
+U0047,Rekha Patel,rekha.patel47@outlook.com,Pwd@13390,customer,+916399049027,Female,65,Bengaluru,Karnataka,2025-10-23,7,432217.59,Sports,Platinum
+U0048,Swati Iyengar,swati.iyengar48@gmail.com,Pwd@55607,customer,+919551256746,Female,49,Amritsar,Punjab,2026-05-19,3,140528.08,Groceries,Platinum
+U0049,Mahesh Patel,mahesh.patel49@gmail.com,Pwd@77449,customer,+916876038597,Male,38,Ludhiana,Punjab,2025-04-22,3,38894.17,Furniture,Silver
+U0050,Alisha Kumar,alisha.kumar50@yahoo.com,Pwd@67424,customer,+919109324808,Female,53,Indore,Madhya Pradesh,2025-05-07,2,57960.87,Sports,Gold
+U0051,Ira Kapoor,ira.kapoor51@yahoo.com,Pwd@48254,customer,+918677378263,Female,25,Ahmedabad,Gujarat,2025-11-22,6,404556.91,Groceries,Platinum
+U0052,Arjun Joshi,arjun.joshi52@outlook.com,Pwd@47072,customer,+918997278755,Male,50,Varanasi,Uttar Pradesh,2025-07-21,18,805863.14,Electronics,Platinum
+U0053,Geeta Agarwal,geeta.agarwal53@hotmail.com,Pwd@40613,customer,+919057662702,Female,33,Nagpur,Maharashtra,2026-07-22,8,98746.01,Furniture,Gold
+U0054,Myra Thakur,myra.thakur54@gmail.com,Pwd@63736,customer,+917174596158,Female,47,Pune,Maharashtra,2026-01-27,15,543429.65,Home Appliances,Platinum
+U0055,Anjali Naidu,anjali.naidu55@gmail.com,Pwd@92727,customer,+918316117240,Female,57,Dehradun,Uttarakhand,2024-09-12,6,376414.98,Books,Platinum
+U0056,Ravi Kumar,ravi.kumar56@rediffmail.com,Pwd@42007,customer,+919922219693,Male,41,Vadodara,Gujarat,2025-08-09,2,2165.38,Home Appliances,Bronze
+U0057,Manisha Menon,manisha.menon57@outlook.com,Pwd@43466,customer,+916748217594,Female,58,Thane,Maharashtra,2025-11-22,1,112171.72,Groceries,Platinum
+U0058,Rashmi Shah,rashmi.shah58@rediffmail.com,Pwd@23979,customer,+917695944064,Female,30,Chandigarh,Chandigarh,2025-06-12,14,811310.86,Groceries,Platinum
+U0059,Kabir Kumar,kabir.kumar59@hotmail.com,Pwd@38705,customer,+917942104709,Male,32,Kochi,Kerala,2025-05-27,2,184333.4,Beauty,Platinum
+U0060,Vandana Nair,vandana.nair60@rediffmail.com,Pwd@36318,customer,+917858842474,Female,38,Kolkata,West Bengal,2025-06-05,15,1065571.79,Home Appliances,Platinum
+U0061,Sara Bhatt,sara.bhatt61@rediffmail.com,Pwd@21836,customer,+919048175496,Female,32,Chennai,Tamil Nadu,2024-12-29,0,0.0,Beauty,Bronze
+U0062,Myra Kapoor,myra.kapoor62@hotmail.com,Pwd@89964,customer,+917174612004,Female,57,Mysuru,Karnataka,2024-09-01,14,433060.85,Beauty,Platinum
+U0063,Sara Reddy,sara.reddy63@rediffmail.com,Pwd@58629,customer,+919926179640,Female,26,Bhopal,Madhya Pradesh,2026-02-08,8,595287.71,Groceries,Platinum
+U0064,Kavya Thakur,kavya.thakur64@gmail.com,Pwd@81364,customer,+918064317139,Female,41,Coimbatore,Tamil Nadu,2025-04-05,4,304627.95,Beauty,Platinum
+U0065,Vihaan Bansal,vihaan.bansal65@yahoo.com,Pwd@82641,customer,+917933529042,Male,54,Bhopal,Madhya Pradesh,2024-12-13,0,0.0,Fashion,Bronze
+U0066,Dev Shah,dev.shah66@gmail.com,Pwd@11947,customer,+918395024026,Male,60,Kanpur,Uttar Pradesh,2024-11-27,10,939311.16,Home Appliances,Platinum
+U0067,Vishal Singh,vishal.singh67@hotmail.com,Pwd@69245,customer,+917908470076,Male,41,Mysuru,Karnataka,2025-11-09,5,453021.71,Fashion,Platinum
+U0068,Madhuri Reddy,madhuri.reddy68@gmail.com,Pwd@52219,customer,+917124998569,Female,46,Kochi,Kerala,2026-08-06,14,606492.98,Fashion,Platinum
+U0069,Geeta Chatterjee,geeta.chatterjee69@gmail.com,Pwd@66370,customer,+919365766156,Female,62,Amritsar,Punjab,2024-11-16,20,899956.06,Books,Platinum
+U0070,Jyoti Shah,jyoti.shah70@rediffmail.com,Pwd@21957,customer,+916161528098,Female,61,Faridabad,Haryana,2025-01-10,17,913065.66,Fashion,Platinum
+U0071,Jyoti Rao,jyoti.rao71@rediffmail.com,Pwd@47700,customer,+918519832731,Female,60,Varanasi,Uttar Pradesh,2025-08-04,4,15875.75,Electronics,Silver
+U0072,Nidhi Pandey,nidhi.pandey72@yahoo.com,Pwd@83526,customer,+916940244550,Female,54,Ahmedabad,Gujarat,2025-05-19,2,57586.0,Furniture,Gold
+U0073,Rohan Ghosh,rohan.ghosh73@gmail.com,Pwd@79531,customer,+917667525459,Male,27,Rajkot,Gujarat,2024-10-17,4,436436.45,Fashion,Platinum
+U0074,Vihaan Menon,vihaan.menon74@gmail.com,Pwd@68079,customer,+919797643815,Male,21,Lucknow,Uttar Pradesh,2026-05-01,19,1385357.89,Sports,Platinum
+U0075,Sara Desai,sara.desai75@outlook.com,Pwd@38903,customer,+919900343244,Female,60,Kochi,Kerala,2026-01-28,3,245227.83,Electronics,Platinum
+U0076,Sara Sharma,sara.sharma76@yahoo.com,Pwd@79806,customer,+917885160607,Female,29,Kochi,Kerala,2025-10-21,2,117447.15,Furniture,Platinum
+U0077,Ravi Ghosh,ravi.ghosh77@rediffmail.com,Pwd@25096,customer,+919052975161,Male,43,Amritsar,Punjab,2026-03-17,7,394188.98,Sports,Platinum
+U0078,Vijay Bose,vijay.bose78@rediffmail.com,Pwd@54500,customer,+917521818835,Male,23,Rajkot,Gujarat,2026-01-25,19,1002565.29,Sports,Platinum
+U0079,Vandana Menon,vandana.menon79@outlook.com,Pwd@32740,customer,+917127799799,Female,27,Bhopal,Madhya Pradesh,2024-11-20,8,249863.6,Books,Platinum
+U0080,Pallavi Agarwal,pallavi.agarwal80@rediffmail.com,Pwd@92756,customer,+918490581477,Female,22,Surat,Gujarat,2025-10-31,7,382542.09,Groceries,Platinum
+U0081,Vihaan Pandey,vihaan.pandey81@gmail.com,Pwd@70648,customer,+916793597820,Male,59,Vadodara,Gujarat,2024-10-24,5,305322.81,Furniture,Platinum
+U0082,Myra Bansal,myra.bansal82@yahoo.com,Pwd@42472,customer,+919788925546,Female,59,Kolkata,West Bengal,2026-01-05,4,65431.84,Electronics,Gold
+U0083,Charu Bansal,charu.bansal83@outlook.com,Pwd@53213,customer,+916864492519,Female,59,Hyderabad,Telangana,2026-05-15,13,939077.17,Fashion,Platinum
+U0084,Sunil Pillai,sunil.pillai84@gmail.com,Pwd@83259,customer,+919528168505,Male,56,Rajkot,Gujarat,2024-12-17,8,258814.33,Sports,Platinum
+U0085,Neha Malhotra,neha.malhotra85@yahoo.com,Pwd@30308,customer,+916418880592,Female,30,Agra,Uttar Pradesh,2025-12-17,2,11930.07,Home Appliances,Bronze
+U0086,Anika Iyer,anika.iyer86@yahoo.com,Pwd@15726,customer,+919537947383,Female,57,Kanpur,Uttar Pradesh,2026-07-17,1,6678.6,Groceries,Bronze
+U0087,Lata Chopra,lata.chopra87@rediffmail.com,Pwd@46932,customer,+919886239240,Female,54,Faridabad,Haryana,2026-07-02,26,1603217.05,Groceries,Platinum
+U0088,Tanvi Das,tanvi.das88@gmail.com,Pwd@20993,customer,+917478261375,Female,51,Pune,Maharashtra,2026-08-05,2,25428.06,Sports,Silver
+U0089,Rajesh Kumar,rajesh.kumar89@yahoo.com,Pwd@20696,customer,+918305152204,Male,41,Rajkot,Gujarat,2026-01-03,3,592384.63,Furniture,Platinum
+U0090,Rashmi Nair,rashmi.nair90@gmail.com,Pwd@12490,customer,+918328986143,Female,57,Mysuru,Karnataka,2025-11-09,4,306264.84,Fashion,Platinum
+U0091,Sara Kumar,sara.kumar91@hotmail.com,Pwd@18232,customer,+916798089324,Female,58,Bhopal,Madhya Pradesh,2025-10-10,6,435034.12,Groceries,Platinum
+U0092,Saanvi Sen,saanvi.sen92@rediffmail.com,Pwd@97080,customer,+916851888880,Female,54,Nashik,Maharashtra,2025-04-10,3,184182.99,Home Appliances,Platinum
+U0093,Lata Gupta,lata.gupta93@gmail.com,Pwd@18855,customer,+918319520585,Female,34,Meerut,Uttar Pradesh,2025-08-24,9,668194.17,Beauty,Platinum
+U0094,Gaurav Bhatt,gaurav.bhatt94@yahoo.com,Pwd@69988,customer,+916430305486,Male,29,Mysuru,Karnataka,2026-05-15,9,596791.62,Fashion,Platinum
+U0095,Divya Gupta,divya.gupta95@gmail.com,Pwd@45811,customer,+916566765277,Female,40,Nagpur,Maharashtra,2025-05-26,9,629917.33,Beauty,Platinum
+U0096,Shweta Joshi,shweta.joshi96@rediffmail.com,Pwd@81496,customer,+918511544796,Female,23,Kolkata,West Bengal,2025-10-15,4,163314.71,Home Appliances,Platinum
+U0097,Sandeep Thakur,sandeep.thakur97@outlook.com,Pwd@45986,customer,+916165820297,Male,20,Nashik,Maharashtra,2025-11-07,4,139121.89,Furniture,Platinum
+U0098,Ishaan Singh,ishaan.singh98@outlook.com,Pwd@84349,customer,+916927557192,Male,41,Bhopal,Madhya Pradesh,2026-05-29,13,514211.84,Furniture,Platinum
+U0099,Rani Agarwal,rani.agarwal99@gmail.com,Pwd@75410,customer,+919814473947,Female,25,Patna,Bihar,2025-04-19,15,1104265.21,Home Appliances,Platinum
+U0100,Krishna Nair,krishna.nair100@rediffmail.com,Pwd@99381,customer,+918518844225,Male,29,Chennai,Tamil Nadu,2025-11-12,5,216173.01,Fashion,Platinum
+U0101,Krishna Chopra,krishna.chopra101@gmail.com,Pwd@82616,customer,+918782911467,Male,49,Jaipur,Rajasthan,2025-04-06,3,556730.89,Beauty,Platinum
+U0102,Charu Chauhan,charu.chauhan102@gmail.com,Pwd@71057,customer,+918289226801,Female,38,Chennai,Tamil Nadu,2024-12-13,11,479864.18,Groceries,Platinum
+U0103,Deepak Iyer,deepak.iyer103@yahoo.com,Pwd@78012,customer,+918143842498,Male,63,Lucknow,Uttar Pradesh,2025-07-03,6,147422.87,Beauty,Platinum
+U0104,Siddharth Iyer,siddharth.iyer104@hotmail.com,Pwd@83874,customer,+916010943969,Male,60,Surat,Gujarat,2025-01-29,9,719890.59,Beauty,Platinum
+U0105,Varun Mukherjee,varun.mukherjee105@rediffmail.com,Pwd@99783,customer,+919471027677,Male,37,Vadodara,Gujarat,2026-05-26,4,78246.87,Books,Gold
+U0106,Anil Dutta,anil.dutta106@outlook.com,Pwd@62260,customer,+917588153714,Male,63,Surat,Gujarat,2025-06-23,12,357930.64,Beauty,Platinum
+U0107,Sneha Menon,sneha.menon107@rediffmail.com,Pwd@42541,customer,+917595327877,Female,36,Pune,Maharashtra,2024-09-27,5,76012.01,Furniture,Gold
+U0108,Asha Verma,asha.verma108@rediffmail.com,Pwd@38199,customer,+918004797480,Female,50,Kolkata,West Bengal,2025-09-13,2,129360.0,Books,Platinum
+U0109,Vijay Nair,vijay.nair109@outlook.com,Pwd@62505,customer,+916983584168,Male,43,Visakhapatnam,Andhra Pradesh,2025-08-16,4,596109.76,Electronics,Platinum
+U0110,Alisha Das,alisha.das110@hotmail.com,Pwd@26864,customer,+916655852398,Female,61,Patna,Bihar,2026-05-07,2,105635.5,Fashion,Platinum
+U0111,Preeti Gupta,preeti.gupta111@outlook.com,Pwd@78069,customer,+919298259526,Female,26,Bengaluru,Karnataka,2024-09-15,3,346733.1,Groceries,Platinum
+U0112,Manisha Bansal,manisha.bansal112@rediffmail.com,Pwd@72245,customer,+916551694097,Female,52,Guwahati,Assam,2026-01-10,8,393195.68,Sports,Platinum
+U0113,Bhavna Bose,bhavna.bose113@rediffmail.com,Pwd@78712,customer,+919230913075,Female,55,Thane,Maharashtra,2024-09-28,7,761945.49,Home Appliances,Platinum
+U0114,Anika Chauhan,anika.chauhan114@hotmail.com,Pwd@18163,customer,+917838578652,Female,50,Indore,Madhya Pradesh,2025-10-01,0,0.0,Groceries,Bronze
+U0115,Deepika Bansal,deepika.bansal115@outlook.com,Pwd@35200,customer,+917484344375,Female,61,Dehradun,Uttarakhand,2025-08-04,13,495994.79,Groceries,Platinum
+U0116,Isha Das,isha.das116@hotmail.com,Pwd@61712,customer,+918240415747,Female,25,Patna,Bihar,2025-05-28,2,220488.08,Furniture,Platinum
+U0117,Amit Mukherjee,amit.mukherjee117@outlook.com,Pwd@24316,customer,+917308330165,Male,62,Patna,Bihar,2026-03-05,2,495634.5,Home Appliances,Platinum
+U0118,Myra Nair,myra.nair118@rediffmail.com,Pwd@72580,customer,+917454019380,Female,28,Mumbai,Maharashtra,2026-02-21,3,171904.88,Groceries,Platinum
+U0119,Rajesh Iyengar,rajesh.iyengar119@yahoo.com,Pwd@14910,customer,+916499154788,Male,49,Bengaluru,Karnataka,2025-09-17,1,13963.3,Sports,Bronze
+U0120,Pari Chatterjee,pari.chatterjee120@gmail.com,Pwd@31298,customer,+919420549329,Female,30,Chandigarh,Chandigarh,2025-05-13,0,0.0,Beauty,Bronze
+U0121,Kavita Chatterjee,kavita.chatterjee121@gmail.com,Pwd@28430,customer,+919530463745,Female,43,Ludhiana,Punjab,2024-11-03,7,347308.15,Home Appliances,Platinum
+U0122,Manisha Ghosh,manisha.ghosh122@outlook.com,Pwd@18142,customer,+916742684145,Female,59,Mumbai,Maharashtra,2025-05-01,7,230216.9,Books,Platinum
+U0123,Ramesh Nair,ramesh.nair123@hotmail.com,Pwd@64505,customer,+919833918785,Male,47,Mysuru,Karnataka,2025-01-10,11,1124304.83,Beauty,Platinum
+U0124,Kabir Rao,kabir.rao124@yahoo.com,Pwd@31566,customer,+918871397187,Male,50,Hyderabad,Telangana,2026-02-18,3,122943.74,Home Appliances,Platinum
+U0125,Mahesh Nair,mahesh.nair125@hotmail.com,Pwd@83242,customer,+919406403910,Male,47,Guwahati,Assam,2025-10-06,1,150026.16,Electronics,Platinum
+U0126,Isha Singh,isha.singh126@rediffmail.com,Pwd@47629,customer,+919226567661,Female,22,Dehradun,Uttarakhand,2024-10-07,15,849838.84,Electronics,Platinum
+U0127,Naveen Mishra,naveen.mishra127@rediffmail.com,Pwd@39188,customer,+916047868633,Male,52,Ahmedabad,Gujarat,2025-02-05,14,579002.29,Home Appliances,Platinum
+U0128,Isha Menon,isha.menon128@gmail.com,Pwd@96533,customer,+919903311907,Female,64,Patna,Bihar,2025-02-16,18,686528.08,Electronics,Platinum
+U0129,Vikram Gupta,vikram.gupta129@hotmail.com,Pwd@17398,customer,+917843959953,Male,32,Rajkot,Gujarat,2025-10-30,9,546022.84,Books,Platinum
+U0130,Anika Banerjee,anika.banerjee130@outlook.com,Pwd@82970,customer,+917687056856,Female,37,Thane,Maharashtra,2025-10-04,6,134316.43,Electronics,Platinum
+U0131,Anika Pillai,anika.pillai131@rediffmail.com,Pwd@39536,customer,+918270866882,Female,52,Meerut,Uttar Pradesh,2025-02-11,2,163990.4,Books,Platinum
+U0132,Sneha Shah,sneha.shah132@gmail.com,Pwd@58637,customer,+916830469901,Female,59,Indore,Madhya Pradesh,2025-07-11,12,497075.48,Groceries,Platinum
+U0133,Abhishek Bose,abhishek.bose133@outlook.com,Pwd@12009,customer,+917317393638,Male,31,Indore,Madhya Pradesh,2025-12-10,9,244992.53,Sports,Platinum
+U0134,Charu Desai,charu.desai134@outlook.com,Pwd@44283,customer,+918877175355,Female,52,Meerut,Uttar Pradesh,2025-11-27,5,298554.27,Sports,Platinum
+U0135,Aadhya Ghosh,aadhya.ghosh135@outlook.com,Pwd@48691,customer,+917353693785,Female,19,Thane,Maharashtra,2025-01-03,3,110155.52,Furniture,Platinum
+U0136,Alisha Naidu,alisha.naidu136@outlook.com,Pwd@28344,customer,+919280801006,Female,28,Kochi,Kerala,2025-11-21,3,139444.79,Home Appliances,Platinum
+U0137,Harsh Kapoor,harsh.kapoor137@gmail.com,Pwd@76287,customer,+919509977008,Male,27,Chennai,Tamil Nadu,2026-08-01,5,496038.56,Books,Platinum
+U0138,Saanvi Verma,saanvi.verma138@outlook.com,Pwd@75826,customer,+919211823398,Female,52,Bhubaneswar,Odisha,2025-05-15,13,422086.81,Electronics,Platinum
+U0139,Isha Joshi,isha.joshi139@rediffmail.com,Pwd@84055,customer,+917341016668,Female,41,Rajkot,Gujarat,2024-10-26,2,107435.89,Groceries,Platinum
+U0140,Ananya Sharma,ananya.sharma140@rediffmail.com,Pwd@84167,customer,+916803397401,Female,49,Lucknow,Uttar Pradesh,2024-10-30,1,15237.03,Beauty,Silver
+U0141,Deepika Ghosh,deepika.ghosh141@gmail.com,Pwd@86943,customer,+917614293968,Female,38,Bengaluru,Karnataka,2025-02-06,6,416768.24,Books,Platinum
+U0142,Aditi Nair,aditi.nair142@outlook.com,Pwd@22803,customer,+919315999650,Female,65,Kolkata,West Bengal,2026-01-01,7,312352.65,Electronics,Platinum
+U0143,Rekha Naidu,rekha.naidu143@rediffmail.com,Pwd@34345,customer,+919194311426,Female,53,Thane,Maharashtra,2025-08-06,2,65315.27,Furniture,Gold
+U0144,Vishal Tiwari,vishal.tiwari144@gmail.com,Pwd@50405,customer,+919541212678,Male,24,Ludhiana,Punjab,2025-08-11,4,306424.33,Electronics,Platinum
+U0145,Myra Verma,myra.verma145@gmail.com,Pwd@60493,customer,+916466183982,Female,53,Kolkata,West Bengal,2025-08-04,2,21730.9,Beauty,Silver
+U0146,Priya Nair,priya.nair146@rediffmail.com,Pwd@18292,customer,+917646471543,Female,35,Patna,Bihar,2025-06-11,2,96510.15,Home Appliances,Gold
+U0147,Komal Sen,komal.sen147@yahoo.com,Pwd@10887,customer,+919596575692,Female,24,Nagpur,Maharashtra,2025-11-18,8,291818.33,Sports,Platinum
+U0148,Anjali Dutta,anjali.dutta148@yahoo.com,Pwd@51830,customer,+918793564651,Female,38,Nagpur,Maharashtra,2025-12-10,5,180045.95,Furniture,Platinum
+U0149,Shaurya Mukherjee,shaurya.mukherjee149@gmail.com,Pwd@37479,customer,+919416724342,Male,53,Kanpur,Uttar Pradesh,2026-07-06,1,18412.8,Groceries,Silver
+U0150,Aditi Singh,aditi.singh150@hotmail.com,Pwd@80040,customer,+919805891135,Female,48,Coimbatore,Tamil Nadu,2026-04-11,2,114275.15,Furniture,Platinum
+U0151,Naveen Sen,naveen.sen151@rediffmail.com,Pwd@66420,customer,+916014388899,Male,59,Bengaluru,Karnataka,2026-03-06,13,537832.04,Beauty,Platinum
+U0152,Ashok Pandey,ashok.pandey152@hotmail.com,Pwd@55215,customer,+916714611254,Male,61,Rajkot,Gujarat,2025-11-24,4,340474.86,Home Appliances,Platinum
+U0153,Geeta Malhotra,geeta.malhotra153@rediffmail.com,Pwd@67431,customer,+919514010512,Female,40,Bhubaneswar,Odisha,2025-12-14,3,64554.62,Fashion,Gold
+U0154,Aryan Iyengar,aryan.iyengar154@rediffmail.com,Pwd@40389,customer,+919226609379,Male,53,Lucknow,Uttar Pradesh,2025-07-11,4,183695.92,Groceries,Platinum
+U0155,Aditi Sharma,aditi.sharma155@gmail.com,Pwd@80371,customer,+917553714785,Female,35,Indore,Madhya Pradesh,2025-03-05,6,591524.32,Fashion,Platinum
+U0156,Simran Yadav,simran.yadav156@rediffmail.com,Pwd@98288,customer,+918991251341,Female,40,Ahmedabad,Gujarat,2025-07-29,13,213430.34,Home Appliances,Platinum
+U0157,Prakash Menon,prakash.menon157@hotmail.com,Pwd@85340,customer,+919627828274,Male,44,Guwahati,Assam,2025-09-08,2,148175.78,Home Appliances,Platinum
+U0158,Rahul Agarwal,rahul.agarwal158@outlook.com,Pwd@73518,customer,+917368876767,Male,21,Coimbatore,Tamil Nadu,2026-05-03,6,88750.59,Electronics,Gold
+U0159,Priya Patel,priya.patel159@gmail.com,Pwd@39470,customer,+918279788191,Female,36,Delhi,Delhi,2025-03-20,15,649513.45,Sports,Platinum
+U0160,Charu Mukherjee,charu.mukherjee160@rediffmail.com,Pwd@65725,customer,+916340745171,Female,20,Faridabad,Haryana,2026-02-13,18,1082811.23,Books,Platinum
+U0161,Suresh Bose,suresh.bose161@rediffmail.com,Pwd@90760,customer,+917330958498,Male,57,Nashik,Maharashtra,2026-08-04,15,724828.6,Home Appliances,Platinum
+U0162,Ravi Desai,ravi.desai162@hotmail.com,Pwd@27771,customer,+919042232536,Male,35,Vadodara,Gujarat,2026-03-16,15,671807.09,Fashion,Platinum
+U0163,Anika Ghosh,anika.ghosh163@rediffmail.com,Pwd@19898,customer,+916684577590,Female,44,Patna,Bihar,2026-05-11,6,36672.27,Groceries,Silver
+U0164,Uday Bhatt,uday.bhatt164@rediffmail.com,Pwd@66314,customer,+917745458929,Male,52,Nashik,Maharashtra,2024-10-10,3,82960.49,Books,Gold
+U0165,Shreya Kumar,shreya.kumar165@rediffmail.com,Pwd@26284,customer,+917770632424,Female,58,Bengaluru,Karnataka,2024-11-16,3,435622.4,Electronics,Platinum
+U0166,Naveen Pandey,naveen.pandey166@yahoo.com,Pwd@61949,customer,+918361103712,Male,41,Visakhapatnam,Andhra Pradesh,2024-10-30,2,89879.9,Electronics,Gold
+U0167,Aryan Thakur,aryan.thakur167@outlook.com,Pwd@65353,customer,+917713611155,Male,62,Mumbai,Maharashtra,2024-08-15,2,49830.01,Fashion,Silver
+U0168,Pari Tiwari,pari.tiwari168@yahoo.com,Pwd@79534,customer,+916927532697,Female,61,Jaipur,Rajasthan,2026-05-25,3,210149.22,Fashion,Platinum
+U0169,Sai Reddy,sai.reddy169@rediffmail.com,Pwd@66280,customer,+918234138999,Male,55,Jaipur,Rajasthan,2024-12-11,15,1594714.6,Beauty,Platinum
+U0170,Charu Verma,charu.verma170@hotmail.com,Pwd@61347,customer,+918037613791,Female,51,Ghaziabad,Uttar Pradesh,2025-03-05,3,19001.1,Books,Silver
+U0171,Prakash Agarwal,prakash.agarwal171@rediffmail.com,Pwd@81612,customer,+917710910430,Male,54,Jaipur,Rajasthan,2025-09-07,4,202982.93,Beauty,Platinum
+U0172,Nitin Chatterjee,nitin.chatterjee172@hotmail.com,Pwd@65518,customer,+919188924141,Male,63,Vadodara,Gujarat,2026-05-12,5,80560.78,Furniture,Gold
+U0173,Rohan Mukherjee,rohan.mukherjee173@gmail.com,Pwd@67342,customer,+917031617990,Male,55,Ludhiana,Punjab,2025-09-11,14,810157.37,Sports,Platinum
+U0174,Jyoti Iyengar,jyoti.iyengar174@yahoo.com,Pwd@31473,customer,+919588425241,Female,63,Ahmedabad,Gujarat,2024-08-19,1,21275.0,Electronics,Silver
+U0175,Anil Rathore,anil.rathore175@outlook.com,Pwd@75031,customer,+919850792524,Male,22,Patna,Bihar,2026-01-25,3,15907.08,Fashion,Silver
+U0176,Kabir Rao,kabir.rao176@gmail.com,Pwd@42053,customer,+916756220863,Male,18,Thane,Maharashtra,2026-01-10,4,241648.2,Electronics,Platinum
+U0177,Sneha Chauhan,sneha.chauhan177@hotmail.com,Pwd@25650,customer,+916238061744,Female,22,Ludhiana,Punjab,2025-05-11,3,242371.73,Beauty,Platinum
+U0178,Ira Das,ira.das178@yahoo.com,Pwd@83899,customer,+918937597383,Female,41,Chandigarh,Chandigarh,2024-08-15,8,117554.62,Sports,Platinum
+U0179,Aarav Chauhan,aarav.chauhan179@outlook.com,Pwd@53911,customer,+916641383670,Male,52,Delhi,Delhi,2025-04-02,9,590487.88,Electronics,Platinum
+U0180,Tarun Joshi,tarun.joshi180@hotmail.com,Pwd@58823,customer,+919191826199,Male,32,Kolkata,West Bengal,2024-09-20,3,24477.4,Furniture,Silver
+U0181,Vijay Nair,vijay.nair181@outlook.com,Pwd@52762,customer,+918743132912,Male,34,Bhopal,Madhya Pradesh,2025-06-01,8,598313.7,Furniture,Platinum
+U0182,Karan Thakur,karan.thakur182@gmail.com,Pwd@37215,customer,+919474112490,Male,44,Chandigarh,Chandigarh,2025-06-24,10,475130.15,Beauty,Platinum
+U0183,Ravi Menon,ravi.menon183@outlook.com,Pwd@77300,customer,+916442067883,Male,33,Kolkata,West Bengal,2026-08-05,9,644981.81,Furniture,Platinum
+U0184,Mahesh Reddy,mahesh.reddy184@gmail.com,Pwd@27133,customer,+917651994101,Male,18,Jaipur,Rajasthan,2024-12-09,8,378248.4,Books,Platinum
+U0185,Naveen Thakur,naveen.thakur185@gmail.com,Pwd@70423,customer,+916296670662,Male,39,Jaipur,Rajasthan,2024-11-09,4,171648.5,Electronics,Platinum
+U0186,Kavya Iyengar,kavya.iyengar186@yahoo.com,Pwd@90492,customer,+917476870146,Female,46,Patna,Bihar,2025-05-20,3,180995.02,Electronics,Platinum
+U0187,Rajesh Chopra,rajesh.chopra187@hotmail.com,Pwd@60134,customer,+918787598564,Male,58,Bhubaneswar,Odisha,2025-04-19,6,53057.8,Electronics,Gold
+U0188,Vivaan Agarwal,vivaan.agarwal188@gmail.com,Pwd@79393,customer,+918932133480,Male,35,Thane,Maharashtra,2024-09-06,10,271497.3,Groceries,Platinum
+U0189,Kabir Tiwari,kabir.tiwari189@yahoo.com,Pwd@57026,customer,+916599293784,Male,29,Nashik,Maharashtra,2025-01-31,6,329425.87,Beauty,Platinum
+U0190,Varun Gupta,varun.gupta190@hotmail.com,Pwd@12612,customer,+919059325250,Male,32,Kolkata,West Bengal,2024-10-03,16,618175.5,Books,Platinum
+U0191,Rohan Bose,rohan.bose191@outlook.com,Pwd@58967,customer,+919915452267,Male,51,Surat,Gujarat,2024-11-28,9,581011.38,Fashion,Platinum
+U0192,Neha Das,neha.das192@hotmail.com,Pwd@59595,customer,+918422096902,Female,60,Nashik,Maharashtra,2025-03-23,7,316908.48,Home Appliances,Platinum
+U0193,Simran Kapoor,simran.kapoor193@outlook.com,Pwd@41194,customer,+918521570433,Female,27,Pune,Maharashtra,2025-12-28,1,33549.7,Fashion,Silver
+U0194,Sunil Shah,sunil.shah194@rediffmail.com,Pwd@65004,customer,+917676586179,Male,21,Pune,Maharashtra,2024-08-08,4,566703.93,Groceries,Platinum
+U0195,Karan Thakur,karan.thakur195@gmail.com,Pwd@44226,customer,+916152621815,Male,36,Chennai,Tamil Nadu,2024-09-10,23,1529634.21,Beauty,Platinum
+U0196,Sarika Verma,sarika.verma196@hotmail.com,Pwd@30591,customer,+916153368844,Female,28,Amritsar,Punjab,2026-06-07,7,583914.83,Furniture,Platinum
+U0197,Sneha Reddy,sneha.reddy197@hotmail.com,Pwd@30131,customer,+916506149731,Female,54,Hyderabad,Telangana,2025-09-13,2,33191.18,Groceries,Silver
+U0198,Suresh Iyer,suresh.iyer198@gmail.com,Pwd@62096,customer,+919741862565,Male,48,Vadodara,Gujarat,2024-10-29,4,539703.2,Sports,Platinum
+U0199,Ashok Gupta,ashok.gupta199@outlook.com,Pwd@45200,customer,+916211586938,Male,47,Visakhapatnam,Andhra Pradesh,2025-10-31,13,282254.81,Books,Platinum
+U0200,Gopal Banerjee,gopal.banerjee200@rediffmail.com,Pwd@72424,customer,+918160898992,Male,61,Varanasi,Uttar Pradesh,2026-02-06,7,354549.7,Books,Platinum
+U0201,Abhishek Thakur,abhishek.thakur201@yahoo.com,Pwd@15593,customer,+919163294511,Male,31,Kanpur,Uttar Pradesh,2025-01-25,7,138650.84,Home Appliances,Platinum
+U0202,Nidhi Yadav,nidhi.yadav202@rediffmail.com,Pwd@91665,customer,+919162299911,Female,51,Ludhiana,Punjab,2025-05-16,4,20688.45,Electronics,Silver
+U0203,Manoj Mukherjee,manoj.mukherjee203@rediffmail.com,Pwd@84976,customer,+919024629960,Male,34,Nashik,Maharashtra,2025-10-01,7,97909.1,Groceries,Gold
+U0204,Shreya Mehta,shreya.mehta204@outlook.com,Pwd@54284,customer,+918447132475,Female,35,Hyderabad,Telangana,2025-12-06,6,534846.36,Electronics,Platinum
+U0205,Vandana Chauhan,vandana.chauhan205@yahoo.com,Pwd@73499,customer,+918082148628,Female,46,Kolkata,West Bengal,2025-02-15,2,41174.58,Furniture,Silver
+U0206,Rahul Chopra,rahul.chopra206@gmail.com,Pwd@16626,customer,+918345786103,Male,33,Nagpur,Maharashtra,2024-10-05,16,749716.9,Groceries,Platinum
+U0207,Asha Dutta,asha.dutta207@hotmail.com,Pwd@55121,customer,+917414060293,Female,48,Coimbatore,Tamil Nadu,2025-02-04,1,16175.4,Beauty,Silver
+U0208,Naveen Kapoor,naveen.kapoor208@rediffmail.com,Pwd@99417,customer,+916722903494,Male,59,Indore,Madhya Pradesh,2025-05-09,6,885951.76,Electronics,Platinum
+U0209,Kavita Tiwari,kavita.tiwari209@yahoo.com,Pwd@49602,customer,+919910858994,Female,34,Nashik,Maharashtra,2025-11-20,7,412365.99,Groceries,Platinum
+U0210,Madhuri Reddy,madhuri.reddy210@outlook.com,Pwd@46291,customer,+918432830965,Female,39,Mysuru,Karnataka,2024-10-11,25,1303221.39,Beauty,Platinum
+U0211,Uday Verma,uday.verma211@rediffmail.com,Pwd@60891,customer,+916993538758,Male,34,Kochi,Kerala,2025-06-05,0,0.0,Furniture,Bronze
+U0212,Priya Das,priya.das212@rediffmail.com,Pwd@43902,customer,+917513534655,Female,24,Kanpur,Uttar Pradesh,2025-06-03,12,283337.71,Home Appliances,Platinum
+U0213,Manisha Desai,manisha.desai213@gmail.com,Pwd@71894,customer,+917816846022,Female,48,Chandigarh,Chandigarh,2024-12-05,8,642449.25,Fashion,Platinum
+U0214,Anil Chauhan,anil.chauhan214@yahoo.com,Pwd@73908,customer,+918250074329,Male,38,Chandigarh,Chandigarh,2024-12-31,2,274633.55,Fashion,Platinum
+U0215,Varun Patel,varun.patel215@rediffmail.com,Pwd@66233,customer,+919600835058,Male,45,Jaipur,Rajasthan,2026-04-28,2,35940.37,Furniture,Silver
+U0216,Vivaan Sharma,vivaan.sharma216@outlook.com,Pwd@26899,customer,+916689421044,Male,62,Bhopal,Madhya Pradesh,2025-03-26,13,1339538.1,Sports,Platinum
+U0217,Vandana Banerjee,vandana.banerjee217@yahoo.com,Pwd@74248,customer,+918326033230,Female,45,Bhubaneswar,Odisha,2025-07-18,5,278143.2,Beauty,Platinum
+U0218,Krishna Pandey,krishna.pandey218@outlook.com,Pwd@87846,customer,+916100167618,Male,58,Bengaluru,Karnataka,2025-08-26,9,653810.95,Electronics,Platinum
+U0219,Lata Menon,lata.menon219@gmail.com,Pwd@65164,customer,+916849926189,Female,61,Indore,Madhya Pradesh,2026-07-19,1,32654.22,Sports,Silver
+U0220,Manoj Rao,manoj.rao220@hotmail.com,Pwd@44471,customer,+917564208737,Male,30,Pune,Maharashtra,2025-12-29,15,629360.49,Books,Platinum
+U0221,Sneha Sharma,sneha.sharma221@gmail.com,Pwd@29548,customer,+916811437447,Female,23,Mumbai,Maharashtra,2026-06-25,12,420164.67,Groceries,Platinum
+U0222,Reyansh Iyengar,reyansh.iyengar222@outlook.com,Pwd@25191,customer,+916002255794,Male,41,Bengaluru,Karnataka,2025-05-31,2,106340.86,Furniture,Platinum
+U0223,Prakash Bansal,prakash.bansal223@rediffmail.com,Pwd@45629,customer,+919762120216,Male,43,Kanpur,Uttar Pradesh,2024-12-01,14,955754.3,Groceries,Platinum
+U0224,Ritu Thakur,ritu.thakur224@outlook.com,Pwd@99714,customer,+917771670145,Female,42,Kanpur,Uttar Pradesh,2026-04-24,21,950038.29,Electronics,Platinum
+U0225,Tarun Banerjee,tarun.banerjee225@hotmail.com,Pwd@66734,customer,+917756289002,Male,39,Thane,Maharashtra,2026-06-23,10,435758.39,Fashion,Platinum
+U0226,Asha Iyer,asha.iyer226@yahoo.com,Pwd@46458,customer,+916838663177,Female,38,Chennai,Tamil Nadu,2025-12-23,2,276025.17,Beauty,Platinum
+U0227,Ira Naidu,ira.naidu227@rediffmail.com,Pwd@23453,customer,+919608801994,Female,25,Coimbatore,Tamil Nadu,2025-06-26,1,43530.29,Electronics,Silver
+U0228,Naveen Bhatt,naveen.bhatt228@yahoo.com,Pwd@53512,customer,+919571130554,Male,21,Agra,Uttar Pradesh,2025-08-14,2,4715.0,Groceries,Bronze
+U0229,Rashmi Reddy,rashmi.reddy229@yahoo.com,Pwd@24019,customer,+918933163735,Female,49,Bengaluru,Karnataka,2025-01-22,2,5856.15,Furniture,Bronze
+U0230,Abhishek Chauhan,abhishek.chauhan230@hotmail.com,Pwd@69048,customer,+919982708086,Male,61,Bengaluru,Karnataka,2026-05-17,4,367400.32,Fashion,Platinum
+U0231,Preeti Iyengar,preeti.iyengar231@rediffmail.com,Pwd@76074,customer,+919693465472,Female,24,Kanpur,Uttar Pradesh,2024-12-16,4,229990.48,Beauty,Platinum
+U0232,Rajesh Dutta,rajesh.dutta232@hotmail.com,Pwd@82559,customer,+917339452288,Male,62,Guwahati,Assam,2025-06-09,12,1372591.24,Beauty,Platinum
+U0233,Sarika Rao,sarika.rao233@hotmail.com,Pwd@98374,customer,+918608106200,Female,48,Nashik,Maharashtra,2026-03-05,3,112585.79,Furniture,Platinum
+U0234,Sanjay Iyer,sanjay.iyer234@yahoo.com,Pwd@48684,customer,+917805719838,Male,34,Vadodara,Gujarat,2026-07-07,19,1152924.27,Electronics,Platinum
+U0235,Sneha Chatterjee,sneha.chatterjee235@gmail.com,Pwd@60797,customer,+919580043973,Female,60,Vadodara,Gujarat,2026-07-17,5,478967.64,Furniture,Platinum
+U0236,Alisha Bose,alisha.bose236@yahoo.com,Pwd@68827,customer,+917122816064,Female,30,Dehradun,Uttarakhand,2026-04-16,1,6234.8,Sports,Bronze
+U0237,Pari Iyer,pari.iyer237@rediffmail.com,Pwd@15235,customer,+917590947985,Female,39,Visakhapatnam,Andhra Pradesh,2024-08-12,0,0.0,Home Appliances,Bronze
+U0238,Tarun Agarwal,tarun.agarwal238@hotmail.com,Pwd@76209,customer,+917688615335,Male,29,Bhubaneswar,Odisha,2025-03-20,4,41045.67,Fashion,Silver
+U0239,Tanvi Desai,tanvi.desai239@rediffmail.com,Pwd@25036,customer,+918739930561,Female,51,Indore,Madhya Pradesh,2026-05-02,2,1940.29,Electronics,Bronze
+U0240,Divya Mukherjee,divya.mukherjee240@outlook.com,Pwd@73806,customer,+916435811288,Female,51,Vadodara,Gujarat,2024-09-01,0,0.0,Groceries,Bronze
+U0241,Harsh Singh,harsh.singh241@yahoo.com,Pwd@23621,customer,+917861207501,Male,58,Indore,Madhya Pradesh,2026-06-24,2,118193.99,Furniture,Platinum
+U0242,Vihaan Iyengar,vihaan.iyengar242@hotmail.com,Pwd@43901,customer,+919676650618,Male,22,Visakhapatnam,Andhra Pradesh,2026-03-01,13,837727.38,Books,Platinum
+U0243,Naveen Sen,naveen.sen243@gmail.com,Pwd@75907,customer,+916449147660,Male,20,Chennai,Tamil Nadu,2026-03-29,8,374541.57,Beauty,Platinum
+U0244,Priya Mukherjee,priya.mukherjee244@rediffmail.com,Pwd@93105,customer,+917450882100,Female,65,Thane,Maharashtra,2024-12-24,4,410707.98,Sports,Platinum
+U0245,Deepika Das,deepika.das245@outlook.com,Pwd@64087,customer,+917223943129,Female,31,Kolkata,West Bengal,2025-06-15,6,67782.79,Books,Gold
+U0246,Abhishek Das,abhishek.das246@gmail.com,Pwd@98039,customer,+916413975523,Male,53,Chandigarh,Chandigarh,2026-05-29,9,550263.2,Sports,Platinum
+U0247,Manoj Sen,manoj.sen247@rediffmail.com,Pwd@53036,customer,+918929955620,Male,38,Chennai,Tamil Nadu,2025-02-21,8,482503.46,Groceries,Platinum
+U0248,Sneha Kapoor,sneha.kapoor248@yahoo.com,Pwd@72908,customer,+919754781291,Female,41,Amritsar,Punjab,2025-05-17,10,456786.52,Beauty,Platinum
+U0249,Pari Mukherjee,pari.mukherjee249@gmail.com,Pwd@12441,customer,+916996930848,Female,64,Nagpur,Maharashtra,2025-05-03,2,7077.0,Fashion,Bronze
+U0250,Bhavna Menon,bhavna.menon250@hotmail.com,Pwd@27548,customer,+919881658039,Female,32,Faridabad,Haryana,2025-09-12,8,340167.75,Sports,Platinum
+U0251,Abhishek Chatterjee,abhishek.chatterjee251@yahoo.com,Pwd@73373,customer,+918037314530,Male,28,Jaipur,Rajasthan,2025-11-06,7,262203.6,Home Appliances,Platinum
+U0252,Aryan Pandey,aryan.pandey252@gmail.com,Pwd@95003,customer,+918184498926,Male,47,Meerut,Uttar Pradesh,2025-11-30,6,363088.98,Electronics,Platinum
+U0253,Tanvi Bose,tanvi.bose253@rediffmail.com,Pwd@77681,customer,+919557790827,Female,34,Chennai,Tamil Nadu,2026-01-18,4,139672.56,Books,Platinum
+U0254,Ramesh Singh,ramesh.singh254@yahoo.com,Pwd@34498,customer,+917591365177,Male,35,Guwahati,Assam,2026-05-27,2,36546.56,Home Appliances,Silver
+U0255,Kavya Bose,kavya.bose255@gmail.com,Pwd@15655,customer,+917992280920,Female,44,Lucknow,Uttar Pradesh,2026-05-31,5,184013.34,Books,Platinum
+U0256,Ajay Iyengar,ajay.iyengar256@hotmail.com,Pwd@96736,customer,+918137977236,Male,56,Bhubaneswar,Odisha,2025-09-26,19,1351128.21,Electronics,Platinum
+U0257,Shaurya Iyengar,shaurya.iyengar257@outlook.com,Pwd@88188,customer,+916366210388,Male,28,Guwahati,Assam,2025-05-04,6,363936.68,Groceries,Platinum
+U0258,Anika Dutta,anika.dutta258@hotmail.com,Pwd@79655,customer,+916172980686,Female,48,Pune,Maharashtra,2025-02-04,2,157010.58,Electronics,Platinum
+U0259,Aadhya Banerjee,aadhya.banerjee259@rediffmail.com,Pwd@87207,customer,+916624731498,Female,48,Amritsar,Punjab,2025-03-29,4,176575.23,Beauty,Platinum
+U0260,Divya Chopra,divya.chopra260@gmail.com,Pwd@78126,customer,+916635651269,Female,65,Mumbai,Maharashtra,2026-08-03,6,152120.83,Fashion,Platinum
+U0261,Divya Mukherjee,divya.mukherjee261@hotmail.com,Pwd@99208,customer,+919368872588,Female,41,Amritsar,Punjab,2026-03-08,18,990596.05,Sports,Platinum
+U0262,Divya Pillai,divya.pillai262@yahoo.com,Pwd@40116,customer,+919213865890,Female,43,Nashik,Maharashtra,2026-07-30,2,138675.92,Fashion,Platinum
+U0263,Gopal Sharma,gopal.sharma263@hotmail.com,Pwd@21552,customer,+916435190669,Male,48,Kolkata,West Bengal,2025-01-02,5,421831.66,Furniture,Platinum
+U0264,Sarika Dutta,sarika.dutta264@rediffmail.com,Pwd@11403,customer,+917843098839,Female,58,Hyderabad,Telangana,2025-02-02,2,24233.44,Groceries,Silver
+U0265,Rakesh Gupta,rakesh.gupta265@gmail.com,Pwd@21382,customer,+918656693801,Male,59,Faridabad,Haryana,2025-04-08,3,64689.65,Home Appliances,Gold
+U0266,Yash Desai,yash.desai266@yahoo.com,Pwd@69606,customer,+919904268181,Male,35,Nashik,Maharashtra,2025-07-28,1,6260.8,Books,Bronze
+U0267,Shreya Rao,shreya.rao267@hotmail.com,Pwd@68034,customer,+919973577907,Female,52,Guwahati,Assam,2025-04-27,23,1164377.84,Sports,Platinum
+U0268,Ajay Singh,ajay.singh268@yahoo.com,Pwd@64057,customer,+918880434165,Male,32,Meerut,Uttar Pradesh,2026-05-17,5,276062.81,Beauty,Platinum
+U0269,Yash Iyengar,yash.iyengar269@yahoo.com,Pwd@33957,customer,+917733343333,Male,40,Mysuru,Karnataka,2025-06-24,2,188491.5,Sports,Platinum
+U0270,Anika Reddy,anika.reddy270@rediffmail.com,Pwd@80972,customer,+916759579472,Female,61,Ahmedabad,Gujarat,2024-10-26,12,926274.98,Electronics,Platinum
+U0271,Rani Kapoor,rani.kapoor271@rediffmail.com,Pwd@80879,customer,+916856271875,Female,51,Jaipur,Rajasthan,2024-10-01,13,924039.6,Groceries,Platinum
+U0272,Aarav Malhotra,aarav.malhotra272@outlook.com,Pwd@90318,customer,+918284347955,Male,24,Meerut,Uttar Pradesh,2026-03-24,5,186700.08,Beauty,Platinum
+U0273,Varun Rathore,varun.rathore273@outlook.com,Pwd@62506,customer,+918729293143,Male,62,Indore,Madhya Pradesh,2025-10-10,4,319685.3,Beauty,Platinum
+U0274,Aditi Chopra,aditi.chopra274@gmail.com,Pwd@65249,customer,+919288574489,Female,48,Surat,Gujarat,2025-01-07,5,348090.1,Home Appliances,Platinum
+U0275,Nitin Reddy,nitin.reddy275@outlook.com,Pwd@92557,customer,+916754558845,Male,31,Lucknow,Uttar Pradesh,2024-10-07,3,101634.49,Groceries,Platinum
+U0276,Rajesh Rao,rajesh.rao276@yahoo.com,Pwd@47304,customer,+918587716947,Male,56,Nashik,Maharashtra,2026-07-03,8,137801.5,Home Appliances,Platinum
+U0277,Karan Bansal,karan.bansal277@hotmail.com,Pwd@19351,customer,+916253554496,Male,57,Varanasi,Uttar Pradesh,2026-05-15,6,143787.19,Furniture,Platinum
+U0278,Rekha Pandey,rekha.pandey278@yahoo.com,Pwd@13027,customer,+917341326111,Female,44,Bhubaneswar,Odisha,2025-11-11,3,61117.55,Home Appliances,Gold
+U0279,Nidhi Kumar,nidhi.kumar279@gmail.com,Pwd@44400,customer,+917164334722,Female,51,Delhi,Delhi,2025-09-17,17,603248.59,Fashion,Platinum
+U0280,Vivaan Gupta,vivaan.gupta280@rediffmail.com,Pwd@81898,customer,+919282997968,Male,48,Nashik,Maharashtra,2025-07-06,1,77258.5,Sports,Gold
+U0281,Isha Trivedi,isha.trivedi281@rediffmail.com,Pwd@57943,customer,+919424008254,Female,23,Dehradun,Uttarakhand,2025-03-27,2,247308.9,Sports,Platinum
+U0282,Deepika Sharma,deepika.sharma282@gmail.com,Pwd@48393,customer,+917085368663,Female,37,Kochi,Kerala,2025-12-08,14,761401.09,Furniture,Platinum
+U0283,Tarun Tiwari,tarun.tiwari283@gmail.com,Pwd@91962,customer,+917894484631,Male,34,Meerut,Uttar Pradesh,2025-03-20,8,273928.61,Furniture,Platinum
+U0284,Ishaan Desai,ishaan.desai284@hotmail.com,Pwd@45669,customer,+919350208021,Male,47,Ahmedabad,Gujarat,2026-05-21,3,324072.9,Groceries,Platinum
+U0285,Swati Nair,swati.nair285@gmail.com,Pwd@11930,customer,+919356475705,Female,32,Coimbatore,Tamil Nadu,2024-08-15,3,167760.12,Home Appliances,Platinum
+U0286,Abhishek Menon,abhishek.menon286@gmail.com,Pwd@33803,customer,+917460136730,Male,43,Hyderabad,Telangana,2025-05-06,13,588139.91,Groceries,Platinum
+U0287,Mahesh Reddy,mahesh.reddy287@rediffmail.com,Pwd@99318,customer,+918520881474,Male,31,Bhubaneswar,Odisha,2026-06-19,15,695500.51,Furniture,Platinum
+U0288,Prakash Kumar,prakash.kumar288@rediffmail.com,Pwd@11974,customer,+917491630097,Male,33,Indore,Madhya Pradesh,2024-11-30,8,309146.66,Beauty,Platinum
+U0289,Prakash Patel,prakash.patel289@gmail.com,Pwd@91937,customer,+916052812735,Male,49,Bhopal,Madhya Pradesh,2025-01-15,5,373203.35,Beauty,Platinum
+U0290,Rekha Chopra,rekha.chopra290@outlook.com,Pwd@42859,customer,+916778487392,Female,42,Delhi,Delhi,2026-07-13,4,169253.94,Home Appliances,Platinum
+U0291,Anjali Bhatt,anjali.bhatt291@yahoo.com,Pwd@79617,customer,+917744857086,Female,53,Patna,Bihar,2026-04-12,13,714444.29,Fashion,Platinum
+U0292,Vivaan Sen,vivaan.sen292@outlook.com,Pwd@96283,customer,+919387829456,Male,33,Faridabad,Haryana,2026-05-04,2,61106.97,Fashion,Gold
+U0293,Sara Reddy,sara.reddy293@gmail.com,Pwd@33414,customer,+916317310967,Female,22,Bhubaneswar,Odisha,2026-06-12,10,506185.5,Home Appliances,Platinum
+U0294,Ananya Pandey,ananya.pandey294@gmail.com,Pwd@37359,customer,+919170586509,Female,63,Thane,Maharashtra,2026-04-19,1,99938.05,Electronics,Gold
+U0295,Shweta Gupta,shweta.gupta295@yahoo.com,Pwd@23267,customer,+917863383928,Female,22,Chennai,Tamil Nadu,2025-06-14,9,950394.5,Fashion,Platinum
+U0296,Yamini Reddy,yamini.reddy296@rediffmail.com,Pwd@31864,customer,+917868528975,Female,47,Nashik,Maharashtra,2026-06-28,17,972600.77,Fashion,Platinum
+U0297,Nidhi Agarwal,nidhi.agarwal297@rediffmail.com,Pwd@89745,customer,+917983684577,Female,58,Faridabad,Haryana,2025-10-03,7,160178.99,Beauty,Platinum
+U0298,Saanvi Gupta,saanvi.gupta298@hotmail.com,Pwd@49562,customer,+916433504888,Female,19,Vadodara,Gujarat,2026-04-09,4,38729.56,Home Appliances,Silver
+U0299,Reyansh Gupta,reyansh.gupta299@yahoo.com,Pwd@58114,customer,+917344196931,Male,27,Chandigarh,Chandigarh,2025-08-06,8,277937.65,Sports,Platinum
+U0300,Lata Iyengar,lata.iyengar300@hotmail.com,Pwd@88018,customer,+918096105566,Female,62,Kochi,Kerala,2026-07-14,7,567313.8,Fashion,Platinum
+U0301,Gaurav Kapoor,gaurav.kapoor301@rediffmail.com,Pwd@49948,customer,+916589258320,Male,58,Mumbai,Maharashtra,2026-05-18,5,192133.7,Electronics,Platinum
+U0302,Rekha Dutta,rekha.dutta302@rediffmail.com,Pwd@61684,customer,+917251790864,Female,32,Guwahati,Assam,2024-11-07,1,81056.85,Sports,Gold
+U0303,Nitin Chatterjee,nitin.chatterjee303@yahoo.com,Pwd@83308,customer,+917769389833,Male,26,Amritsar,Punjab,2026-07-22,6,182767.66,Groceries,Platinum
+U0304,Sanjay Rathore,sanjay.rathore304@gmail.com,Pwd@98047,customer,+919655355904,Male,54,Ludhiana,Punjab,2026-07-09,4,265681.46,Fashion,Platinum
+U0305,Sunil Sen,sunil.sen305@rediffmail.com,Pwd@40603,customer,+917521103924,Male,27,Coimbatore,Tamil Nadu,2026-05-07,0,0.0,Electronics,Bronze
+U0306,Anil Rao,anil.rao306@gmail.com,Pwd@37395,customer,+917388487920,Male,48,Ghaziabad,Uttar Pradesh,2025-11-10,8,496791.07,Beauty,Platinum
+U0307,Manisha Banerjee,manisha.banerjee307@gmail.com,Pwd@36305,customer,+918070164510,Female,28,Bengaluru,Karnataka,2025-04-25,2,43052.1,Sports,Silver
+U0308,Bhavna Tiwari,bhavna.tiwari308@gmail.com,Pwd@73525,customer,+916238780038,Female,50,Thane,Maharashtra,2025-08-31,16,642173.0,Beauty,Platinum
+U0309,Shreya Naidu,shreya.naidu309@outlook.com,Pwd@56580,customer,+918384046084,Female,19,Rajkot,Gujarat,2025-01-14,2,91785.27,Beauty,Gold
+U0310,Rohan Bansal,rohan.bansal310@gmail.com,Pwd@78251,customer,+917639264957,Male,26,Rajkot,Gujarat,2026-06-10,20,1232508.6,Furniture,Platinum
+U0311,Suresh Nair,suresh.nair311@yahoo.com,Pwd@78656,customer,+917629251881,Male,30,Dehradun,Uttarakhand,2026-07-08,5,165131.88,Sports,Platinum
+U0312,Ravi Menon,ravi.menon312@rediffmail.com,Pwd@68065,customer,+918231220994,Male,44,Delhi,Delhi,2025-06-29,2,81849.7,Sports,Gold
+U0313,Advait Kapoor,advait.kapoor313@outlook.com,Pwd@72469,customer,+917897526772,Male,19,Thane,Maharashtra,2026-07-11,11,924344.84,Fashion,Platinum
+U0314,Amit Kapoor,amit.kapoor314@outlook.com,Pwd@39170,customer,+917312797573,Male,18,Bengaluru,Karnataka,2025-09-29,19,955928.1,Furniture,Platinum
+U0315,Rani Gupta,rani.gupta315@hotmail.com,Pwd@78242,customer,+916770388608,Female,43,Meerut,Uttar Pradesh,2025-06-23,4,145449.35,Electronics,Platinum
+U0316,Shweta Kumar,shweta.kumar316@rediffmail.com,Pwd@47475,customer,+919264908277,Female,46,Nagpur,Maharashtra,2025-06-01,7,396053.82,Sports,Platinum
+U0317,Uday Chatterjee,uday.chatterjee317@hotmail.com,Pwd@61520,customer,+919570279371,Male,55,Ahmedabad,Gujarat,2025-02-07,1,122092.65,Home Appliances,Platinum
+U0318,Anjali Iyer,anjali.iyer318@rediffmail.com,Pwd@21181,customer,+919892686025,Female,25,Ahmedabad,Gujarat,2024-11-08,10,373767.08,Beauty,Platinum
+U0319,Karan Menon,karan.menon319@rediffmail.com,Pwd@50569,customer,+919421230940,Male,21,Kanpur,Uttar Pradesh,2026-08-06,13,1304486.57,Sports,Platinum
+U0320,Asha Naidu,asha.naidu320@rediffmail.com,Pwd@38426,customer,+919767199038,Female,56,Dehradun,Uttarakhand,2024-08-12,8,257299.62,Books,Platinum
+U0321,Simran Das,simran.das321@yahoo.com,Pwd@95626,customer,+918020994510,Female,29,Indore,Madhya Pradesh,2024-09-26,7,331965.39,Electronics,Platinum
+U0322,Rajesh Iyengar,rajesh.iyengar322@hotmail.com,Pwd@69682,customer,+918014556168,Male,36,Lucknow,Uttar Pradesh,2026-06-26,3,122251.1,Home Appliances,Platinum
+U0323,Manoj Trivedi,manoj.trivedi323@outlook.com,Pwd@79081,customer,+919833901981,Male,62,Jaipur,Rajasthan,2024-12-09,6,597789.39,Beauty,Platinum
+U0324,Vandana Dutta,vandana.dutta324@outlook.com,Pwd@78864,customer,+918299787729,Female,56,Vadodara,Gujarat,2025-10-18,14,847549.95,Sports,Platinum
+U0325,Tarun Desai,tarun.desai325@gmail.com,Pwd@91980,customer,+916396605583,Male,25,Nagpur,Maharashtra,2024-08-08,6,292691.56,Groceries,Platinum
+U0326,Harsh Chopra,harsh.chopra326@outlook.com,Pwd@76412,customer,+918015569902,Male,22,Vadodara,Gujarat,2025-04-24,8,335453.51,Sports,Platinum
+U0327,Anil Bansal,anil.bansal327@yahoo.com,Pwd@30366,customer,+919857608495,Male,20,Mysuru,Karnataka,2025-12-05,3,301718.77,Groceries,Platinum
+U0328,Suresh Ghosh,suresh.ghosh328@yahoo.com,Pwd@14085,customer,+918682996291,Male,22,Agra,Uttar Pradesh,2025-08-04,7,267059.57,Sports,Platinum
+U0329,Sarika Agarwal,sarika.agarwal329@gmail.com,Pwd@41148,customer,+918743842150,Female,44,Bengaluru,Karnataka,2025-05-12,15,779365.88,Groceries,Platinum
+U0330,Sai Thakur,sai.thakur330@hotmail.com,Pwd@34931,customer,+918784521823,Male,48,Guwahati,Assam,2024-09-01,21,2059068.65,Home Appliances,Platinum
+U0331,Mahesh Tiwari,mahesh.tiwari331@outlook.com,Pwd@87894,customer,+916570184094,Male,18,Bhubaneswar,Odisha,2024-12-03,3,196273.56,Electronics,Platinum
+U0332,Ravi Chopra,ravi.chopra332@hotmail.com,Pwd@67817,customer,+916422410988,Male,35,Nagpur,Maharashtra,2025-05-27,9,155893.16,Beauty,Platinum
+U0333,Suresh Mukherjee,suresh.mukherjee333@outlook.com,Pwd@47128,customer,+917214958702,Male,38,Nashik,Maharashtra,2026-02-20,5,208622.43,Home Appliances,Platinum
+U0334,Kunal Kumar,kunal.kumar334@gmail.com,Pwd@61369,customer,+917997954538,Male,21,Pune,Maharashtra,2025-09-03,7,323406.79,Furniture,Platinum
+U0335,Abhishek Bhatt,abhishek.bhatt335@rediffmail.com,Pwd@69714,customer,+918773329456,Male,62,Jaipur,Rajasthan,2024-11-10,0,0.0,Fashion,Bronze
+U0336,Sandeep Bansal,sandeep.bansal336@gmail.com,Pwd@72303,customer,+916577245992,Male,49,Ludhiana,Punjab,2025-11-14,2,87142.0,Fashion,Gold
+U0337,Nitin Reddy,nitin.reddy337@gmail.com,Pwd@79828,customer,+919696393827,Male,59,Ludhiana,Punjab,2026-02-27,4,211960.34,Sports,Platinum
+U0338,Diya Bansal,diya.bansal338@rediffmail.com,Pwd@84345,customer,+918832197199,Female,55,Indore,Madhya Pradesh,2026-07-18,3,129049.42,Furniture,Platinum
+U0339,Anjali Das,anjali.das339@outlook.com,Pwd@19123,customer,+916965701329,Female,29,Pune,Maharashtra,2025-11-05,2,67689.37,Furniture,Gold
+U0340,Abhishek Menon,abhishek.menon340@outlook.com,Pwd@90684,customer,+919335494651,Male,52,Surat,Gujarat,2025-11-13,9,612460.73,Furniture,Platinum
+U0341,Atharv Chatterjee,atharv.chatterjee341@gmail.com,Pwd@81943,customer,+916085140369,Male,36,Rajkot,Gujarat,2024-12-15,7,453874.71,Beauty,Platinum
+U0342,Pallavi Agarwal,pallavi.agarwal342@rediffmail.com,Pwd@96833,customer,+917723865624,Female,42,Meerut,Uttar Pradesh,2025-09-26,3,41287.27,Books,Silver
+U0343,Ishaan Sharma,ishaan.sharma343@yahoo.com,Pwd@96235,customer,+919212679692,Male,19,Chennai,Tamil Nadu,2026-06-01,3,131966.77,Groceries,Platinum
+U0344,Preeti Rathore,preeti.rathore344@yahoo.com,Pwd@65675,customer,+916973846895,Female,40,Coimbatore,Tamil Nadu,2025-09-04,7,823656.44,Home Appliances,Platinum
+U0345,Aditya Ghosh,aditya.ghosh345@gmail.com,Pwd@20494,customer,+917847818913,Male,41,Mysuru,Karnataka,2026-07-29,2,471139.33,Groceries,Platinum
+U0346,Pallavi Singh,pallavi.singh346@hotmail.com,Pwd@55029,customer,+916778795654,Female,37,Dehradun,Uttarakhand,2026-03-23,11,748494.61,Electronics,Platinum
+U0347,Priya Gupta,priya.gupta347@gmail.com,Pwd@85778,customer,+917904904712,Female,34,Ghaziabad,Uttar Pradesh,2026-03-07,2,74570.05,Groceries,Gold
+U0348,Sanjay Shah,sanjay.shah348@outlook.com,Pwd@11861,customer,+916929275243,Male,35,Jaipur,Rajasthan,2026-04-29,10,366184.25,Sports,Platinum
+U0349,Neha Banerjee,neha.banerjee349@yahoo.com,Pwd@75004,customer,+919637239504,Female,23,Bengaluru,Karnataka,2025-07-24,2,9688.75,Home Appliances,Bronze
+U0350,Vihaan Iyer,vihaan.iyer350@outlook.com,Pwd@79798,customer,+917667428604,Male,48,Chandigarh,Chandigarh,2025-09-19,18,913452.54,Groceries,Platinum
+U0351,Aditi Agarwal,aditi.agarwal351@gmail.com,Pwd@66595,customer,+918544149673,Female,20,Bhubaneswar,Odisha,2026-07-07,8,364301.42,Beauty,Platinum
+U0352,Aryan Bansal,aryan.bansal352@gmail.com,Pwd@18906,customer,+916618175344,Male,53,Kanpur,Uttar Pradesh,2025-06-23,3,175197.65,Electronics,Platinum
+U0353,Aditya Verma,aditya.verma353@yahoo.com,Pwd@25725,customer,+916926921244,Male,56,Kolkata,West Bengal,2024-10-04,7,145902.01,Fashion,Platinum
+U0354,Jyoti Singh,jyoti.singh354@outlook.com,Pwd@31229,customer,+916406650442,Female,45,Chandigarh,Chandigarh,2025-05-17,4,266149.41,Sports,Platinum
+U0355,Diya Naidu,diya.naidu355@yahoo.com,Pwd@24212,customer,+917863917410,Female,43,Nagpur,Maharashtra,2026-04-23,3,579982.96,Groceries,Platinum
+U0356,Arjun Ghosh,arjun.ghosh356@rediffmail.com,Pwd@95572,customer,+916064256908,Male,19,Visakhapatnam,Andhra Pradesh,2025-11-06,18,1266048.95,Home Appliances,Platinum
+U0357,Lata Rathore,lata.rathore357@yahoo.com,Pwd@60387,customer,+919198554601,Female,52,Rajkot,Gujarat,2024-10-17,5,346179.67,Electronics,Platinum
+U0358,Deepika Bansal,deepika.bansal358@yahoo.com,Pwd@82676,customer,+916634615717,Female,36,Kolkata,West Bengal,2025-11-20,5,275381.83,Home Appliances,Platinum
+U0359,Ishaan Gupta,ishaan.gupta359@hotmail.com,Pwd@74124,customer,+919184787005,Male,64,Nagpur,Maharashtra,2024-09-01,1,60520.07,Books,Gold
+U0360,Anil Gupta,anil.gupta360@hotmail.com,Pwd@98877,customer,+917931027079,Male,31,Rajkot,Gujarat,2024-12-06,3,26687.3,Groceries,Silver
+U0361,Vikram Nair,vikram.nair361@gmail.com,Pwd@22752,customer,+919929111799,Male,58,Mumbai,Maharashtra,2025-01-30,6,185836.81,Sports,Platinum
+U0362,Arjun Chopra,arjun.chopra362@rediffmail.com,Pwd@25833,customer,+917530925114,Male,65,Amritsar,Punjab,2025-07-18,1,24883.8,Beauty,Silver
+U0363,Abhishek Chauhan,abhishek.chauhan363@hotmail.com,Pwd@67496,customer,+917902196207,Male,41,Lucknow,Uttar Pradesh,2026-07-21,6,479204.53,Home Appliances,Platinum
+U0364,Aarav Sharma,aarav.sharma364@hotmail.com,Pwd@64555,customer,+919232487632,Male,63,Kanpur,Uttar Pradesh,2024-11-06,5,438211.61,Sports,Platinum
+U0365,Advait Iyengar,advait.iyengar365@outlook.com,Pwd@64891,customer,+916833181958,Male,23,Kochi,Kerala,2026-04-25,4,322497.27,Beauty,Platinum
+U0366,Mahesh Malhotra,mahesh.malhotra366@gmail.com,Pwd@99816,customer,+919722005436,Male,30,Patna,Bihar,2024-09-30,2,471142.44,Home Appliances,Platinum
+U0367,Shreya Sen,shreya.sen367@gmail.com,Pwd@30715,customer,+916781137995,Female,24,Chandigarh,Chandigarh,2024-09-20,21,1255859.12,Home Appliances,Platinum
+U0368,Pooja Agarwal,pooja.agarwal368@yahoo.com,Pwd@41079,customer,+919363179706,Female,38,Thane,Maharashtra,2024-11-27,2,233903.57,Fashion,Platinum
+U0369,Suresh Sen,suresh.sen369@outlook.com,Pwd@69996,customer,+917543520904,Male,42,Chandigarh,Chandigarh,2025-02-05,11,293658.87,Home Appliances,Platinum
+U0370,Krishna Bhatt,krishna.bhatt370@outlook.com,Pwd@48687,customer,+917929831687,Male,28,Chandigarh,Chandigarh,2025-10-09,9,242633.35,Books,Platinum
+U0371,Shaurya Trivedi,shaurya.trivedi371@rediffmail.com,Pwd@42483,customer,+918693929060,Male,18,Chandigarh,Chandigarh,2025-05-19,1,84387.14,Books,Gold
+U0372,Kunal Chatterjee,kunal.chatterjee372@rediffmail.com,Pwd@22844,customer,+919731806325,Male,51,Bengaluru,Karnataka,2025-10-16,2,48293.25,Groceries,Silver
+U0373,Sneha Patel,sneha.patel373@outlook.com,Pwd@70199,customer,+916772625701,Female,60,Delhi,Delhi,2025-12-11,6,439731.93,Home Appliances,Platinum
+U0374,Rashmi Bansal,rashmi.bansal374@rediffmail.com,Pwd@90281,customer,+917195085016,Female,36,Bhubaneswar,Odisha,2024-09-09,2,133098.85,Sports,Platinum
+U0375,Geeta Sen,geeta.sen375@yahoo.com,Pwd@83499,customer,+917253817933,Female,41,Bengaluru,Karnataka,2025-08-16,3,211211.43,Fashion,Platinum
+U0376,Isha Joshi,isha.joshi376@outlook.com,Pwd@18305,customer,+918577881788,Female,45,Guwahati,Assam,2026-07-04,3,320675.82,Electronics,Platinum
+U0377,Rekha Sen,rekha.sen377@gmail.com,Pwd@70014,customer,+916162411241,Female,62,Faridabad,Haryana,2026-06-27,12,446350.72,Books,Platinum
+U0378,Varun Menon,varun.menon378@gmail.com,Pwd@64596,customer,+917756704310,Male,58,Indore,Madhya Pradesh,2026-01-22,1,36212.0,Sports,Silver
+U0379,Aryan Bansal,aryan.bansal379@outlook.com,Pwd@87772,customer,+919749242437,Male,39,Varanasi,Uttar Pradesh,2026-03-22,2,76469.7,Groceries,Gold
+U0380,Meera Kumar,meera.kumar380@rediffmail.com,Pwd@91085,customer,+917842222310,Female,36,Surat,Gujarat,2025-08-03,7,185392.59,Home Appliances,Platinum
+U0381,Ritu Nair,ritu.nair381@yahoo.com,Pwd@83726,customer,+916552578284,Female,41,Coimbatore,Tamil Nadu,2025-04-30,5,301973.31,Books,Platinum
+U0382,Vivaan Yadav,vivaan.yadav382@outlook.com,Pwd@10562,customer,+918474929751,Male,47,Kochi,Kerala,2025-01-02,8,317882.83,Home Appliances,Platinum
+U0383,Aadhya Nair,aadhya.nair383@rediffmail.com,Pwd@68454,customer,+918150939834,Female,19,Ahmedabad,Gujarat,2025-06-18,7,410521.86,Books,Platinum
+U0384,Vivaan Patel,vivaan.patel384@gmail.com,Pwd@35486,customer,+919599805626,Male,61,Dehradun,Uttarakhand,2025-11-06,6,620819.29,Furniture,Platinum
+U0385,Aditi Pandey,aditi.pandey385@outlook.com,Pwd@68402,customer,+916376742662,Female,40,Mumbai,Maharashtra,2025-05-25,17,504944.81,Sports,Platinum
+U0386,Rohan Malhotra,rohan.malhotra386@outlook.com,Pwd@87421,customer,+919106462879,Male,51,Ghaziabad,Uttar Pradesh,2025-12-06,5,140468.47,Fashion,Platinum
+U0387,Amit Iyengar,amit.iyengar387@rediffmail.com,Pwd@49582,customer,+918787300244,Male,53,Meerut,Uttar Pradesh,2025-05-30,4,141183.77,Electronics,Platinum
+U0388,Sara Desai,sara.desai388@yahoo.com,Pwd@25644,customer,+918719597964,Female,49,Varanasi,Uttar Pradesh,2025-02-06,9,398355.39,Electronics,Platinum
+U0389,Rashmi Rao,rashmi.rao389@hotmail.com,Pwd@44018,customer,+917902572520,Female,64,Faridabad,Haryana,2026-01-13,4,192980.43,Electronics,Platinum
+U0390,Tanvi Chauhan,tanvi.chauhan390@outlook.com,Pwd@77353,customer,+917219285544,Female,36,Nashik,Maharashtra,2024-09-25,10,695376.35,Fashion,Platinum
+U0391,Myra Mukherjee,myra.mukherjee391@yahoo.com,Pwd@58891,customer,+919652132833,Female,18,Nashik,Maharashtra,2025-01-01,4,262809.45,Sports,Platinum
+U0392,Rajesh Bhatt,rajesh.bhatt392@gmail.com,Pwd@55640,customer,+918527985240,Male,26,Chennai,Tamil Nadu,2024-12-04,2,57562.56,Groceries,Gold
+U0393,Ramesh Nair,ramesh.nair393@outlook.com,Pwd@37504,customer,+917161107603,Male,32,Surat,Gujarat,2026-07-12,1,2522.52,Home Appliances,Bronze
+U0394,Aditya Chatterjee,aditya.chatterjee394@outlook.com,Pwd@18683,customer,+918011939325,Male,25,Hyderabad,Telangana,2025-11-30,6,123274.95,Electronics,Platinum
+U0395,Sai Menon,sai.menon395@outlook.com,Pwd@75619,customer,+917891190833,Male,40,Patna,Bihar,2026-03-23,14,1141283.17,Home Appliances,Platinum
+U0396,Priya Mukherjee,priya.mukherjee396@hotmail.com,Pwd@58033,customer,+917712566383,Female,31,Mumbai,Maharashtra,2024-11-16,5,377846.81,Groceries,Platinum
+U0397,Sara Agarwal,sara.agarwal397@hotmail.com,Pwd@74987,customer,+918480157164,Female,25,Ahmedabad,Gujarat,2025-11-27,10,526094.0,Home Appliances,Platinum
+U0398,Komal Pillai,komal.pillai398@rediffmail.com,Pwd@66093,customer,+917175207167,Female,53,Coimbatore,Tamil Nadu,2025-03-26,1,13371.5,Sports,Bronze
+U0399,Krishna Menon,krishna.menon399@hotmail.com,Pwd@32114,customer,+916535396136,Male,62,Rajkot,Gujarat,2025-09-21,7,515328.06,Fashion,Platinum
+U0400,Swati Bose,swati.bose400@outlook.com,Pwd@97382,customer,+919784271147,Female,43,Patna,Bihar,2026-05-28,13,620900.08,Groceries,Platinum
+U0401,Riya Nair,riya.nair401@gmail.com,Pwd@75291,customer,+916269524991,Female,65,Delhi,Delhi,2024-11-16,16,486765.24,Fashion,Platinum
+U0402,Pankaj Banerjee,pankaj.banerjee402@outlook.com,Pwd@74258,customer,+918858800616,Male,30,Kochi,Kerala,2025-11-27,7,211899.84,Groceries,Platinum
+U0403,Anjali Tiwari,anjali.tiwari403@gmail.com,Pwd@82963,customer,+918276246719,Female,20,Coimbatore,Tamil Nadu,2025-11-20,4,136182.57,Home Appliances,Platinum
+U0404,Jyoti Das,jyoti.das404@rediffmail.com,Pwd@76412,customer,+916647969545,Female,48,Dehradun,Uttarakhand,2026-03-15,4,71766.8,Home Appliances,Gold
+U0405,Vivaan Bose,vivaan.bose405@outlook.com,Pwd@91940,customer,+918616556503,Male,41,Bengaluru,Karnataka,2024-12-16,6,226600.77,Electronics,Platinum
+U0406,Vikram Pillai,vikram.pillai406@outlook.com,Pwd@54249,customer,+917085076986,Male,22,Kolkata,West Bengal,2026-07-12,4,48104.63,Fashion,Silver
+U0407,Aanya Trivedi,aanya.trivedi407@hotmail.com,Pwd@52260,customer,+916713578529,Female,42,Delhi,Delhi,2025-06-27,3,32354.86,Furniture,Silver
+U0408,Tanvi Rathore,tanvi.rathore408@gmail.com,Pwd@47664,customer,+918049639191,Female,58,Nagpur,Maharashtra,2025-12-28,12,367547.39,Books,Platinum
+U0409,Swati Singh,swati.singh409@yahoo.com,Pwd@20048,customer,+918846853664,Female,45,Bhubaneswar,Odisha,2025-12-06,8,92701.2,Beauty,Gold
+U0410,Jyoti Das,jyoti.das410@hotmail.com,Pwd@85608,customer,+919374896908,Female,58,Kanpur,Uttar Pradesh,2024-08-26,2,54136.31,Home Appliances,Gold
+U0411,Prakash Bhatt,prakash.bhatt411@outlook.com,Pwd@63773,customer,+918136442493,Male,27,Surat,Gujarat,2025-04-10,2,33560.12,Furniture,Silver
+U0412,Sneha Rao,sneha.rao412@yahoo.com,Pwd@70838,customer,+919866032420,Female,19,Surat,Gujarat,2025-02-19,3,100487.24,Sports,Platinum
+U0413,Swati Das,swati.das413@rediffmail.com,Pwd@17251,customer,+916594165162,Female,20,Kanpur,Uttar Pradesh,2026-05-28,4,138539.21,Electronics,Platinum
+U0414,Krishna Ghosh,krishna.ghosh414@hotmail.com,Pwd@75070,customer,+916391559636,Male,51,Guwahati,Assam,2024-12-08,7,273738.89,Sports,Platinum
+U0415,Rohan Reddy,rohan.reddy415@rediffmail.com,Pwd@43332,customer,+916785158673,Male,35,Kanpur,Uttar Pradesh,2025-03-14,7,370248.08,Furniture,Platinum
+U0416,Anika Pandey,anika.pandey416@gmail.com,Pwd@96798,customer,+916348645183,Female,37,Mysuru,Karnataka,2025-08-18,4,602521.37,Electronics,Platinum
+U0417,Aditi Sharma,aditi.sharma417@gmail.com,Pwd@48983,customer,+917275604177,Female,37,Rajkot,Gujarat,2025-04-25,2,59026.34,Books,Gold
+U0418,Shreya Rathore,shreya.rathore418@outlook.com,Pwd@56118,customer,+919985700272,Female,62,Pune,Maharashtra,2025-01-18,1,4412.55,Fashion,Bronze
+U0419,Nitin Chopra,nitin.chopra419@gmail.com,Pwd@30686,customer,+917829657724,Male,54,Ghaziabad,Uttar Pradesh,2025-06-24,11,295105.5,Fashion,Platinum
+U0420,Rakesh Bose,rakesh.bose420@gmail.com,Pwd@58182,customer,+917669300893,Male,30,Ludhiana,Punjab,2025-05-22,5,59911.17,Furniture,Gold
+U0421,Mahesh Chopra,mahesh.chopra421@gmail.com,Pwd@91003,customer,+919942152910,Male,28,Visakhapatnam,Andhra Pradesh,2026-07-26,6,105933.63,Furniture,Platinum
+U0422,Charu Bhatt,charu.bhatt422@yahoo.com,Pwd@44891,customer,+918762639343,Female,32,Kochi,Kerala,2024-12-06,8,121274.83,Books,Platinum
+U0423,Neha Chauhan,neha.chauhan423@outlook.com,Pwd@90960,customer,+919359710725,Female,36,Surat,Gujarat,2024-09-05,2,127088.07,Books,Platinum
+U0424,Madhuri Malhotra,madhuri.malhotra424@hotmail.com,Pwd@19575,customer,+916800537599,Female,45,Meerut,Uttar Pradesh,2026-08-02,14,576132.21,Sports,Platinum
+U0425,Aarav Shah,aarav.shah425@outlook.com,Pwd@97983,customer,+918280924287,Male,42,Guwahati,Assam,2026-05-03,2,144164.5,Furniture,Platinum
+U0426,Geeta Nair,geeta.nair426@hotmail.com,Pwd@28585,customer,+918150274564,Female,63,Kolkata,West Bengal,2025-06-27,1,2266.8,Furniture,Bronze
+U0427,Simran Shah,simran.shah427@yahoo.com,Pwd@74392,customer,+917870320320,Female,45,Bhubaneswar,Odisha,2025-06-23,5,75878.26,Beauty,Gold
+U0428,Divya Iyer,divya.iyer428@rediffmail.com,Pwd@67870,customer,+918877712151,Female,25,Chandigarh,Chandigarh,2025-10-27,18,1328631.57,Electronics,Platinum
+U0429,Manoj Iyengar,manoj.iyengar429@hotmail.com,Pwd@86486,customer,+916892613715,Male,35,Lucknow,Uttar Pradesh,2026-01-09,3,132103.22,Books,Platinum
+U0430,Manoj Rao,manoj.rao430@gmail.com,Pwd@30155,customer,+916177749050,Male,55,Rajkot,Gujarat,2025-08-24,5,83619.94,Beauty,Gold
+U0431,Anjali Ghosh,anjali.ghosh431@outlook.com,Pwd@17279,customer,+916896164236,Female,21,Jaipur,Rajasthan,2025-03-11,9,550877.33,Beauty,Platinum
+U0432,Vivaan Malhotra,vivaan.malhotra432@outlook.com,Pwd@25807,customer,+918764925158,Male,43,Lucknow,Uttar Pradesh,2025-09-08,8,183554.49,Home Appliances,Platinum
+U0433,Varun Thakur,varun.thakur433@hotmail.com,Pwd@21825,customer,+919592661085,Male,35,Meerut,Uttar Pradesh,2025-12-07,12,1378294.86,Furniture,Platinum
+U0434,Madhuri Kapoor,madhuri.kapoor434@hotmail.com,Pwd@48103,customer,+919617422438,Female,51,Surat,Gujarat,2025-12-27,5,184090.4,Fashion,Platinum
+U0435,Meera Ghosh,meera.ghosh435@gmail.com,Pwd@76932,customer,+919617945491,Female,22,Hyderabad,Telangana,2026-02-22,3,119872.21,Fashion,Platinum
+U0436,Krishna Bhatt,krishna.bhatt436@gmail.com,Pwd@64558,customer,+918597794523,Male,43,Kanpur,Uttar Pradesh,2025-02-09,2,159571.4,Fashion,Platinum
+U0437,Sai Dutta,sai.dutta437@rediffmail.com,Pwd@10766,customer,+919102776974,Male,24,Visakhapatnam,Andhra Pradesh,2026-06-27,8,162185.31,Electronics,Platinum
+U0438,Rashmi Yadav,rashmi.yadav438@yahoo.com,Pwd@35008,customer,+916030372368,Female,26,Ghaziabad,Uttar Pradesh,2024-11-04,3,207595.8,Electronics,Platinum
+U0439,Sai Pillai,sai.pillai439@rediffmail.com,Pwd@25264,customer,+917277707933,Male,48,Chandigarh,Chandigarh,2025-01-05,4,161590.27,Electronics,Platinum
+U0440,Ritu Yadav,ritu.yadav440@gmail.com,Pwd@64484,customer,+919998407678,Female,18,Hyderabad,Telangana,2025-07-14,0,0.0,Furniture,Bronze
+U0441,Riya Kumar,riya.kumar441@hotmail.com,Pwd@82516,customer,+916467179576,Female,45,Bhubaneswar,Odisha,2024-08-26,10,397287.63,Beauty,Platinum
+U0442,Karan Desai,karan.desai442@rediffmail.com,Pwd@76536,customer,+917959724665,Male,40,Nagpur,Maharashtra,2025-11-30,10,683592.85,Books,Platinum
+U0443,Priya Sen,priya.sen443@gmail.com,Pwd@26920,customer,+917329716743,Female,62,Indore,Madhya Pradesh,2025-05-23,3,97649.92,Groceries,Gold
+U0444,Yash Kumar,yash.kumar444@outlook.com,Pwd@32900,customer,+916156193183,Male,34,Delhi,Delhi,2025-08-09,16,836688.94,Home Appliances,Platinum
+U0445,Divya Bansal,divya.bansal445@outlook.com,Pwd@77552,customer,+916077119918,Female,53,Nashik,Maharashtra,2024-09-23,1,71415.0,Home Appliances,Gold
+U0446,Siddharth Reddy,siddharth.reddy446@yahoo.com,Pwd@30582,customer,+918787125521,Male,25,Lucknow,Uttar Pradesh,2026-05-14,1,1661.4,Beauty,Bronze
+U0447,Ashok Chauhan,ashok.chauhan447@outlook.com,Pwd@76194,customer,+917145653286,Male,48,Mumbai,Maharashtra,2025-04-15,5,580466.45,Sports,Platinum
+U0448,Ishaan Rathore,ishaan.rathore448@hotmail.com,Pwd@13901,customer,+919208115562,Male,47,Varanasi,Uttar Pradesh,2025-09-30,5,90436.14,Beauty,Gold
+U0449,Ananya Yadav,ananya.yadav449@yahoo.com,Pwd@92786,customer,+918668455048,Female,59,Bengaluru,Karnataka,2026-06-14,5,368441.64,Electronics,Platinum
+U0450,Sandeep Yadav,sandeep.yadav450@hotmail.com,Pwd@55252,customer,+919341085628,Male,31,Coimbatore,Tamil Nadu,2026-05-28,5,320923.27,Groceries,Platinum
+U0451,Kavya Patel,kavya.patel451@hotmail.com,Pwd@93320,customer,+917008943468,Female,37,Guwahati,Assam,2026-02-23,4,332471.06,Beauty,Platinum
+U0452,Uday Kumar,uday.kumar452@hotmail.com,Pwd@26228,customer,+916174907539,Male,58,Faridabad,Haryana,2025-04-29,4,364696.52,Beauty,Platinum
+U0453,Sunil Pillai,sunil.pillai453@hotmail.com,Pwd@59501,customer,+917158935712,Male,63,Vadodara,Gujarat,2026-06-20,7,387554.45,Home Appliances,Platinum
+U0454,Sunita Patel,sunita.patel454@yahoo.com,Pwd@38152,customer,+919158698864,Female,45,Kolkata,West Bengal,2024-10-09,0,0.0,Groceries,Bronze
+U0455,Pallavi Rathore,pallavi.rathore455@rediffmail.com,Pwd@28919,customer,+917772881377,Female,49,Coimbatore,Tamil Nadu,2026-07-13,7,412621.37,Home Appliances,Platinum
+U0456,Vishal Iyer,vishal.iyer456@rediffmail.com,Pwd@25842,customer,+918940821545,Male,56,Faridabad,Haryana,2024-12-06,3,68852.39,Fashion,Gold
+U0457,Meera Naidu,meera.naidu457@hotmail.com,Pwd@16376,customer,+918432701851,Female,27,Delhi,Delhi,2024-12-31,5,316792.37,Furniture,Platinum
+U0458,Rajesh Trivedi,rajesh.trivedi458@outlook.com,Pwd@72289,customer,+917287772519,Male,46,Ghaziabad,Uttar Pradesh,2026-03-09,4,228634.99,Furniture,Platinum
+U0459,Aditi Kapoor,aditi.kapoor459@gmail.com,Pwd@46356,customer,+916209481813,Female,52,Rajkot,Gujarat,2025-07-20,6,214038.83,Groceries,Platinum
+U0460,Kabir Banerjee,kabir.banerjee460@gmail.com,Pwd@96278,customer,+917043397189,Male,50,Nagpur,Maharashtra,2025-12-07,4,298178.75,Fashion,Platinum
+U0461,Rani Bose,rani.bose461@outlook.com,Pwd@33659,customer,+919085641118,Female,19,Bengaluru,Karnataka,2025-12-23,3,61511.67,Furniture,Gold
+U0462,Manoj Menon,manoj.menon462@yahoo.com,Pwd@63382,customer,+917095200461,Male,23,Kanpur,Uttar Pradesh,2025-04-25,12,404683.08,Sports,Platinum
+U0463,Anika Chauhan,anika.chauhan463@gmail.com,Pwd@36549,customer,+917993788614,Female,42,Ludhiana,Punjab,2025-04-28,7,115013.84,Electronics,Platinum
+U0464,Ravi Bhatt,ravi.bhatt464@gmail.com,Pwd@93039,customer,+917048913824,Male,48,Varanasi,Uttar Pradesh,2024-10-13,17,659585.5,Furniture,Platinum
+U0465,Rekha Patel,rekha.patel465@outlook.com,Pwd@42133,customer,+919870079420,Female,27,Guwahati,Assam,2025-03-03,7,445211.38,Home Appliances,Platinum
+U0466,Kunal Joshi,kunal.joshi466@outlook.com,Pwd@86697,customer,+918028914161,Male,42,Visakhapatnam,Andhra Pradesh,2026-07-04,3,101449.48,Books,Platinum
+U0467,Uday Das,uday.das467@hotmail.com,Pwd@99404,customer,+918474355379,Male,31,Patna,Bihar,2025-10-23,5,324109.06,Beauty,Platinum
+U0468,Aanya Nair,aanya.nair468@gmail.com,Pwd@98172,customer,+917687681180,Female,48,Mumbai,Maharashtra,2026-04-22,3,34035.47,Electronics,Silver
+U0469,Madhuri Rao,madhuri.rao469@outlook.com,Pwd@33224,customer,+916175370304,Female,56,Nashik,Maharashtra,2025-08-27,13,708562.35,Furniture,Platinum
+U0470,Pooja Patel,pooja.patel470@rediffmail.com,Pwd@14822,customer,+918793036149,Female,32,Ghaziabad,Uttar Pradesh,2025-03-21,5,153712.29,Beauty,Platinum
+U0471,Priya Das,priya.das471@hotmail.com,Pwd@18566,customer,+917124938430,Female,65,Nagpur,Maharashtra,2026-06-13,3,388479.52,Home Appliances,Platinum
+U0472,Madhuri Das,madhuri.das472@gmail.com,Pwd@66694,customer,+919418775803,Female,45,Chandigarh,Chandigarh,2024-08-09,8,241228.91,Beauty,Platinum
+U0473,Sanjay Chauhan,sanjay.chauhan473@gmail.com,Pwd@35507,customer,+918190361332,Male,38,Dehradun,Uttarakhand,2025-11-09,1,100608.1,Furniture,Platinum
+U0474,Nisha Singh,nisha.singh474@rediffmail.com,Pwd@87664,customer,+918431735058,Female,48,Pune,Maharashtra,2024-09-04,2,123795.08,Electronics,Platinum
+U0475,Arjun Dutta,arjun.dutta475@rediffmail.com,Pwd@21211,customer,+916065120704,Male,58,Coimbatore,Tamil Nadu,2024-11-12,3,17139.75,Fashion,Silver
+U0476,Diya Reddy,diya.reddy476@outlook.com,Pwd@62649,customer,+916963990767,Female,21,Hyderabad,Telangana,2026-03-02,4,87107.79,Furniture,Gold
+U0477,Simran Sen,simran.sen477@gmail.com,Pwd@77792,customer,+918931109193,Female,59,Pune,Maharashtra,2025-07-20,7,368556.99,Groceries,Platinum
+U0478,Harsh Chatterjee,harsh.chatterjee478@rediffmail.com,Pwd@34369,customer,+917200249685,Male,44,Visakhapatnam,Andhra Pradesh,2025-08-05,5,305008.23,Groceries,Platinum
+U0479,Manisha Mukherjee,manisha.mukherjee479@outlook.com,Pwd@48150,customer,+918089203880,Female,48,Surat,Gujarat,2025-01-04,9,264030.53,Beauty,Platinum
+U0480,Isha Chopra,isha.chopra480@gmail.com,Pwd@34819,customer,+919795995946,Female,30,Nagpur,Maharashtra,2026-05-24,16,496901.53,Beauty,Platinum
+U0481,Priya Reddy,priya.reddy481@yahoo.com,Pwd@93724,customer,+917379337563,Female,49,Chandigarh,Chandigarh,2024-09-19,4,51201.62,Electronics,Gold
+U0482,Neha Sharma,neha.sharma482@outlook.com,Pwd@82704,customer,+916247395003,Female,22,Faridabad,Haryana,2024-08-17,2,12884.97,Electronics,Bronze
+U0483,Manoj Iyengar,manoj.iyengar483@yahoo.com,Pwd@82680,customer,+917230241026,Male,64,Thane,Maharashtra,2025-05-02,7,368982.71,Beauty,Platinum
+U0484,Anil Malhotra,anil.malhotra484@outlook.com,Pwd@96626,customer,+917896112233,Male,33,Ghaziabad,Uttar Pradesh,2025-11-17,20,1374672.14,Beauty,Platinum
+U0485,Rashmi Pandey,rashmi.pandey485@yahoo.com,Pwd@90744,customer,+917842530428,Female,45,Ludhiana,Punjab,2026-04-12,5,238543.5,Electronics,Platinum
+U0486,Kavya Patel,kavya.patel486@gmail.com,Pwd@76665,customer,+919857872558,Female,57,Mysuru,Karnataka,2026-06-17,2,122729.59,Home Appliances,Platinum
+U0487,Sarika Naidu,sarika.naidu487@rediffmail.com,Pwd@37158,customer,+917373634669,Female,55,Mysuru,Karnataka,2025-05-08,11,489552.04,Electronics,Platinum
+U0488,Prakash Shah,prakash.shah488@outlook.com,Pwd@78002,customer,+918390789567,Male,23,Kolkata,West Bengal,2024-12-22,1,17483.2,Groceries,Silver
+U0489,Kavita Chauhan,kavita.chauhan489@outlook.com,Pwd@13239,customer,+917734151488,Female,38,Faridabad,Haryana,2025-12-29,2,230787.6,Furniture,Platinum
+U0490,Sanjay Kapoor,sanjay.kapoor490@outlook.com,Pwd@81568,customer,+917535444392,Male,22,Pune,Maharashtra,2024-12-06,2,87824.75,Electronics,Gold
+U0491,Saanvi Pillai,saanvi.pillai491@rediffmail.com,Pwd@71866,customer,+917633373898,Female,43,Vadodara,Gujarat,2025-07-27,16,432026.22,Electronics,Platinum
+U0492,Vandana Bhatt,vandana.bhatt492@yahoo.com,Pwd@64747,customer,+917778052924,Female,38,Agra,Uttar Pradesh,2024-11-02,3,100251.72,Furniture,Platinum
+U0493,Varun Mishra,varun.mishra493@rediffmail.com,Pwd@80464,customer,+918590902259,Male,44,Agra,Uttar Pradesh,2025-03-25,9,612669.8,Furniture,Platinum
+U0494,Aditi Malhotra,aditi.malhotra494@rediffmail.com,Pwd@72230,customer,+916597412182,Female,52,Rajkot,Gujarat,2024-10-11,3,54187.45,Books,Gold
+U0495,Sandeep Dutta,sandeep.dutta495@yahoo.com,Pwd@60579,customer,+918334817058,Male,29,Kochi,Kerala,2024-09-03,4,242410.95,Fashion,Platinum
+U0496,Karan Agarwal,karan.agarwal496@gmail.com,Mgr@26926,manager,+919716323467,Male,33,Varanasi,Uttar Pradesh,2025-09-11,0,0.0,Home Appliances,N/A
+U0497,Manisha Chopra,manisha.chopra497@yahoo.com,Mgr@10975,manager,+917716938597,Female,36,Guwahati,Assam,2025-11-19,0,0.0,Groceries,N/A
+U0498,Ritu Gupta,ritu.gupta498@rediffmail.com,Mgr@55453,manager,+918692632967,Female,48,Kolkata,West Bengal,2025-05-28,0,0.0,Furniture,N/A
+U0499,Sandeep Ghosh,sandeep.ghosh499@gmail.com,Mgr@41417,manager,+917484137681,Male,50,Pune,Maharashtra,2025-09-13,0,0.0,Beauty,N/A
+U0500,Abhishek Reddy,abhishek.reddy500@rediffmail.com,Mgr@31605,manager,+918380701765,Male,41,Guwahati,Assam,2025-07-06,0,0.0,Furniture,N/A
