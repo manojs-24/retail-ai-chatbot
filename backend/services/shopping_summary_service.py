@@ -1,14 +1,4 @@
 """
-Shopping Summary Service
-========================
-Focused service for computing personalised shopping statistics for a
-single customer.  All functions are thin wrappers around ORM queries —
-no Pandas required (aggregations are done in SQLite via SQLAlchemy).
-
-These functions are intentionally kept separate from the main dashboard
-service so the LangGraph customer SQL node can call them independently
-without triggering a full dashboard rebuild.
-
 Functions
 ---------
 - get_spending_by_month(user_id)    — monthly spending time-series
@@ -35,17 +25,7 @@ logger = get_logger(__name__)
 
 
 def get_spending_by_month(db: Session, user_id: str) -> list[dict]:
-    """
-    Return the customer's total spending grouped by calendar month.
 
-    Args:
-        db:      Active SQLAlchemy session.
-        user_id: Customer identifier.
-
-    Returns:
-        List of dicts with ``label`` (e.g. ``"Jan 2025"``), ``spent``,
-        ``order_count``.  Sorted chronologically (oldest first).
-    """
     logger.debug("ShoppingSummaryService.get_spending_by_month — user_id=%s", user_id)
     rows = (
         db.query(
@@ -73,16 +53,7 @@ def get_spending_by_month(db: Session, user_id: str) -> list[dict]:
 
 
 def get_spending_by_category(db: Session, user_id: str) -> list[dict]:
-    """
-    Return the customer's total spending grouped by product category.
 
-    Args:
-        db:      Active SQLAlchemy session.
-        user_id: Customer identifier.
-
-    Returns:
-        List of dicts with ``category`` and ``spent``, sorted desc by spend.
-    """
     logger.debug("ShoppingSummaryService.get_spending_by_category — user_id=%s", user_id)
     rows = (
         db.query(
@@ -100,17 +71,7 @@ def get_spending_by_category(db: Session, user_id: str) -> list[dict]:
 
 
 def get_brand_summary(db: Session, user_id: str, limit: int = 10) -> list[dict]:
-    """
-    Return the customer's most-purchased brands by total units ordered.
 
-    Args:
-        db:      Active SQLAlchemy session.
-        user_id: Customer identifier.
-        limit:   Number of brands to return.
-
-    Returns:
-        List of dicts with ``brand``, ``units_bought``, ``total_spent``.
-    """
     logger.debug("ShoppingSummaryService.get_brand_summary — user_id=%s", user_id)
     rows = (
         db.query(
@@ -137,16 +98,7 @@ def get_brand_summary(db: Session, user_id: str, limit: int = 10) -> list[dict]:
 
 
 def get_payment_method_summary(db: Session, user_id: str) -> list[dict]:
-    """
-    Return a breakdown of orders by payment method for *user_id*.
 
-    Args:
-        db:      Active SQLAlchemy session.
-        user_id: Customer identifier.
-
-    Returns:
-        List of dicts with ``payment_method`` and ``count``.
-    """
     logger.debug("ShoppingSummaryService.get_payment_method_summary — user_id=%s", user_id)
     rows = (
         db.query(
@@ -162,16 +114,7 @@ def get_payment_method_summary(db: Session, user_id: str) -> list[dict]:
 
 
 def get_delivery_status_summary(db: Session, user_id: str) -> list[dict]:
-    """
-    Return a count of orders by delivery status for *user_id*.
 
-    Args:
-        db:      Active SQLAlchemy session.
-        user_id: Customer identifier.
-
-    Returns:
-        List of dicts with ``status`` and ``count``.
-    """
     logger.debug("ShoppingSummaryService.get_delivery_status_summary — user_id=%s", user_id)
     rows = (
         db.query(
@@ -186,16 +129,7 @@ def get_delivery_status_summary(db: Session, user_id: str) -> list[dict]:
 
 
 def get_savings_summary(db: Session, user_id: str) -> dict:
-    """
-    Return total discount savings for *user_id* across all orders.
 
-    Args:
-        db:      Active SQLAlchemy session.
-        user_id: Customer identifier.
-
-    Returns:
-        Dict with ``total_savings`` (float).
-    """
     logger.debug("ShoppingSummaryService.get_savings_summary — user_id=%s", user_id)
     val = (
         db.query(func.coalesce(func.sum(OrderItem.discount), 0))
@@ -207,18 +141,7 @@ def get_savings_summary(db: Session, user_id: str) -> dict:
 
 
 def get_trending_products(db: Session, limit: int = 10) -> list[dict]:
-    """
-    Return the top-selling active products across the entire store.
 
-    This is a store-wide query — no user_id filter.
-
-    Args:
-        db:    Active SQLAlchemy session.
-        limit: Number of products to return.
-
-    Returns:
-        List of dicts with product fields and ``units_sold``.
-    """
     logger.debug("ShoppingSummaryService.get_trending_products — limit=%d", limit)
     rows = (
         db.query(

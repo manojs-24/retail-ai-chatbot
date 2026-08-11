@@ -1,19 +1,3 @@
-"""
-Shared RAG node.
-
-Used by both the customer graph and the manager graph — do NOT duplicate
-this logic.  The node:
-
-1. Calls :func:`~backend.rag.retriever.get_retriever` to fetch the top-K
-   most relevant policy document chunks.
-2. Formats the retrieved context into a prompt.
-3. Calls the OpenAI chat model to synthesise a grounded answer.
-4. Returns ``retrieved_documents`` and ``response`` merged into the state.
-
-If no relevant context is found, the node responds politely that the
-information is not currently available in the knowledge base.
-"""
-
 from __future__ import annotations
 
 import logging
@@ -31,9 +15,7 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # System prompt — strictly grounds the LLM in the retrieved context.
-# ---------------------------------------------------------------------------
 _SYSTEM_PROMPT = """You are a helpful retail assistant for RetailHub Technologies.
 Answer the user's question ONLY using the context provided below.
 If the answer is not found in the context, respond with:
@@ -45,29 +27,11 @@ Be concise, friendly, and professional."""
 
 
 def rag_node(state: dict[str, Any]) -> dict[str, Any]:
-    """
-    Shared RAG node — retrieves relevant policy documents and generates an answer.
 
-    This node is intentionally generic: it operates on any state dict that
-    carries a ``"query"`` key, making it reusable across both the customer
-    and manager graphs.
-
-    Args:
-        state: The current LangGraph state dict.  Must contain ``"query"``.
-
-    Returns:
-        A partial state dict with:
-
-        - ``retrieved_documents`` — list of dicts, each with
-          ``"page_content"`` and ``"metadata"`` keys.
-        - ``response`` — the LLM-generated answer grounded in the retrieved context.
-    """
     query: str = state.get("query", "")
     logger.info("RAG node — query=%r", query[:80])
 
-    # ------------------------------------------------------------------
     # 1. Retrieve relevant chunks from ChromaDB.
-    # ------------------------------------------------------------------
     retriever = get_retriever()
     docs = retriever.invoke(query)
 
@@ -79,9 +43,7 @@ def rag_node(state: dict[str, Any]) -> dict[str, Any]:
     ]
     logger.info("RAG node — retrieved %d document chunks", len(serialised_docs))
 
-    # ------------------------------------------------------------------
     # 2. Build a grounded context string from the retrieved chunks.
-    # ------------------------------------------------------------------
     if serialised_docs:
         context_parts: list[str] = []
         for i, doc in enumerate(serialised_docs, start=1):
@@ -94,9 +56,7 @@ def rag_node(state: dict[str, Any]) -> dict[str, Any]:
     else:
         context = ""
 
-    # ------------------------------------------------------------------
     # 3. Call the LLM to generate a grounded answer.
-    # ------------------------------------------------------------------
     api_key = os.environ.get("OPENAI_API_KEY", "")
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=api_key)
 

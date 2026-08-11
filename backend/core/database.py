@@ -35,15 +35,11 @@ Base = declarative_base()
 
 
 def init_db() -> None:
-    """Create all database tables defined in the ORM models."""
-    # Import models here to ensure they are registered on Base.metadata
-    # before create_all is called.
     import backend.models  # noqa: F401
     Base.metadata.create_all(bind=engine)
 
 
 def get_db() -> Generator[Session, None, None]:
-    """FastAPI dependency that yields a database session and closes it afterwards."""
     db = SessionLocal()
     try:
         yield db

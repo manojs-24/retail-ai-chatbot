@@ -1,27 +1,3 @@
-"""
-Recommendation Service
-======================
-Service layer for personalised product recommendations.
-
-Current strategy (Phase 1)
---------------------------
-1. Fetch active products in the customer's ``preferred_category``,
-   sorted by ``total_sold`` descending.
-2. Fill any remaining slots (up to *limit*) with globally top-selling
-   products not already in the list.
-
-This two-tier approach is intentionally decoupled behind a clean interface
-so the entire algorithm can be swapped for a collaborative-filtering or
-ML-based model in a future phase without any changes to the UI layer.
-
-Future phases
--------------
-- Collaborative filtering  (user × product purchase matrix)
-- Content-based filtering  (purchase history, browsing patterns)
-- LangGraph recommendation agent with tool calls
-- scikit-learn / LightFM model integration
-"""
-
 from __future__ import annotations
 
 import logging
@@ -134,23 +110,11 @@ def recommend_for_customer(
     user_id: str,
     limit: int = 8,
 ) -> dict:
-    """
-    Backward-compatible alias used by the LangGraph customer SQL tool.
 
-    Args:
-        db:      Active SQLAlchemy session.
-        user_id: Customer identifier.
-        limit:   Max products to return.
-
-    Returns:
-        Same contract as :func:`get_recommended_products`.
-    """
     return get_recommended_products(db, user_id, limit=limit)
 
 
-# ---------------------------------------------------------------------------
 # Private helpers
-# ---------------------------------------------------------------------------
 
 def _get_purchased_product_ids(db: Session, user_id: str) -> set[str]:
     """Return the set of product_ids this customer has already ordered."""

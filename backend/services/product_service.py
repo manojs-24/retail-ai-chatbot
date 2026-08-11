@@ -1,13 +1,3 @@
-"""
-Product Service
-===============
-Business logic layer for product-related operations.
-
-Orchestrates calls to :class:`~backend.repositories.product_repository.ProductRepository`
-and :class:`~backend.repositories.review_repository.ReviewRepository`,
-and returns clean Python dicts ready for LLM consumption.
-"""
-
 from __future__ import annotations
 
 import logging
@@ -34,21 +24,7 @@ class ProductService:
     def search_products(
         self, db: Session, keyword: str, limit: int = 10
     ) -> dict:
-        """
-        Search for active products matching *keyword* and return results
-        enriched with review stats.
 
-        Args:
-            db:      Active SQLAlchemy session.
-            keyword: Search term applied across name, brand, category,
-                     and sub_category.
-            limit:   Maximum number of results.
-
-        Returns:
-            Dict with ``keyword``, ``count``, and ``products`` list.
-            Each product dict contains full product fields plus
-            ``avg_rating`` and ``review_count``.
-        """
         logger.info(
             "ProductService.search_products — keyword=%r limit=%d", keyword, limit
         )
@@ -80,17 +56,7 @@ class ProductService:
         return {"keyword": keyword, "count": len(results), "products": results}
 
     def get_product_details(self, db: Session, product_id: str) -> dict | None:
-        """
-        Return full product details with aggregate review statistics.
 
-        Args:
-            db:         Active SQLAlchemy session.
-            product_id: Product identifier.
-
-        Returns:
-            Dict with product fields plus ``avg_rating`` and ``review_count``,
-            or ``None`` if the product does not exist.
-        """
         logger.info(
             "ProductService.get_product_details — product_id=%s", product_id
         )
@@ -126,20 +92,7 @@ class ProductService:
     def get_product_reviews(
         self, db: Session, product_id: str, limit: int = 10
     ) -> dict:
-        """
-        Return recent customer reviews for a product.
 
-        Args:
-            db:         Active SQLAlchemy session.
-            product_id: Product identifier.
-            limit:      Maximum number of reviews to return (default 10).
-
-        Returns:
-            Dict with ``product_id``, ``count``, ``avg_rating``,
-            ``review_count``, and ``reviews`` list.  Each review dict
-            contains ``review_id``, ``user_id``, ``rating``, ``review_text``,
-            ``sentiment``, and ``review_date``.
-        """
         logger.info(
             "ProductService.get_product_reviews — product_id=%s limit=%d",
             product_id, limit,

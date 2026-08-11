@@ -1,0 +1,325 @@
+[
+  {
+    "id": "c01",
+    "role": "customer",
+    "query": "Tell me about product P0023",
+    "expected_intent": "PRODUCT_INFO",
+    "expected_product_id": "P0023",
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Customer product info by explicit ID"
+  },
+  {
+    "id": "c02",
+    "role": "customer",
+    "query": "What are the details of P0045?",
+    "expected_intent": "PRODUCT_INFO",
+    "expected_product_id": "P0045",
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Customer product info by explicit ID (alternate format)"
+  },
+  {
+    "id": "c03",
+    "role": "customer",
+    "query": "Show reviews for P0023",
+    "expected_intent": "PRODUCT_REVIEW",
+    "expected_product_id": "P0023",
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Customer product reviews by explicit ID"
+  },
+  {
+    "id": "c04",
+    "role": "customer",
+    "query": "What do customers say about P0010?",
+    "expected_intent": "PRODUCT_REVIEW",
+    "expected_product_id": "P0010",
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Customer product reviews (natural phrasing)"
+  },
+  {
+    "id": "c05",
+    "role": "customer",
+    "query": "Show my order ORD00001",
+    "expected_intent": "ORDER_DETAILS",
+    "expected_product_id": null,
+    "expected_order_id": "ORD00001",
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Customer order details by explicit order ID"
+  },
+  {
+    "id": "c06",
+    "role": "customer",
+    "query": "What is the status of order ORD00002?",
+    "expected_intent": "ORDER_DETAILS",
+    "expected_product_id": null,
+    "expected_order_id": "ORD00002",
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Customer order status query"
+  },
+  {
+    "id": "c07",
+    "role": "customer",
+    "query": "Show my purchase history",
+    "expected_intent": "PURCHASE_HISTORY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Customer purchase history"
+  },
+  {
+    "id": "c08",
+    "role": "customer",
+    "query": "What have I bought before?",
+    "expected_intent": "PURCHASE_HISTORY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Customer past orders (natural phrasing)"
+  },
+  {
+    "id": "c09",
+    "role": "customer",
+    "query": "What is your return policy?",
+    "expected_intent": "POLICY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "rag_node",
+    "description": "Customer policy query — should route to RAG"
+  },
+  {
+    "id": "c10",
+    "role": "customer",
+    "query": "Recommend me some products",
+    "expected_intent": "RECOMMENDATION",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "recommendation_node",
+    "description": "Customer product recommendation"
+  },
+  {
+    "id": "m01",
+    "role": "manager",
+    "query": "Tell me about product P0023",
+    "expected_intent": "PRODUCT_INFO",
+    "expected_product_id": "P0023",
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Manager product info by explicit ID"
+  },
+  {
+    "id": "m02",
+    "role": "manager",
+    "query": "Show reviews for P0050",
+    "expected_intent": "PRODUCT_REVIEW",
+    "expected_product_id": "P0050",
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Manager product reviews"
+  },
+  {
+    "id": "m03",
+    "role": "manager",
+    "query": "What is the current inventory status?",
+    "expected_intent": "INVENTORY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Manager inventory query"
+  },
+  {
+    "id": "m04",
+    "role": "manager",
+    "query": "Show order ORD00001",
+    "expected_intent": "ORDER_DETAILS",
+    "expected_product_id": null,
+    "expected_order_id": "ORD00001",
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Manager order details"
+  },
+  {
+    "id": "m05",
+    "role": "manager",
+    "query": "Show me the purchase history of customer U0001",
+    "expected_intent": "CUSTOMER_PURCHASE_HISTORY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": "U0001",
+    "expected_route": "sql_node",
+    "description": "Manager customer purchase history"
+  },
+  {
+    "id": "m06",
+    "role": "manager",
+    "query": "Show me the profile of customer U0002",
+    "expected_intent": "CUSTOMER_DETAILS",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": "U0002",
+    "expected_route": "sql_node",
+    "description": "Manager customer details"
+  },
+  {
+    "id": "m07",
+    "role": "manager",
+    "query": "What are our total sales this month?",
+    "expected_intent": "SALES_ANALYTICS",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "analytics_node",
+    "description": "Manager sales analytics"
+  },
+  {
+    "id": "m08",
+    "role": "manager",
+    "query": "Who are our top spending customers?",
+    "expected_intent": "CUSTOMER_ANALYTICS",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "analytics_node",
+    "description": "Manager customer analytics"
+  },
+  {
+    "id": "m09",
+    "role": "manager",
+    "query": "Which products are selling the most?",
+    "expected_intent": "PRODUCT_ANALYTICS",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "analytics_node",
+    "description": "Manager product analytics"
+  },
+  {
+    "id": "m10",
+    "role": "manager",
+    "query": "Give me a business summary",
+    "expected_intent": "BUSINESS_SUMMARY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "analytics_node",
+    "description": "Manager business summary / KPI dashboard"
+  },
+  {
+    "id": "m11",
+    "role": "manager",
+    "query": "Forecast next month's revenue",
+    "expected_intent": "FORECAST",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "forecast_node",
+    "description": "Manager sales forecast"
+  },
+  {
+    "id": "m12",
+    "role": "manager",
+    "query": "What is the return policy?",
+    "expected_intent": "POLICY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "rag_node",
+    "description": "Manager policy query — should route to RAG"
+  },
+  {
+    "id": "m13",
+    "role": "manager",
+    "query": "Show low-stock items",
+    "expected_intent": "INVENTORY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": null,
+    "expected_route": "sql_node",
+    "description": "Manager low stock inventory check"
+  },
+  {
+    "id": "m14",
+    "role": "manager",
+    "query": "What did customer U0003 buy?",
+    "expected_intent": "CUSTOMER_PURCHASE_HISTORY",
+    "expected_product_id": null,
+    "expected_order_id": null,
+    "expected_user_id": "U0003",
+    "expected_route": "sql_node",
+    "description": "Manager customer purchase history (natural phrasing)"
+  },
+  {
+    "id": "conv01",
+    "role": "customer",
+    "description": "Conversational: pronoun resolution — reviews should resolve to P0023",
+    "turns": [
+      {
+        "user": "Tell me about product P0023",
+        "expected_intent": "PRODUCT_INFO",
+        "expected_product_id": "P0023"
+      },
+      {
+        "user": "Give its reviews",
+        "expected_intent": "PRODUCT_REVIEW",
+        "expected_product_id": "P0023",
+        "note": "product_id must be resolved from prior context"
+      }
+    ]
+  },
+  {
+    "id": "conv02",
+    "role": "customer",
+    "description": "Conversational: switch product — reviews should resolve to latest product P0045",
+    "turns": [
+      {
+        "user": "Tell me about P0023",
+        "expected_intent": "PRODUCT_INFO",
+        "expected_product_id": "P0023"
+      },
+      {
+        "user": "Tell me about P0045",
+        "expected_intent": "PRODUCT_INFO",
+        "expected_product_id": "P0045"
+      },
+      {
+        "user": "Give its reviews",
+        "expected_intent": "PRODUCT_REVIEW",
+        "expected_product_id": "P0045",
+        "note": "product_id must resolve to MOST RECENT product P0045, not P0023"
+      }
+    ]
+  },
+  {
+    "id": "conv03",
+    "role": "manager",
+    "description": "Conversational manager: order then context reference",
+    "turns": [
+      {
+        "user": "Show me order ORD00002",
+        "expected_intent": "ORDER_DETAILS",
+        "expected_order_id": "ORD00002"
+      },
+      {
+        "user": "Who is the customer for this order?",
+        "expected_intent": "ORDER_DETAILS",
+        "expected_order_id": "ORD00002",
+        "note": "order_id must be resolved from prior context"
+      }
+    ]
+  }
+]

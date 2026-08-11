@@ -1,20 +1,7 @@
-"""
-Streamlit frontend entry point — Home / Landing page.
-
-Run locally with::
-
-    uv run streamlit run frontend/Home.py --server.port 8501
-"""
-
 from __future__ import annotations
-
 import streamlit as st
+from frontend.utils.auth import hide_streamlit_nav, is_logged_in, get_role
 
-from frontend.utils.auth import is_logged_in, get_role
-
-# ---------------------------------------------------------------------------
-# Page configuration (must be the very first Streamlit call)
-# ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="Retail AI System",
     page_icon="🛒",
@@ -22,18 +9,19 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# ---------------------------------------------------------------------------
-# If already logged in, redirect straight to the correct dashboard
-# ---------------------------------------------------------------------------
+hide_streamlit_nav()
+st.markdown(
+    "<style>[data-testid='stSidebar']{display:none}</style>",
+    unsafe_allow_html=True,
+)
+
 if is_logged_in():
     if get_role() == "manager":
         st.switch_page("pages/ManagerDashboard.py")
     else:
         st.switch_page("pages/CustomerDashboard.py")
 
-# ---------------------------------------------------------------------------
-# Header
-# ---------------------------------------------------------------------------
+
 st.markdown(
     "<h1 style='text-align:center;'>🛒 Retail AI System</h1>",
     unsafe_allow_html=True,
@@ -47,9 +35,7 @@ st.markdown(
 
 st.divider()
 
-# ---------------------------------------------------------------------------
-# Feature highlights
-# ---------------------------------------------------------------------------
+
 st.markdown("### 🚀 What You Can Do")
 
 st.info(
@@ -63,9 +49,7 @@ st.info(
 
 st.divider()
 
-# ---------------------------------------------------------------------------
-# Login button — navigates to the Login page
-# ---------------------------------------------------------------------------
+
 col_left, col_center, col_right = st.columns([1, 2, 1])
 with col_center:
     if st.button("🔐 Login", width='stretch', type="primary"):
@@ -73,9 +57,7 @@ with col_center:
 
 st.divider()
 
-# ---------------------------------------------------------------------------
-# Footer
-# ---------------------------------------------------------------------------
+
 st.markdown(
     "<p style='text-align:center; color:#aaa; font-size:0.8rem;'>"
     "Retail AI System · v1.0.0 · Powered by LangChain &amp; FastAPI"

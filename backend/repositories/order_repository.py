@@ -1,10 +1,4 @@
-"""
-Order Repository
-================
-Pure data-access layer for the ``orders`` and ``order_items`` tables.
 
-No business logic lives here.
-"""
 
 from __future__ import annotations
 
@@ -19,32 +13,16 @@ logger = get_logger(__name__)
 
 
 class OrderRepository:
-    """
-    Data-access layer for :class:`~backend.models.models.Order` and
-    :class:`~backend.models.models.OrderItem` records.
-    """
 
-    # ------------------------------------------------------------------
     # Order queries
-    # ------------------------------------------------------------------
-
+  
     def get_orders_by_user(
         self,
         db: Session,
         user_id: str,
         limit: int | None = None,
     ) -> list[Order]:
-        """
-        Return all orders belonging to *user_id*, sorted newest first.
 
-        Args:
-            db:      Active SQLAlchemy session.
-            user_id: Customer identifier.
-            limit:   If provided, return only the *limit* most recent orders.
-
-        Returns:
-            List of :class:`~backend.models.models.Order` objects.
-        """
         logger.debug(
             "OrderRepository.get_orders_by_user — user_id=%s limit=%s",
             user_id, limit,
@@ -59,16 +37,7 @@ class OrderRepository:
         return q.all()
 
     def get_order_by_id(self, db: Session, order_id: str) -> Order | None:
-        """
-        Fetch a single order by primary key.
 
-        Args:
-            db:       Active SQLAlchemy session.
-            order_id: Order identifier (e.g. ``"ORD00001"``).
-
-        Returns:
-            :class:`~backend.models.models.Order` object, or ``None``.
-        """
         logger.debug("OrderRepository.get_order_by_id — order_id=%s", order_id)
         return db.query(Order).filter(Order.order_id == order_id).first()
 
@@ -81,16 +50,7 @@ class OrderRepository:
         db: Session,
         order_id: str,
     ) -> list[tuple[OrderItem, Product]]:
-        """
-        Return all line items for *order_id* joined with their product rows.
-
-        Args:
-            db:       Active SQLAlchemy session.
-            order_id: Order identifier.
-
-        Returns:
-            List of ``(OrderItem, Product)`` tuples.
-        """
+ 
         logger.debug(
             "OrderRepository.get_items_with_products — order_id=%s", order_id
         )
@@ -106,13 +66,7 @@ class OrderRepository:
     # ------------------------------------------------------------------
 
     def sales_summary(self, db: Session) -> dict:
-        """
-        Compute store-wide sales statistics.
-
-        Returns:
-            Dict with keys ``total_revenue``, ``total_orders``,
-            ``avg_order_value``.
-        """
+  
         logger.debug("OrderRepository.sales_summary")
         total_revenue = (
             db.query(func.coalesce(func.sum(Order.total_amount), 0)).scalar()
@@ -128,13 +82,7 @@ class OrderRepository:
         }
 
     def monthly_sales(self, db: Session) -> list[dict]:
-        """
-        Group orders by calendar year-month, newest first.
 
-        Returns:
-            List of dicts with keys ``year``, ``month``, ``order_count``,
-            ``revenue``.
-        """
         logger.debug("OrderRepository.monthly_sales")
         rows = (
             db.query(
@@ -165,17 +113,7 @@ class OrderRepository:
         db: Session,
         order_id: str,
     ) -> dict | None:
-        """
-        Return full order details including line items — manager view (no ownership check).
 
-        Args:
-            db:       Active SQLAlchemy session.
-            order_id: Order identifier (e.g. ``"ORD00123"``).
-
-        Returns:
-            Dict with order header fields, ``customer_id``, and ``items`` list,
-            or ``None`` if the order does not exist.
-        """
         logger.debug(
             "OrderRepository.get_order_details_for_manager — order_id=%s", order_id
         )
@@ -209,16 +147,7 @@ class OrderRepository:
         }
 
     def revenue_by_category(self, db: Session) -> list[dict]:
-        """
-        Return total revenue and order count grouped by product category.
 
-        Args:
-            db: Active SQLAlchemy session.
-
-        Returns:
-            List of dicts with ``category``, ``revenue``, ``order_count``,
-            sorted by revenue descending.
-        """
         from backend.models.models import Product  # avoid circular at module level
         logger.debug("OrderRepository.revenue_by_category")
         rows = (
@@ -244,16 +173,7 @@ class OrderRepository:
         ]
 
     def top_revenue_products(self, db: Session, limit: int = 10) -> list[dict]:
-        """
-        Return top products ranked by total revenue generated (not just units).
 
-        Args:
-            db:    Active SQLAlchemy session.
-            limit: Maximum rows to return.
-
-        Returns:
-            List of dicts with product details plus ``revenue`` and ``units_sold``.
-        """
         from backend.models.models import Product
         logger.debug("OrderRepository.top_revenue_products — limit=%d", limit)
         rows = (
@@ -287,16 +207,7 @@ class OrderRepository:
         ]
 
     def highest_spending_customers(self, db: Session, limit: int = 10) -> list[dict]:
-        """
-        Return customers ranked by total amount spent.
 
-        Args:
-            db:    Active SQLAlchemy session.
-            limit: Maximum rows to return.
-
-        Returns:
-            List of dicts with ``user_id``, ``total_spent``, ``order_count``.
-        """
         logger.debug("OrderRepository.highest_spending_customers — limit=%d", limit)
         rows = (
             db.query(
@@ -319,16 +230,7 @@ class OrderRepository:
         ]
 
     def customer_order_stats(self, db: Session, user_id: str) -> dict:
-        """
-        Per-customer order statistics.
 
-        Args:
-            db:      Active SQLAlchemy session.
-            user_id: Customer identifier.
-
-        Returns:
-            Dict with ``total_orders``, ``total_spent``, ``avg_order_value``.
-        """
         logger.debug(
             "OrderRepository.customer_order_stats — user_id=%s", user_id
         )

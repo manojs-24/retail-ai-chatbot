@@ -1,29 +1,9 @@
-"""
-Customer Dashboard
-==================
-Personalised dashboard for the authenticated customer.
-
-Sections:
-  1. Welcome card        — name, loyalty, preferred category, member since
-  2. KPI cards           — orders, total spent, reward points, wishlist
-  3. Charts              — monthly spending trend, category pie, order status bar
-  4. Shopping Insights   — rule-based personalised observations (no LLM)
-  5. Order Tables        — recent orders | active orders
-  6. Recent Reviews      — last 5 reviews written by the customer
-  7. Recommendations     — 6 personalised products (category-aware)
-  8. AI Assistant CTA    — prominent button to Customer Chatbot
-
-All data from SQLAlchemy ORM + Pandas. No LLM on this page.
-"""
-
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
-# ---------------------------------------------------------------------------
 # Path + env bootstrap
-# ---------------------------------------------------------------------------
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
@@ -41,9 +21,7 @@ import streamlit as st
 from frontend.utils.auth import clear_session, require_role
 
 
-# ---------------------------------------------------------------------------
 # Page-level helpers  (defined first so they are in scope everywhere below)
-# ---------------------------------------------------------------------------
 
 def _fmt_inr(value: float) -> str:
     """Format a float as a compact Indian Rupee string (e.g. ₹1.5 L, ₹2.3 Cr)."""
@@ -60,30 +38,22 @@ def _loyalty_rate(level: str) -> str:
     return rates.get(level, "1×")
 
 
-# ---------------------------------------------------------------------------
 # Page config (must be the very first Streamlit call)
-# ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="My Dashboard — Retail AI",
     page_icon="🛍️",
     layout="wide",
 )
 
-# ---------------------------------------------------------------------------
 # Guard
-# ---------------------------------------------------------------------------
 require_role("customer")
 
-# ---------------------------------------------------------------------------
 # Lazy backend imports
-# ---------------------------------------------------------------------------
 from backend.core.database import SessionLocal
 from backend.services.customer_dashboard_service import get_dashboard_data
 from backend.services.recommendation_service import get_recommended_products
 
-# ---------------------------------------------------------------------------
 # Custom CSS
-# ---------------------------------------------------------------------------
 st.markdown("""
 <style>
 .kpi-card {
@@ -143,9 +113,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ---------------------------------------------------------------------------
 # Data loader (cached 5 min per user_id)
-# ---------------------------------------------------------------------------
 @st.cache_data(ttl=300, show_spinner=False)
 def _load_data(user_id: str) -> dict:
     db = SessionLocal()
@@ -164,9 +132,7 @@ def _load_recs(user_id: str) -> dict:
         db.close()
 
 
-# ---------------------------------------------------------------------------
 # Load data
-# ---------------------------------------------------------------------------
 _UID: str = st.session_state["user_id"]
 
 with st.spinner("Loading your dashboard…"):
@@ -185,9 +151,7 @@ insights = data["insights"]
 recs     = recs_data.get("recommendations", [])
 
 
-# ---------------------------------------------------------------------------
 # Sidebar
-# ---------------------------------------------------------------------------
 with st.sidebar:
     st.markdown(f"### 👤 {profile['full_name']}")
     st.markdown(f"📧 `{profile['email']}`")
@@ -210,9 +174,9 @@ with st.sidebar:
     st.caption("🛍️ Powered by Retail AI")
 
 
-# ===========================================================================
+
 # HEADER + CTA
-# ===========================================================================
+
 col_title, col_cta = st.columns([3, 1])
 with col_title:
     st.title(f"🛍️ Welcome back, {profile['full_name']}!")
@@ -227,9 +191,9 @@ with col_cta:
 st.divider()
 
 
-# ===========================================================================
+
 # SECTION 1 — WELCOME CARD
-# ===========================================================================
+
 w1, w2, w3, w4 = st.columns(4)
 
 def _welcome_tile(col, icon: str, label: str, value: str) -> None:
@@ -251,9 +215,9 @@ _welcome_tile(w4, "📍", "Location",            f"{profile['city']}, {profile['
 st.markdown("<br>", unsafe_allow_html=True)
 
 
-# ===========================================================================
+
 # SECTION 2 — KPI CARDS
-# ===========================================================================
+
 st.subheader("📊 Your Shopping Summary")
 
 k1, k2, k3, k4 = st.columns(4)
@@ -277,9 +241,9 @@ _kpi(k4, "❤️ Wishlist",           "Coming Soon",                 "Feature in
 st.markdown("<br>", unsafe_allow_html=True)
 
 
-# ===========================================================================
+
 # SECTION 3 — CHARTS
-# ===========================================================================
+
 st.subheader("📈 Spending Analytics")
 
 ch1, ch2, ch3 = st.columns([2, 1.2, 1])
@@ -370,9 +334,9 @@ with ch3:
 st.divider()
 
 
-# ===========================================================================
+
 # SECTION 4 — AI SHOPPING INSIGHTS
-# ===========================================================================
+
 st.subheader("💡 Your Shopping Insights")
 st.caption("Personalised observations based on your purchase history")
 
@@ -386,9 +350,9 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.divider()
 
 
-# ===========================================================================
+
 # SECTION 5 — TABLES
-# ===========================================================================
+
 st.subheader("📋 Your Orders & Reviews")
 
 tab1, tab2, tab3 = st.tabs(["🕐 Recent Orders", "🚚 Active Orders", "⭐ Recent Reviews"])
@@ -459,9 +423,9 @@ with tab3:
 st.divider()
 
 
-# ===========================================================================
+
 # SECTION 6 — PRODUCT RECOMMENDATIONS
-# ===========================================================================
+
 st.subheader("🎯 Recommended For You")
 pref_cat = recs_data.get("preferred_category", "")
 strategy_desc = recs_data.get("strategy_description", "")
@@ -497,9 +461,9 @@ else:
 st.divider()
 
 
-# ===========================================================================
+
 # SECTION 7 — BOTTOM AI ASSISTANT CTA
-# ===========================================================================
+
 cta_l, cta_c, cta_r = st.columns([1, 2, 1])
 with cta_c:
     st.markdown(

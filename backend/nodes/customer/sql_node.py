@@ -1,10 +1,4 @@
 """
-Customer SQL Node
-=================
-LangGraph node for the customer chatbot.
-
-Executes structured database queries via the service + repository stack.
-
 Routing (based on ``state["intent"]``)
 ---------------------------------------
 - ``PURCHASE_HISTORY`` → get_purchase_history()
@@ -13,21 +7,7 @@ Routing (based on ``state["intent"]``)
 - ``PRODUCT_REVIEW``   → get_product_reviews() (product_id from state["entities"])
 - ``RECOMMENDATION``   → recommend_products()
 
-Security
---------
-``user_id`` is ALWAYS taken from ``state["user_id"]`` (the authenticated
-session value).  It is never parsed from the user's message.
 
-Entity extraction
------------------
-All entity values (product_id, order_id, keyword) come from ``state["entities"]``
-which is populated by the intent classifier node.  No regex is run here.
-
-LLM step
---------
-The tool returns structured data.  The LLM's only job is to convert that
-data into a friendly, natural-language response.  No SQL is ever generated
-by the LLM.
 """
 
 from __future__ import annotations
@@ -48,9 +28,7 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # System prompt — LLM narrates structured data, never generates SQL
-# ---------------------------------------------------------------------------
 _SYSTEM_PROMPT = """You are a helpful retail assistant for RetailHub Technologies.
 
 You will be given structured data retrieved from the database.
@@ -65,17 +43,7 @@ Rules:
 
 
 def _narrate(tool_data: dict, query: str, intent: str) -> str:
-    """
-    Send structured *tool_data* to the LLM and return a natural-language response.
 
-    Args:
-        tool_data: The dict returned by the SQL tool function.
-        query:     Original user query (for context).
-        intent:    The classified intent string.
-
-    Returns:
-        LLM-generated natural-language response string.
-    """
     api_key = os.environ.get("OPENAI_API_KEY", "")
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2, api_key=api_key)
 
@@ -95,21 +63,7 @@ def _narrate(tool_data: dict, query: str, intent: str) -> str:
 
 
 def sql_node(state: dict[str, Any]) -> dict[str, Any]:
-    """
-    Customer SQL retrieval node.
 
-    Reads ``state["intent"]``, ``state["user_id"]``, and ``state["entities"]``,
-    calls the appropriate tool function, then uses the LLM to narrate the
-    structured result into a natural-language response.
-
-    Args:
-        state: Current LangGraph state.  Must contain ``"query"``,
-               ``"user_id"``, ``"intent"``, and ``"entities"``.
-
-    Returns:
-        Partial state dict with ``"tool_result"`` (raw JSON string) and
-        ``"response"`` (LLM-narrated natural-language answer).
-    """
     query: str = state.get("query", "")
     user_id: str = state.get("user_id", "")
     intent: str = state.get("intent", CustomerIntent.GENERAL.value)
@@ -129,9 +83,7 @@ def sql_node(state: dict[str, Any]) -> dict[str, Any]:
         intent, product_id, order_id, keyword, user_id,
     )
 
-    # ------------------------------------------------------------------
     # Route to the correct tool function based on intent
-    # ------------------------------------------------------------------
     tool_data: dict | None = None
 
     if intent == CustomerIntent.PURCHASE_HISTORY.value:
@@ -174,9 +126,7 @@ def sql_node(state: dict[str, Any]) -> dict[str, Any]:
     elif intent == CustomerIntent.RECOMMENDATION.value:
         tool_data = customer_sql_tool.recommend_products(user_id)
 
-    # ------------------------------------------------------------------
     # Handle None result (product / order not found or access denied)
-    # ------------------------------------------------------------------
     if tool_data is None:
         response = (
             "I couldn't find the requested information. "
@@ -184,17 +134,13 @@ def sql_node(state: dict[str, Any]) -> dict[str, Any]:
         )
         return {"tool_result": "{}", "response": response}
 
-    # ------------------------------------------------------------------
     # Handle genuinely empty-but-valid results
     # (use `is None` check above; empty dicts are valid data)
-    # ------------------------------------------------------------------
     logger.info(
         "Customer SQL node — tool returned %d top-level keys", len(tool_data)
     )
 
-    # ------------------------------------------------------------------
     # LLM narration — convert structured data to natural language
-    # ------------------------------------------------------------------
     response = _narrate(tool_data, query, intent)
     tool_result = json.dumps(tool_data, default=str)
 

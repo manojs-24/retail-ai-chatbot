@@ -1,11 +1,3 @@
-"""
-Text chunking for the RAG ingestion pipeline.
-
-Splits raw page-level :class:`~langchain_core.documents.Document` objects
-into smaller, overlapping chunks suitable for embedding.  Each chunk is
-enriched with normalised metadata before being returned.
-"""
-
 from __future__ import annotations
 
 import logging
@@ -35,16 +27,7 @@ _DOCUMENT_TYPE_MAP: dict[str, str] = {
 
 
 def _infer_document_type(filename: str) -> str:
-    """
-    Derive a human-readable document type from a PDF filename stem.
 
-    Args:
-        filename: The PDF filename (with or without extension).
-
-    Returns:
-        A human-readable document type string, or ``"Policy Document"``
-        if no mapping is found.
-    """
     stem = Path(filename).stem.lower()
     for key, label in _DOCUMENT_TYPE_MAP.items():
         if key in stem:
@@ -52,45 +35,93 @@ def _infer_document_type(filename: str) -> str:
     return "Policy Document"
 
 
+def _manual_chunk_documents(
+    documents: list[Document],
+    chunk_size: int,
+    chunk_overlap: int,
+) -> list[Document]:
+    """Pure-Python character-window fallback used when RecursiveCharacterTextSplitter raises.
+
+    Slices each document's ``page_content`` into fixed-size windows with the
+    requested overlap.  No third-party splitter is involved so this path cannot
+    itself fail due to library issues.
+
+    Chunks produced here carry ``metadata["fallback_chunking"] = True`` so
+    callers / monitoring can identify them.
+    """
+    chunks: list[Document] = []
+    idx = 0
+    step = max(1, chunk_size - chunk_overlap)
+
+    for doc in documents:
+        text: str = doc.page_content or ""
+        if not text.strip():
+            continue  # skip entirely blank pages
+
+        start = 0
+        while start < len(text):
+            chunk_text = text[start : start + chunk_size]
+            source: str = doc.metadata.get("source", "")
+            filename: str = Path(source).name
+            chunks.append(
+                Document(
+                    page_content=chunk_text,
+                    metadata={
+                        **doc.metadata,
+                        "document_name": filename,
+                        "document_type": _infer_document_type(filename),
+                        "chunk_id": idx,
+                        "fallback_chunking": True,
+                    },
+                )
+            )
+            idx += 1
+            start += step
+
+    logger.warning(
+        "Manual fallback chunking produced %d chunks from %d pages.",
+        len(chunks),
+        len(documents),
+    )
+    return chunks
+
+
 def split_documents(
     documents: list[Document],
     chunk_size: int = CHUNK_SIZE,
     chunk_overlap: int = CHUNK_OVERLAP,
 ) -> list[Document]:
+    """Split *documents* into chunks using RecursiveCharacterTextSplitter.
+
+    If the splitter raises for any reason (e.g. ``None`` page content, bad
+    separator pattern), the call transparently falls back to
+    :func:`_manual_chunk_documents` which is a pure-Python character-window
+    splitter with no external dependencies.
     """
-    Split a list of page-level documents into smaller overlapping chunks.
+    try:
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+            separators=CHUNK_SEPARATORS,
+            length_function=len,
+        )
 
-    Each chunk retains the original ``source`` and ``page`` metadata from
-    its parent document, and gains three additional fields:
+        chunks: list[Document] = splitter.split_documents(documents)
 
-    - ``document_name`` — filename (without directory path).
-    - ``document_type`` — inferred human-readable category.
-    - ``chunk_id``      — sequential integer identifier within the batch.
+        for idx, chunk in enumerate(chunks):
+            source: str = chunk.metadata.get("source", "")
+            filename: str = Path(source).name
+            chunk.metadata["document_name"] = filename
+            chunk.metadata["document_type"] = _infer_document_type(filename)
+            chunk.metadata["chunk_id"] = idx
 
-    Args:
-        documents:     Raw page-level documents from :mod:`backend.rag.loader`.
-        chunk_size:    Maximum character length per chunk.
-        chunk_overlap: Character overlap between consecutive chunks.
+        logger.info("Created %d chunks from %d pages", len(chunks), len(documents))
+        return chunks
 
-    Returns:
-        A list of enriched, chunked :class:`~langchain_core.documents.Document`
-        objects ready for embedding.
-    """
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        separators=CHUNK_SEPARATORS,
-        length_function=len,
-    )
-
-    chunks: list[Document] = splitter.split_documents(documents)
-
-    for idx, chunk in enumerate(chunks):
-        source: str = chunk.metadata.get("source", "")
-        filename: str = Path(source).name
-        chunk.metadata["document_name"] = filename
-        chunk.metadata["document_type"] = _infer_document_type(filename)
-        chunk.metadata["chunk_id"] = idx
-
-    logger.info("Created %d chunks from %d pages", len(chunks), len(documents))
-    return chunks
+    except Exception as exc:
+        logger.warning(
+            "RecursiveCharacterTextSplitter failed (%s) — "
+            "falling back to manual chunking.",
+            exc,
+        )
+        return _manual_chunk_documents(documents, chunk_size, chunk_overlap)

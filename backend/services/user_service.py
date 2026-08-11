@@ -1,11 +1,4 @@
-"""
-User Service
-============
-Business logic layer for user-related operations.
 
-Calls :class:`~backend.repositories.user_repository.UserRepository`
-and returns clean Python dicts ready for LLM consumption or API responses.
-"""
 
 from __future__ import annotations
 
@@ -25,16 +18,7 @@ class UserService:
         self._repo = UserRepository()
 
     def get_customer_profile(self, db: Session, user_id: str) -> dict | None:
-        """
-        Return a customer's profile as a serialisable dict.
 
-        Args:
-            db:      Active SQLAlchemy session.
-            user_id: Customer identifier.
-
-        Returns:
-            Dict with profile fields, or ``None`` if the user does not exist.
-        """
         logger.info("UserService.get_customer_profile — user_id=%s", user_id)
         user = self._repo.get_by_id(db, user_id)
         if user is None:

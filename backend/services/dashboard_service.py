@@ -1,8 +1,4 @@
 """
-Dashboard Service
-=================
-Single entry-point for the Manager Dashboard page.
-
 Assembles *all* data needed in one call:
   1. KPI summary (SQL / Pandas)
   2. Chart data: monthly sales, category revenue, top products
@@ -10,11 +6,6 @@ Assembles *all* data needed in one call:
   4. ML outputs: forecast, demand, inventory risk, segments, sentiment
   5. AI Insights: rule-based, data-driven observations (NO LLM)
 
-Separation of concerns
-----------------------
-This service is completely independent of the chatbot services so that
-the LangGraph manager chatbot can later import individual ML outputs
-without triggering a full dashboard rebuild.
 """
 
 from __future__ import annotations
@@ -50,17 +41,10 @@ _review_repo = ReviewRepository()
 _user_repo = UserRepository()
 
 
-# ---------------------------------------------------------------------------
 # Public API
-# ---------------------------------------------------------------------------
 
 def get_dashboard_data(db: Session) -> dict:
     """
-    Collect and return every data bundle required by the Manager Dashboard.
-
-    Args:
-        db: Active SQLAlchemy session.
-
     Returns:
         Dict with keys:
 
@@ -72,9 +56,9 @@ def get_dashboard_data(db: Session) -> dict:
     """
     logger.info("DashboardService.get_dashboard_data — start")
 
-    # ------------------------------------------------------------------
+    
     # 1. Raw data loads (ORM → plain Python)
-    # ------------------------------------------------------------------
+    
     monthly_raw = _order_repo.monthly_sales(db)
     inv_stats = _product_repo.inventory_stats(db)
     low_stock_products = _product_repo.get_low_stock(db)
@@ -96,9 +80,9 @@ def get_dashboard_data(db: Session) -> dict:
     # Top customers
     top_customers = _load_top_customers(db)
 
-    # ------------------------------------------------------------------
+    
     # 2. KPIs
-    # ------------------------------------------------------------------
+    
     kpis = {
         "total_revenue": sales_raw["total_revenue"],
         "total_revenue_fmt": _fmt_inr(sales_raw["total_revenue"]),
@@ -111,26 +95,26 @@ def get_dashboard_data(db: Session) -> dict:
         "out_of_stock_count": inv_stats["out_of_stock"],
     }
 
-    # ------------------------------------------------------------------
+    
     # 3. Chart data
-    # ------------------------------------------------------------------
+    
     charts = {
         "monthly_sales": _build_monthly_chart(monthly_raw),
         "category_revenue": cat_rev,
         "top_products": top_products_raw[:10],
     }
 
-    # ------------------------------------------------------------------
+    
     # 4. Table data
-    # ------------------------------------------------------------------
+    
     tables = {
         "low_stock_products": [_fmt_low_stock(p) for p in low_stock_products],
         "top_customers": top_customers,
     }
 
-    # ------------------------------------------------------------------
+    
     # 5. ML outputs
-    # ------------------------------------------------------------------
+    
     forecast = sales_forecast.run(monthly_raw)
     demand = demand_prediction.run(top_products_raw)
     inv_risk = inventory_prediction.run(all_products_full, all_order_items)
@@ -147,9 +131,9 @@ def get_dashboard_data(db: Session) -> dict:
         "performance": performance,
     }
 
-    # ------------------------------------------------------------------
+    
     # 6. AI Insights (rule-based, no LLM)
-    # ------------------------------------------------------------------
+    
     insights = _generate_insights(kpis, ml, charts)
 
     logger.info("DashboardService.get_dashboard_data — complete")
@@ -162,9 +146,7 @@ def get_dashboard_data(db: Session) -> dict:
     }
 
 
-# ---------------------------------------------------------------------------
 # Rule-based AI Insights
-# ---------------------------------------------------------------------------
 
 def _generate_insights(kpis: dict, ml: dict, charts: dict) -> list[str]:
     """Generate concise, data-driven business observations without using an LLM."""
@@ -265,9 +247,7 @@ def _generate_insights(kpis: dict, ml: dict, charts: dict) -> list[str]:
     return insights
 
 
-# ---------------------------------------------------------------------------
 # Private data-loading helpers
-# ---------------------------------------------------------------------------
 
 def _load_all_orders(db: Session) -> list[dict]:
     rows = db.query(Order.user_id, Order.order_date, Order.total_amount).all()

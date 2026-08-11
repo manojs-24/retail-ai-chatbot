@@ -1,28 +1,3 @@
-"""
-Input Guard
-===========
-Orchestrates all pre-LLM security and validation checks.
-
-Check pipeline (executed in order — first failure short-circuits):
-    1. Empty query
-    2. Query length  (max 2 000 characters)
-    3. Prompt injection  (via :mod:`injection_guard`)
-    4. SQL injection     (via :mod:`injection_guard`)
-    5. Unsupported topic (off-topic retail check)
-    6. Role-based intent check  (via :mod:`role_guard`)
-    7. Entity ID format validation (via :mod:`validation_guard`)
-
-The public API is :func:`run_input_guard`, which returns a :class:`GuardResult`.
-All individual checkers are also importable for unit testing.
-
-Logging
--------
-Every rejection is logged at WARNING level with:
-    - timestamp (via logging framework)
-    - role
-    - reason
-    - truncated query (first 120 chars)
-"""
 
 from __future__ import annotations
 
@@ -36,14 +11,10 @@ from backend.guardrails.validation_guard import validate_entities, EntityValidat
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # Constants
-# ---------------------------------------------------------------------------
 MAX_QUERY_LENGTH: int = 2_000
 
-# ---------------------------------------------------------------------------
 # Unsupported topic detection
-# ---------------------------------------------------------------------------
 # Keywords that indicate an off-topic query (politics, sports, etc.).
 # Each entry is a lower-cased substring; OR logic — any match → block.
 _OFF_TOPIC_KEYWORDS: frozenset[str] = frozenset({
@@ -152,9 +123,7 @@ def check_unsupported_topic(query: str) -> tuple[bool, str]:
     return False, ""
 
 
-# ---------------------------------------------------------------------------
 # GuardResult dataclass
-# ---------------------------------------------------------------------------
 
 @dataclass
 class GuardResult:
@@ -220,54 +189,54 @@ def run_input_guard(
     entities = entities or {}
     guard = GuardResult(normalised_entities=dict(entities))
 
-    # ------------------------------------------------------------------ #
+    
     # 1. Empty query                                                       #
-    # ------------------------------------------------------------------ #
+    
     guard.guard_checks.append("empty_check")
     blocked, reason = check_empty(query)
     if blocked:
         _reject(guard, reason, role, query, "empty_check")
         return guard
 
-    # ------------------------------------------------------------------ #
+    
     # 2. Query length                                                      #
-    # ------------------------------------------------------------------ #
+    
     guard.guard_checks.append("length_check")
     blocked, reason = check_length(query)
     if blocked:
         _reject(guard, reason, role, query, "length_check")
         return guard
 
-    # ------------------------------------------------------------------ #
+    
     # 3. Prompt injection                                                  #
-    # ------------------------------------------------------------------ #
+    
     guard.guard_checks.append("prompt_injection_check")
     blocked, reason = check_prompt_injection(query)
     if blocked:
         _reject(guard, reason, role, query, "prompt_injection_check")
         return guard
 
-    # ------------------------------------------------------------------ #
+    
     # 4. SQL injection                                                     #
-    # ------------------------------------------------------------------ #
+    
     guard.guard_checks.append("sql_injection_check")
     blocked, reason = check_sql_injection(query)
     if blocked:
         _reject(guard, reason, role, query, "sql_injection_check")
         return guard
 
-    # ------------------------------------------------------------------ #
+    
     # 5. Unsupported topic                                                 #
-    # ------------------------------------------------------------------ #
+    
     guard.guard_checks.append("topic_check")
     blocked, reason = check_unsupported_topic(query)
     if blocked:
         _reject(guard, reason, role, query, "topic_check")
         return guard
 
-    # ------------------------------------------------------------------ #
+    
     # 6. Role-based intent check (only when intent is already known)      #
-    # ------------------------------------------------------------------ #
+    
     if intent:
         guard.guard_checks.append("role_check")
         if role == "customer":
@@ -279,9 +248,9 @@ def run_input_guard(
             _reject(guard, reason, role, query, "role_check")
             return guard
 
-    # ------------------------------------------------------------------ #
+    
     # 7. Entity ID validation                                              #
-    # ------------------------------------------------------------------ #
+    
     if entities:
         guard.guard_checks.append("entity_validation")
         val_result: EntityValidationResult = validate_entities(entities)
@@ -298,9 +267,7 @@ def run_input_guard(
     return guard
 
 
-# ---------------------------------------------------------------------------
 # Internal helper
-# ---------------------------------------------------------------------------
 
 def _reject(
     guard: GuardResult,

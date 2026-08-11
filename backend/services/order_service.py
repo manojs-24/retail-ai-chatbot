@@ -1,17 +1,3 @@
-"""
-Order Service
-=============
-Business logic layer for order-related operations.
-
-Orchestrates calls to :class:`~backend.repositories.order_repository.OrderRepository`
-and returns clean, structured Python dicts ready for LLM consumption.
-
-Security rule enforced here
----------------------------
-All customer-facing methods accept *user_id* and always filter by it.
-``get_order_details`` verifies that the order belongs to the requesting
-user before returning any data.
-"""
 
 from __future__ import annotations
 
@@ -64,19 +50,7 @@ class OrderService:
     # ------------------------------------------------------------------
 
     def get_purchase_history(self, db: Session, user_id: str) -> dict:
-        """
-        Return all orders for *user_id*, sorted newest first.
 
-        The caller must supply the authenticated ``user_id`` from session
-        state — never accept it from user input.
-
-        Args:
-            db:      Active SQLAlchemy session.
-            user_id: Authenticated customer identifier.
-
-        Returns:
-            Dict with ``user_id``, ``total_orders``, and ``orders`` list.
-        """
         logger.info("OrderService.get_purchase_history — user_id=%s", user_id)
         orders = self._repo.get_orders_by_user(db, user_id)
         return {
@@ -86,17 +60,7 @@ class OrderService:
         }
 
     def get_recent_orders(self, db: Session, user_id: str, limit: int = 5) -> dict:
-        """
-        Return the *limit* most recent orders for *user_id*.
 
-        Args:
-            db:      Active SQLAlchemy session.
-            user_id: Authenticated customer identifier.
-            limit:   Number of orders to return (default 5).
-
-        Returns:
-            Dict with ``user_id``, ``count``, and ``orders`` list.
-        """
         logger.info(
             "OrderService.get_recent_orders — user_id=%s limit=%d", user_id, limit
         )
@@ -110,22 +74,7 @@ class OrderService:
     def get_order_details(
         self, db: Session, order_id: str, user_id: str
     ) -> dict | None:
-        """
-        Return full order details including line items and products.
 
-        **Security**: verifies that ``order.user_id == user_id`` before
-        returning any data.  Returns ``None`` if the order does not exist
-        or belongs to a different customer.
-
-        Args:
-            db:       Active SQLAlchemy session.
-            order_id: Order identifier.
-            user_id:  Authenticated customer identifier.
-
-        Returns:
-            Dict with order fields and ``items`` list, or ``None`` on
-            access denial.
-        """
         logger.info(
             "OrderService.get_order_details — order_id=%s user_id=%s",
             order_id, user_id,
@@ -156,16 +105,7 @@ class OrderService:
     def get_order_details_for_manager(
         self, db: Session, order_id: str
     ) -> dict | None:
-        """
-        Return full order details for any order — no ownership check.
 
-        Args:
-            db:       Active SQLAlchemy session.
-            order_id: Order identifier.
-
-        Returns:
-            Dict with order header, customer_id, and items list, or ``None``.
-        """
         logger.info(
             "OrderService.get_order_details_for_manager — order_id=%s", order_id
         )
@@ -174,16 +114,7 @@ class OrderService:
     def get_customer_orders_for_manager(
         self, db: Session, user_id: str
     ) -> dict:
-        """
-        Return all orders for any customer (manager-only).
 
-        Args:
-            db:      Active SQLAlchemy session.
-            user_id: Any customer's identifier.
-
-        Returns:
-            Dict with ``user_id``, ``total_orders``, and ``orders`` list.
-        """
         logger.info(
             "OrderService.get_customer_orders_for_manager — user_id=%s", user_id
         )
@@ -198,30 +129,12 @@ class OrderService:
         }
 
     def get_sales_summary(self, db: Session) -> dict:
-        """
-        Return store-wide sales summary statistics.
 
-        Args:
-            db: Active SQLAlchemy session.
-
-        Returns:
-            Dict with ``total_revenue``, ``total_orders``,
-            ``avg_order_value``.
-        """
         logger.info("OrderService.get_sales_summary")
         return self._repo.sales_summary(db)
 
     def get_monthly_sales(self, db: Session) -> dict:
-        """
-        Return sales grouped by calendar month, newest first.
 
-        Args:
-            db: Active SQLAlchemy session.
-
-        Returns:
-            Dict with ``months`` list, each entry containing ``year``,
-            ``month``, ``order_count``, ``revenue``.
-        """
         logger.info("OrderService.get_monthly_sales")
         months = self._repo.monthly_sales(db)
         return {"months": months, "total_months": len(months)}

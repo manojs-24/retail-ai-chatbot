@@ -1,8 +1,4 @@
 """
-Manager Dashboard
-=================
-Full analytics dashboard for store managers.
-
 Sections:
   1. KPI strip          — Revenue, Orders, Customers, Products, Stock, Low-Stock
   2. Charts row         — Monthly Sales Trend | Category Revenue | Top Products
@@ -11,8 +7,6 @@ Sections:
   5. Data Tables        — Low-Stock Products | Top Customers
   6. AI Assistant CTA   — Prominent button linking to Manager Chatbot
 
-All data comes from SQLAlchemy + Pandas + scikit-learn.
-The LLM is NOT used here — it is reserved for the chatbot page.
 """
 
 from __future__ import annotations
@@ -21,9 +15,9 @@ import sys
 import time
 from pathlib import Path
 
-# ---------------------------------------------------------------------------
+
 # Path + env bootstrap (must run before any backend imports)
-# ---------------------------------------------------------------------------
+
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
@@ -40,29 +34,29 @@ import streamlit as st
 
 from frontend.utils.auth import clear_session, require_role
 
-# ---------------------------------------------------------------------------
+
 # Page config (must be the very first Streamlit call)
-# ---------------------------------------------------------------------------
+
 st.set_page_config(
     page_title="Manager Dashboard — Retail AI",
     page_icon="📊",
     layout="wide",
 )
 
-# ---------------------------------------------------------------------------
+
 # Guard
-# ---------------------------------------------------------------------------
+
 require_role("manager")
 
-# ---------------------------------------------------------------------------
+
 # Lazy backend import (after sys.path is ready)
-# ---------------------------------------------------------------------------
+
 from backend.core.database import SessionLocal
 from backend.services.dashboard_service import get_dashboard_data
 
-# ---------------------------------------------------------------------------
+
 # Custom CSS — tighter KPI cards, coloured badges
-# ---------------------------------------------------------------------------
+
 st.markdown("""
 <style>
 .kpi-card {
@@ -84,9 +78,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ---------------------------------------------------------------------------
+
 # Sidebar
-# ---------------------------------------------------------------------------
+
 with st.sidebar:
     st.markdown(f"### 👤 {st.session_state['full_name']}")
     st.markdown(f"📧 `{st.session_state['email']}`")
@@ -94,6 +88,8 @@ with st.sidebar:
     st.divider()
     if st.button("💬 AI Assistant", width='stretch', type="primary", key="sb_chat"):
         st.switch_page("pages/manager_chat.py")
+    if st.button("🔍 Validation", width='stretch', key="sb_validation"):
+        st.switch_page("pages/Validation.py")
     st.divider()
     if st.button("🔄 Refresh Dashboard", width='stretch', key="sb_refresh"):
         st.cache_data.clear()
@@ -105,9 +101,9 @@ with st.sidebar:
     st.caption("📊 Powered by scikit-learn + SQLAlchemy")
 
 
-# ---------------------------------------------------------------------------
+
 # Load dashboard data (cached 5 min)
-# ---------------------------------------------------------------------------
+
 @st.cache_data(ttl=300, show_spinner=False)
 def _load_data() -> dict:
     db = SessionLocal()
@@ -117,9 +113,9 @@ def _load_data() -> dict:
         db.close()
 
 
-# ---------------------------------------------------------------------------
+
 # Header + AI Assistant CTA
-# ---------------------------------------------------------------------------
+
 col_title, col_cta = st.columns([3, 1])
 with col_title:
     st.title("📊 Store Manager Dashboard")
@@ -135,9 +131,9 @@ with col_cta:
 
 st.divider()
 
-# ---------------------------------------------------------------------------
+
 # Load data with spinner
-# ---------------------------------------------------------------------------
+
 with st.spinner("Loading dashboard data…"):
     data = _load_data()
 
@@ -148,9 +144,9 @@ ml     = data["ml"]
 insights = data["insights"]
 
 
-# ===========================================================================
+
 # SECTION 1 — KPI STRIP
-# ===========================================================================
+
 st.subheader("📈 Key Performance Indicators")
 
 k1, k2, k3, k4, k5, k6 = st.columns(6)
@@ -176,9 +172,9 @@ _kpi(k6, "Stock Status",        f"{kpis['low_stock_count']}, {kpis['out_of_stock
 st.markdown("<br>", unsafe_allow_html=True)
 
 
-# ===========================================================================
+
 # SECTION 2 — CHARTS
-# ===========================================================================
+
 st.subheader("📉 Sales & Inventory Charts")
 
 chart_c1, chart_c2, chart_c3 = st.columns([2, 1, 1])
@@ -253,9 +249,9 @@ with chart_c3:
 st.divider()
 
 
-# ===========================================================================
+
 # SECTION 3 — ML INTELLIGENCE CARDS
-# ===========================================================================
+
 st.subheader("🤖 ML Intelligence")
 
 ml_c1, ml_c2, ml_c3, ml_c4, ml_c5 = st.columns(5)
@@ -348,9 +344,9 @@ with ml_c5:
 st.markdown("<br>", unsafe_allow_html=True)
 
 
-# ===========================================================================
+
 # SECTION 4 — AI INSIGHTS
-# ===========================================================================
+
 st.subheader("💡 AI Insights")
 st.caption("Data-driven business observations — updated every 5 minutes")
 
@@ -364,9 +360,9 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.divider()
 
 
-# ===========================================================================
+
 # SECTION 5 — DATA TABLES
-# ===========================================================================
+
 st.subheader("📋 Data Tables")
 
 tab1, tab2, tab3, tab4 = st.tabs(
@@ -458,9 +454,9 @@ with tab4:
 st.divider()
 
 
-# ===========================================================================
+
 # SECTION 6 — BOTTOM AI ASSISTANT CTA
-# ===========================================================================
+
 cta_l, cta_c, cta_r = st.columns([1, 2, 1])
 with cta_c:
     st.markdown(

@@ -1,27 +1,5 @@
 """
-Manager SQL Tool
-================
-Thin orchestration layer between the LangGraph manager SQL node and the
-service layer.  Every function in this module:
-
-1. Opens a scoped SQLAlchemy session.
-2. Delegates to the appropriate service.
-3. Closes the session in a ``finally`` block.
-4. Returns a plain Python dict (JSON-serialisable).
-
-Access control
---------------
-Managers may retrieve any customer's data.  There are no ownership
-restrictions here — those belong in customer-facing tools only.
-
-Sensitive data rule
--------------------
-NEVER expose passwords, password_hash, api_key, or tokens.
-UserService.get_customer_profile() enforces this — it never serialises
-the password column.
-
 Functions
----------
 - inventory_summary
 - low_stock_products
 - top_selling_products

@@ -19,7 +19,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.core.logging import get_logger, setup_logging
 from backend.core.config import get_settings
 from backend.core.database import init_db
-from backend.rag.chroma import init_chroma
 from backend.api.auth import router as auth_router
 
 settings = get_settings()
@@ -48,7 +47,6 @@ async def lifespan(app: FastAPI):  # type: ignore[type-arg]
         settings.ENVIRONMENT,
     )
     init_db()
-    init_chroma()
     logger.info("Application startup complete.")
 
     yield  # Application runs here.

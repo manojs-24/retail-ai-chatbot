@@ -1,23 +1,3 @@
-"""
-Customer Dashboard Service
-==========================
-Single entry-point for the Customer Dashboard page.
-
-Assembles every data bundle the dashboard needs in one call:
-
-1. Customer profile & welcome card data
-2. KPI cards  — orders, spending, reward points, wishlist placeholder
-3. Chart data — monthly spending trend, category breakdown, order status
-4. Table data — recent orders, active orders, recent reviews
-5. Shopping insights — rule-based, data-driven observations (NO LLM)
-
-Separation of concerns
------------------------
-This service is completely independent of the chatbot so the LangGraph
-customer SQL node can continue to import individual repositories without
-triggering a full dashboard rebuild.
-"""
-
 from __future__ import annotations
 
 import logging
@@ -51,27 +31,10 @@ _LOYALTY_POINTS_RATE: dict[str, float] = {
 }
 
 
-# ---------------------------------------------------------------------------
 # Public API
-# ---------------------------------------------------------------------------
 
 def get_dashboard_data(db: Session, user_id: str) -> dict:
-    """
-    Collect and return every data bundle required by the Customer Dashboard.
 
-    Args:
-        db:      Active SQLAlchemy session.
-        user_id: Authenticated customer identifier from session state.
-
-    Returns:
-        Dict with keys:
-
-        - ``profile``   — welcome card data
-        - ``kpis``      — order count, spend, reward points, wishlist
-        - ``charts``    — monthly spending, category breakdown, order status
-        - ``tables``    — recent orders, active orders, recent reviews
-        - ``insights``  — list[str] rule-based shopping observations
-    """
     logger.info("CustomerDashboardService.get_dashboard_data — user_id=%s", user_id)
 
     user = _user_repo.get_by_id(db, user_id)
@@ -79,9 +42,9 @@ def get_dashboard_data(db: Session, user_id: str) -> dict:
         logger.error("User not found — user_id=%s", user_id)
         return {}
 
-    # ------------------------------------------------------------------
+
     # Raw data loads
-    # ------------------------------------------------------------------
+
     all_orders     = _order_repo.get_orders_by_user(db, user_id)
     recent_orders  = all_orders[:5]
     active_orders  = _get_active_orders(db, user_id)
@@ -94,9 +57,9 @@ def get_dashboard_data(db: Session, user_id: str) -> dict:
     top_brand      = _get_top_brand(db, user_id)
     this_month_cnt = _get_orders_this_month(db, user_id)
 
-    # ------------------------------------------------------------------
+
     # Profile
-    # ------------------------------------------------------------------
+
     profile = {
         "user_id":            user.user_id,
         "full_name":          user.full_name,
@@ -110,9 +73,9 @@ def get_dashboard_data(db: Session, user_id: str) -> dict:
         "age":                user.age or 0,
     }
 
-    # ------------------------------------------------------------------
+
     # KPIs
-    # ------------------------------------------------------------------
+
     total_spent = order_stats["total_spent"]
     loyalty_rate = _LOYALTY_POINTS_RATE.get(user.loyalty_level or "Bronze", 1.0)
     reward_points = int(total_spent / 100 * loyalty_rate)   # ₹100 = base points
@@ -128,27 +91,27 @@ def get_dashboard_data(db: Session, user_id: str) -> dict:
         "total_savings_fmt": _fmt_inr(total_savings),
     }
 
-    # ------------------------------------------------------------------
+
     # Charts
-    # ------------------------------------------------------------------
+
     charts = {
         "monthly_spending": monthly_spend,
         "category_spending": cat_spend,
         "order_status": status_dist,
     }
 
-    # ------------------------------------------------------------------
+
     # Tables
-    # ------------------------------------------------------------------
+
     tables = {
         "recent_orders":  [_fmt_order(o) for o in recent_orders],
         "active_orders":  [_fmt_order(o) for o in active_orders],
         "recent_reviews": recent_reviews,
     }
 
-    # ------------------------------------------------------------------
+
     # Insights
-    # ------------------------------------------------------------------
+
     insights = _generate_insights(
         profile=profile,
         kpis=kpis,
@@ -167,9 +130,7 @@ def get_dashboard_data(db: Session, user_id: str) -> dict:
     }
 
 
-# ---------------------------------------------------------------------------
 # Individual query helpers (usable independently by other services)
-# ---------------------------------------------------------------------------
 
 def get_customer_summary(db: Session, user_id: str) -> dict:
     """
@@ -294,9 +255,7 @@ def get_reward_summary(db: Session, user_id: str) -> dict:
     }
 
 
-# ---------------------------------------------------------------------------
 # Private helpers
-# ---------------------------------------------------------------------------
 
 def _get_active_orders(db: Session, user_id: str) -> list[Order]:
     return (
@@ -465,9 +424,7 @@ def _fmt_inr(value: float) -> str:
     return f"₹{value:,.0f}"
 
 
-# ---------------------------------------------------------------------------
 # Rule-based insights
-# ---------------------------------------------------------------------------
 
 def _generate_insights(
     profile: dict,
@@ -478,8 +435,6 @@ def _generate_insights(
     order_stats: dict,
 ) -> list[str]:
     """
-    Generate concise, personalised shopping insights without using an LLM.
-
     Args:
         profile:        Customer profile dict.
         kpis:           KPI dict from the dashboard data.
@@ -487,9 +442,6 @@ def _generate_insights(
         top_brand:      Most-purchased brand name.
         this_month_cnt: Number of orders placed this calendar month.
         order_stats:    Dict from OrderRepository.customer_order_stats.
-
-    Returns:
-        List of Markdown-formatted insight strings.
     """
     insights: list[str] = []
     loyalty = profile.get("loyalty_level", "Bronze")

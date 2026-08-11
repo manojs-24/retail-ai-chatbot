@@ -1,9 +1,3 @@
-"""
-Customer intent schema.
-
-Defines the :class:`CustomerIntent` enum and the :class:`CustomerIntentOutput`
-Pydantic model used as structured output from the OpenAI intent classifier.
-"""
 
 from __future__ import annotations
 
@@ -14,26 +8,6 @@ from pydantic import BaseModel, Field
 
 
 class CustomerIntent(str, Enum):
-    """
-    All recognised intents for the customer chatbot.
-
-    Values
-    ------
-    POLICY
-        Questions about return, shipping, warranty, or company policies.
-    PRODUCT_INFO
-        Questions about product specifications, features, or availability.
-    PRODUCT_REVIEW
-        Requests to see reviews or ratings for a specific product.
-    PURCHASE_HISTORY
-        Requests for the customer's own past orders.
-    ORDER_DETAILS
-        Questions about a specific order (status, tracking, etc.).
-    RECOMMENDATION
-        Requests for personalised product suggestions.
-    GENERAL
-        Anything that does not fit a specific category (greetings, etc.).
-    """
 
     POLICY = "POLICY"
     PRODUCT_INFO = "PRODUCT_INFO"
@@ -45,26 +19,6 @@ class CustomerIntent(str, Enum):
 
 
 class CustomerIntentOutput(BaseModel):
-    """
-    Structured output model returned by the customer intent classifier LLM call.
-
-    Using a Pydantic model as the ``response_format`` guarantees the LLM
-    always returns valid, typed values.
-
-    Fields
-    ------
-    intent : CustomerIntent
-        The single most-likely intent for the user's query.
-    product_id : str | None
-        Product ID extracted from the query (e.g. ``"P0023"``).
-        Only populated when a product ID pattern is explicitly mentioned.
-    order_id : str | None
-        Order ID extracted from the query (e.g. ``"ORD00123"``).
-        Only populated when an order ID pattern is explicitly mentioned.
-    keyword : str | None
-        The primary search keyword for product searches.
-        Populated for PRODUCT_INFO queries that do not reference a product ID.
-    """
 
     intent: CustomerIntent = Field(
         ..., description="The single most-likely intent for the user's query."

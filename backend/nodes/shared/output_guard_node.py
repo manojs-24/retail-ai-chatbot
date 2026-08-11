@@ -1,23 +1,3 @@
-"""
-Output Guard Node
-=================
-LangGraph node that runs the output guard pipeline *after* all tool nodes
-have completed and written ``state["response"]``.
-
-Position in graph
------------------
-    sql_node / rag_node / … → output_guard_node → response_node → END
-
-Behaviour
----------
-- If a previous guard already blocked the request (``state["guard_blocked"]``
-  is ``True``), the node passes through the existing rejection response
-  unchanged — no scrubbing needed for guard-generated messages.
-- Otherwise, calls :func:`~backend.guardrails.output_guard.run_output_guard`
-  with the current response, tool_result, retrieved_documents, and intent.
-- Overwrites ``state["response"]`` with the sanitised, safe response string.
-"""
-
 from __future__ import annotations
 
 import logging

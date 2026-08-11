@@ -1,25 +1,3 @@
-"""
-Injection Guard
-===============
-Detects two categories of injection attack in raw user input:
-
-1. **Prompt injection** — attempts to override system instructions, leak the
-   system prompt, or jailbreak the model.
-2. **SQL injection** — attempts to embed raw SQL commands in user-facing text
-   fields that could be forwarded to the database or an LLM-as-SQL system.
-
-All checks are pattern-based (regex + keyword sets) — no LLM is called here.
-Both functions return a ``(blocked: bool, reason: str)`` tuple so callers can
-decide how to respond (log, short-circuit, etc.).
-
-Design principles
------------------
-- Pure functions — no side effects other than logging.
-- Case-insensitive matching.
-- Easily extended: add patterns to the module-level sets/lists.
-- Unit-test friendly: pass any string, inspect the tuple.
-"""
-
 from __future__ import annotations
 
 import logging
@@ -27,9 +5,7 @@ import re
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # Prompt-injection pattern registry
-# ---------------------------------------------------------------------------
 # Each entry is a compiled regex.  Patterns are anchored loosely so they
 # match anywhere in the query string (not only at word boundaries).
 _PROMPT_INJECTION_PATTERNS: list[re.Pattern[str]] = [
@@ -54,9 +30,7 @@ _PROMPT_INJECTION_PATTERNS: list[re.Pattern[str]] = [
     re.compile(r"<\s*\|?\s*(system|endoftext|im_start)\s*\|?\s*>", re.I),  # token-stuffing
 ]
 
-# ---------------------------------------------------------------------------
 # SQL-injection keyword/pattern registry
-# ---------------------------------------------------------------------------
 _SQL_KEYWORDS: frozenset[str] = frozenset({
     "select", "drop", "delete", "update", "insert", "union",
     "truncate", "exec", "execute", "xp_", "sp_", "declare",
@@ -79,21 +53,6 @@ _SQL_PATTERNS: list[re.Pattern[str]] = [
 
 
 def check_prompt_injection(query: str) -> tuple[bool, str]:
-    """
-    Scan *query* for prompt-injection patterns.
-
-    Args:
-        query: Raw user input string.
-
-    Returns:
-        ``(True, reason)`` if a prompt-injection attempt is detected,
-        ``(False, "")``    if the query is clean.
-
-    Example::
-
-        blocked, reason = check_prompt_injection("ignore previous instructions")
-        # blocked=True, reason="Prompt injection detected: ..."
-    """
     for pattern in _PROMPT_INJECTION_PATTERNS:
         if pattern.search(query):
             reason = f"Prompt injection detected: matched pattern '{pattern.pattern}'"
@@ -103,24 +62,7 @@ def check_prompt_injection(query: str) -> tuple[bool, str]:
 
 
 def check_sql_injection(query: str) -> tuple[bool, str]:
-    """
-    Scan *query* for SQL-injection patterns.
 
-    Checks both keyword presence (token-level) and structural regex patterns
-    (comment sequences, tautologies, UNION selects, etc.).
-
-    Args:
-        query: Raw user input string.
-
-    Returns:
-        ``(True, reason)`` if a SQL-injection attempt is detected,
-        ``(False, "")``    if the query is clean.
-
-    Example::
-
-        blocked, reason = check_sql_injection("'; DROP TABLE users; --")
-        # blocked=True, reason="SQL injection detected: ..."
-    """
     lowered = query.lower()
 
     # Keyword check — look for isolated SQL keywords that have no business

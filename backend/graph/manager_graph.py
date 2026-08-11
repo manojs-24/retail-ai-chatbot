@@ -1,59 +1,3 @@
-"""
-Manager chatbot LangGraph.
-
-Builds and compiles the StateGraph for the manager-facing chatbot.
-
-Graph topology (with Guardrails)
----------------------------------
-
-    START
-      │
-      ▼
-  input_guard_node          ← blocks empty, injections, off-topic, SQL-injection
-      │
-      ▼  (conditional: guard_blocked?)
-      ├── BLOCKED ──────────────────────────────────────────────────┐
-      │                                                              │
-      ▼                                                              │
-  classify_intent                                                    │
-      │                                                              │
-      ▼                                                              │
-  role_guard_node           ← managers pass all known intents        │
-      │                                                              │
-      ▼  (conditional routing on state["intent"])                    │
-  ┌──────────┬──────────┬───────────────┬──────────────┬────────┐   │
-  │          │          │               │              │        │   │
-POLICY   sql_node  analytics_node  forecast_node   response   │   │
-         (SQL       (SALES,         (FORECAST)      _node      │   │
-         intents)   CUSTOMER,                      (GENERAL)   │   │
-                    PRODUCT,                                    │   │
-                    BUSINESS)                                   │   │
-  │          │          │               │              ▲        │   │
-  └──────────┴──────────┴───────────────┘              │        │   │
-                   │                                   │        │   │
-             output_guard_node ─────────────────────────────────┘   │
-                   │                                                  │
-             response_node ◄───────────────────────────────────────┘
-                   │
-                  END
-
-SQL intents (→ sql_node):
-    INVENTORY, PRODUCT_INFO, PRODUCT_REVIEW, ORDER_DETAILS,
-    CUSTOMER_PURCHASE_HISTORY, CUSTOMER_DETAILS
-
-Analytics intents (→ analytics_node):
-    SALES_ANALYTICS, CUSTOMER_ANALYTICS, PRODUCT_ANALYTICS, BUSINESS_SUMMARY
-
-Forecast intent (→ forecast_node):
-    FORECAST
-
-RAG intent (→ rag_node):
-    POLICY
-
-Direct (→ response_node):
-    GENERAL, BLOCKED
-"""
-
 from __future__ import annotations
 
 import logging
@@ -75,9 +19,7 @@ from backend.state.manager_state import ManagerState
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # Intent → node routing table
-# ---------------------------------------------------------------------------
 _SQL_INTENTS: frozenset[str] = frozenset({
     ManagerIntent.INVENTORY.value,
     ManagerIntent.PRODUCT_INFO.value,
@@ -95,17 +37,9 @@ _ANALYTICS_INTENTS: frozenset[str] = frozenset({
 })
 
 
-# ---------------------------------------------------------------------------
 # Guard routing helpers — pure functions, no side effects
-# ---------------------------------------------------------------------------
 
 def _route_after_input_guard(state: dict[str, Any]) -> str:
-    """
-    Route after the input guard node.
-
-    Blocked → response_node (skip classification and tool nodes entirely).
-    Clean   → classify_intent.
-    """
     if state.get("guard_blocked", False):
         logger.debug("Input guard blocked — routing to response_node")
         return "response_node"
@@ -113,12 +47,6 @@ def _route_after_input_guard(state: dict[str, Any]) -> str:
 
 
 def _route_manager_intent(state: dict[str, Any]) -> str:
-    """
-    Conditional edge — route to the correct node based on classified intent.
-
-    Also handles the guard_blocked flag from role_guard_node: if the role guard
-    blocked the request, jump directly to response_node.
-    """
     if state.get("guard_blocked", False):
         logger.debug("Role guard blocked — routing to response_node")
         return "response_node"
@@ -142,34 +70,13 @@ def _route_manager_intent(state: dict[str, Any]) -> str:
     return "response_node"
 
 
-# ---------------------------------------------------------------------------
 # Graph builder
-# ---------------------------------------------------------------------------
 
 def build_manager_graph() -> Any:
-    """
-    Build and compile the manager chatbot :class:`~langgraph.graph.StateGraph`.
-
-    Node registry
-    ~~~~~~~~~~~~~
-    - ``input_guard_node``  — validates query before any LLM call
-    - ``classify_intent``   — classifies intent + extracts entities (OpenAI)
-    - ``role_guard_node``   — enforces manager role permissions post-classification
-    - ``rag_node``          — retrieves policy docs + generates a grounded answer
-    - ``sql_node``          — SQL-based retrieval (orders, customers, products, inventory)
-    - ``analytics_node``    — Pandas-powered sales/customer/product analytics
-    - ``forecast_node``     — ML-based (LinearRegression) 30-day revenue forecast
-    - ``output_guard_node`` — scrubs sensitive data + handles empty results
-    - ``response_node``     — terminal node that surfaces ``state["response"]``
-
-    Returns:
-        A compiled LangGraph ``CompiledGraph`` ready for ``.invoke()`` calls.
-    """
     graph = StateGraph(ManagerState)
 
-    # ------------------------------------------------------------------
     # Register nodes
-    # ------------------------------------------------------------------
+
     graph.add_node("input_guard_node",  input_guard_node)
     graph.add_node("classify_intent",   classify_intent_node)
     graph.add_node("role_guard_node",   role_guard_node)
@@ -180,14 +87,14 @@ def build_manager_graph() -> Any:
     graph.add_node("output_guard_node", output_guard_node)
     graph.add_node("response_node",     response_node)
 
-    # ------------------------------------------------------------------
+
     # Entry point → input guard
-    # ------------------------------------------------------------------
+
     graph.add_edge(START, "input_guard_node")
 
-    # ------------------------------------------------------------------
+
     # After input guard: blocked → response_node, clean → classify_intent
-    # ------------------------------------------------------------------
+
     graph.add_conditional_edges(
         "input_guard_node",
         _route_after_input_guard,
@@ -197,14 +104,14 @@ def build_manager_graph() -> Any:
         },
     )
 
-    # ------------------------------------------------------------------
+
     # After classification → role guard
-    # ------------------------------------------------------------------
+
     graph.add_edge("classify_intent", "role_guard_node")
 
-    # ------------------------------------------------------------------
+
     # After role guard: route to tool node or short-circuit
-    # ------------------------------------------------------------------
+
     graph.add_conditional_edges(
         "role_guard_node",
         _route_manager_intent,
@@ -217,18 +124,18 @@ def build_manager_graph() -> Any:
         },
     )
 
-    # ------------------------------------------------------------------
+
     # Every tool node → output guard → response node
-    # ------------------------------------------------------------------
+
     graph.add_edge("rag_node",          "output_guard_node")
     graph.add_edge("sql_node",          "output_guard_node")
     graph.add_edge("analytics_node",    "output_guard_node")
     graph.add_edge("forecast_node",     "output_guard_node")
     graph.add_edge("output_guard_node", "response_node")
 
-    # ------------------------------------------------------------------
+
     # Terminal edge
-    # ------------------------------------------------------------------
+
     graph.add_edge("response_node", END)
 
     compiled = graph.compile()
@@ -236,7 +143,5 @@ def build_manager_graph() -> Any:
     return compiled
 
 
-# ---------------------------------------------------------------------------
 # Module-level singleton — import and reuse across requests
-# ---------------------------------------------------------------------------
 manager_graph = build_manager_graph()

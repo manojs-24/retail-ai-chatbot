@@ -1,15 +1,5 @@
 """
-Input Guard Node
-================
-LangGraph node that runs the full input guard pipeline before the intent
-classifier is invoked.
 
-Position in graph
------------------
-    START → input_guard_node → classify_intent → …
-
-Behaviour
----------
 - Calls :func:`~backend.guardrails.input_guard.run_input_guard` with the
   raw query, role, and any already-available context.
 - On **rejection**: writes ``state["guard_blocked"] = True`` and
@@ -21,7 +11,6 @@ Behaviour
   back into ``state["entities"]`` so downstream nodes benefit from the
   clean values.
 
-The node does NOT call the intent classifier — it only gates access to it.
 """
 
 from __future__ import annotations
@@ -35,26 +24,7 @@ logger = logging.getLogger(__name__)
 
 
 def input_guard_node(state: dict[str, Any]) -> dict[str, Any]:
-    """
-    Pre-classification input guard LangGraph node.
 
-    Reads:
-        - ``state["query"]``    — raw user input
-        - ``state["role"]``     — ``"customer"`` or ``"manager"``
-        - ``state["entities"]`` — optional pre-existing entities (may be empty)
-
-    Writes:
-        - ``state["guard_blocked"]``  — ``True`` if rejected, ``False`` otherwise
-        - ``state["response"]``       — rejection message (only when blocked)
-        - ``state["intent"]``         — ``"BLOCKED"`` (only when blocked)
-        - ``state["entities"]``       — normalised entity values (when passed)
-
-    Args:
-        state: Current LangGraph state dict.
-
-    Returns:
-        Partial state update dict.
-    """
     query: str = state.get("query", "")
     role: str = state.get("role", "customer")
     entities: dict[str, Any] = state.get("entities", {})

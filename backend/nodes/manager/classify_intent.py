@@ -1,14 +1,3 @@
-"""
-Manager intent classifier node.
-
-Calls the OpenAI chat model with structured output to classify the
-manager's query into a :class:`~backend.schemas.manager_intent.ManagerIntent`
-and extract key entities (product_id, order_id, user_id, keyword) in a
-single LLM call.
-
-Uses ``model.with_structured_output()`` — no manual JSON parsing required.
-"""
-
 from __future__ import annotations
 
 import logging
@@ -74,16 +63,7 @@ Return a JSON object with:
 
 
 def _normalise_product_id(raw: str | None) -> str | None:
-    """
-    Normalise a raw product ID string to exactly ``P`` + 4-digit zero-padded number.
 
-    Examples::
-
-        "P00023" → "P0023"
-        "P23"    → "P0023"
-        "P0023"  → "P0023"
-        None     → None
-    """
     if not raw:
         return None
     raw = raw.strip().upper()
@@ -95,15 +75,7 @@ def _normalise_product_id(raw: str | None) -> str | None:
 
 
 def _normalise_order_id(raw: str | None) -> str | None:
-    """
-    Normalise a raw order ID string to exactly ``ORD`` + 5-digit zero-padded number.
 
-    Examples::
-
-        "ORD123"   → "ORD00123"
-        "ORD00123" → "ORD00123"
-        None       → None
-    """
     if not raw:
         return None
     raw = raw.strip().upper()
@@ -115,16 +87,7 @@ def _normalise_order_id(raw: str | None) -> str | None:
 
 
 def _normalise_user_id(raw: str | None) -> str | None:
-    """
-    Normalise a raw user ID string to exactly ``U`` + 4-digit zero-padded number.
 
-    Examples::
-
-        "U001"  → "U0001"
-        "U0001" → "U0001"
-        "U23"   → "U0023"
-        None    → None
-    """
     if not raw:
         return None
     raw = raw.strip().upper()
@@ -136,22 +99,7 @@ def _normalise_user_id(raw: str | None) -> str | None:
 
 
 def classify_intent_node(state: dict[str, Any]) -> dict[str, Any]:
-    """
-    Manager intent classifier node.
 
-    Reads ``state["query"]``, calls the OpenAI model with structured output,
-    and writes:
-
-    - ``state["intent"]``   — the classified :class:`ManagerIntent` string value.
-    - ``state["entities"]`` — dict with ``product_id``, ``order_id``,
-                              ``user_id``, ``keyword`` (all normalised).
-
-    Args:
-        state: Current LangGraph state.  Must contain ``"query"``.
-
-    Returns:
-        Partial state dict with ``"intent"`` and ``"entities"``.
-    """
     query: str = state.get("query", "")
     conversation_context: str = state.get("conversation_context", "")
 

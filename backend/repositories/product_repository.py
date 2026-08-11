@@ -1,10 +1,3 @@
-"""
-Product Repository
-==================
-Pure data-access layer for the ``products`` table.
-
-No business logic lives here.
-"""
 
 from __future__ import annotations
 
@@ -22,16 +15,7 @@ class ProductRepository:
     """Data-access layer for :class:`~backend.models.models.Product` records."""
 
     def get_by_id(self, db: Session, product_id: str) -> Product | None:
-        """
-        Fetch a single product by primary key.
 
-        Args:
-            db:         Active SQLAlchemy session.
-            product_id: The product's primary key string (e.g. ``"P0001"``).
-
-        Returns:
-            The :class:`~backend.models.models.Product` ORM object, or ``None``.
-        """
         logger.debug("ProductRepository.get_by_id — product_id=%s", product_id)
         return db.query(Product).filter(Product.product_id == product_id).first()
 
@@ -41,20 +25,7 @@ class ProductRepository:
         keyword: str,
         limit: int = 10,
     ) -> list[Product]:
-        """
-        Full-text-style search across name, brand, category, and sub_category.
 
-        Uses SQLite ``LIKE`` with ``%keyword%`` on each column, combined
-        with ``OR`` so any match qualifies.
-
-        Args:
-            db:      Active SQLAlchemy session.
-            keyword: Search term (case-insensitive).
-            limit:   Maximum number of results to return.
-
-        Returns:
-            List of matching :class:`~backend.models.models.Product` objects.
-        """
         logger.debug("ProductRepository.search — keyword=%r limit=%d", keyword, limit)
         term = f"%{keyword.lower()}%"
         return (
@@ -74,16 +45,7 @@ class ProductRepository:
         )
 
     def get_top_selling(self, db: Session, limit: int = 10) -> list[Product]:
-        """
-        Return products sorted by ``total_sold`` descending.
 
-        Args:
-            db:    Active SQLAlchemy session.
-            limit: Maximum number of results.
-
-        Returns:
-            List of :class:`~backend.models.models.Product` objects.
-        """
         logger.debug("ProductRepository.get_top_selling — limit=%d", limit)
         return (
             db.query(Product)
@@ -94,16 +56,7 @@ class ProductRepository:
         )
 
     def get_low_stock(self, db: Session) -> list[Product]:
-        """
-        Return active products whose ``stock_quantity`` is at or below
-        their ``reorder_level``.
 
-        Args:
-            db: Active SQLAlchemy session.
-
-        Returns:
-            List of :class:`~backend.models.models.Product` objects.
-        """
         logger.debug("ProductRepository.get_low_stock")
         return (
             db.query(Product)
@@ -116,15 +69,7 @@ class ProductRepository:
         )
 
     def get_out_of_stock(self, db: Session) -> list[Product]:
-        """
-        Return active products with ``stock_quantity == 0``.
 
-        Args:
-            db: Active SQLAlchemy session.
-
-        Returns:
-            List of :class:`~backend.models.models.Product` objects.
-        """
         logger.debug("ProductRepository.get_out_of_stock")
         return (
             db.query(Product)
@@ -136,17 +81,7 @@ class ProductRepository:
         )
 
     def inventory_stats(self, db: Session) -> dict:
-        """
-        Return aggregate inventory statistics in a single query pass.
 
-        Returns:
-            Dict with keys:
-
-            - ``total_products`` — count of active products
-            - ``total_stock``    — sum of stock_quantity
-            - ``out_of_stock``   — count where stock_quantity == 0
-            - ``low_stock``      — count where 0 < stock_quantity <= reorder_level
-        """
         logger.debug("ProductRepository.inventory_stats")
         active = db.query(Product).filter(Product.status == "Active")
 
@@ -170,16 +105,7 @@ class ProductRepository:
         }
 
     def category_summary(self, db: Session) -> list[dict]:
-        """
-        Return per-category product counts and total stock.
 
-        Args:
-            db: Active SQLAlchemy session.
-
-        Returns:
-            List of dicts with ``category``, ``product_count``,
-            ``total_stock``, ``avg_price``.
-        """
         logger.debug("ProductRepository.category_summary")
         rows = (
             db.query(
@@ -206,18 +132,7 @@ class ProductRepository:
     def top_selling_with_revenue(
         self, db: Session, limit: int = 10
     ) -> list[dict]:
-        """
-        Return top-selling products with total units sold and revenue,
-        computed from ``order_items``.
 
-        Args:
-            db:    Active SQLAlchemy session.
-            limit: Maximum rows to return.
-
-        Returns:
-            List of dicts with product details plus
-            ``units_sold`` and ``revenue``.
-        """
         logger.debug("ProductRepository.top_selling_with_revenue — limit=%d", limit)
         rows = (
             db.query(

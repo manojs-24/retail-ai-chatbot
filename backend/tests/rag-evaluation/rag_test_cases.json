@@ -1,0 +1,51 @@
+[
+  {
+    "question": "What is the return window for laptops?",
+    "ground_truth": "Laptops have a 7-day return window from the date of delivery, provided the product is in original packaging with no physical damage."
+  },
+  {
+    "question": "What is the return window for electronics like headphones and speakers?",
+    "ground_truth": "Electronics such as headphones and speakers have a 7-day return window, and the product must be unopened or defective to qualify for a return."
+  },
+  {
+    "question": "How long does a refund to a bank account or card take after a return?",
+    "ground_truth": "Bank account and card refunds typically take 5 to 7 business days after the returned item passes the quality check at the fulfillment center."
+  },
+  {
+    "question": "What should I do if a product arrives damaged or defective?",
+    "ground_truth": "If a product arrives damaged or defective, do not use or install it. Report the issue within 48 hours of delivery through the Report Issue option under My Orders, and upload photos or a video of the damage. Approved claims qualify for a free replacement or full refund."
+  },
+  {
+    "question": "Are beauty and personal care products returnable?",
+    "ground_truth": "Opened or used beauty and personal care products are not returnable. Unopened beauty products with the seal intact have a 7-day return window."
+  },
+  {
+    "question": "What are the shipping charges for orders below Rs 499?",
+    "ground_truth": "Orders below Rs 499 are charged Rs 49 for standard delivery and Rs 129 for express delivery."
+  },
+  {
+    "question": "What is the flat fee for same-day delivery?",
+    "ground_truth": "Same-Day Delivery carries a flat fee of Rs 149, regardless of order value."
+  },
+  {
+    "question": "What happens if a same-day or express delivery order is delayed beyond the committed window?",
+    "ground_truth": "If a Same-Day or Express order is delayed beyond the committed delivery window, the shipping fee for that order is automatically refunded to the customer's RetailHub Wallet."
+  },
+  {
+    "question": "What warranty is provided on laptops?",
+    "ground_truth": "Laptops carry a 1-year standard manufacturer warranty covering hardware defects such as motherboard, processor, RAM, display issues, keyboard malfunction, and battery degradation beyond 20% capacity loss. The warranty is extendable to 2 or 3 years through paid extended warranty plans."
+  },
+  {
+    "question": "Does the warranty cover physical damage from drops or spills?",
+    "ground_truth": "No. Physical damage from drops, spills, impact, or crushing is not covered under any RetailHub-facilitated warranty. Products showing physical damage may be eligible for paid out-of-warranty repair."
+  },
+  {
+    "question": "What is the compressor warranty on refrigerators?",
+    "ground_truth": "Refrigerators carry a 1-year standard warranty and a 5 to 10-year compressor-only warranty from the manufacturer."
+  },
+  {
+    "question": "Is Cash on Delivery available for all products?",
+    "ground_truth": "COD is available for most products under Rs 50,000, except Same-Day Delivery orders, international shipments, and select high-value electronics which require prepaid payment."
+  }
+]
+

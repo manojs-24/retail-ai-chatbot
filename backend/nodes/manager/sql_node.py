@@ -1,12 +1,4 @@
 """
-Manager SQL Node
-================
-LangGraph node for the manager chatbot.
-
-Handles all SQL-backed intents that require direct database retrieval.
-
-Routing (based on ``state["intent"]``)
----------------------------------------
 - ``INVENTORY``               → inventory_summary()
 - ``PRODUCT_INFO``            → get_product_details(product_id) | top_selling_products()
 - ``PRODUCT_REVIEW``          → get_product_reviews(product_id)
@@ -17,20 +9,7 @@ Routing (based on ``state["intent"]``)
 - ``SALES_ANALYTICS``         → handled by analytics_node (routing safety net here)
 - ``BUSINESS_SUMMARY``        → handled by analytics_node (routing safety net here)
 
-Entity extraction
------------------
-All entity values (product_id, order_id, user_id, keyword) come from
-``state["entities"]`` populated by the intent classifier.  No regex here.
 
-Security
---------
-Managers have no ownership restrictions — they may access any order, any
-customer, and any product.  Passwords are never serialised by UserService.
-
-Debug logging
--------------
-Every invocation logs: intent, entities, tool called, result key count,
-and execution time.
 """
 
 from __future__ import annotations
@@ -89,20 +68,7 @@ def _narrate(tool_data: dict, query: str, intent: str) -> str:
 
 
 def sql_node(state: dict[str, Any]) -> dict[str, Any]:
-    """
-    Manager SQL retrieval node — complete implementation.
 
-    Reads ``state["intent"]``, ``state["query"]``, and ``state["entities"]``,
-    calls the appropriate manager SQL tool function(s), then uses the LLM to
-    narrate the result into a professional management summary.
-
-    Args:
-        state: Current LangGraph state.
-
-    Returns:
-        Partial state dict with ``"tool_result"`` (raw JSON string) and
-        ``"response"`` (LLM-narrated management summary).
-    """
     t_start = time.perf_counter()
     query: str = state.get("query", "")
     intent: str = state.get("intent", ManagerIntent.GENERAL.value)
@@ -122,9 +88,7 @@ def sql_node(state: dict[str, Any]) -> dict[str, Any]:
         intent, product_id, order_id, user_id, query[:80],
     )
 
-    # ------------------------------------------------------------------
     # Route to the correct tool function(s) based on intent
-    # ------------------------------------------------------------------
     tool_data: dict | None = None
     tool_fn_name: str = ""
 
@@ -234,9 +198,7 @@ def sql_node(state: dict[str, Any]) -> dict[str, Any]:
             "top_5_products": top_products.get("products", []),
         }
 
-    # ------------------------------------------------------------------
     # Handle None / not-found result
-    # ------------------------------------------------------------------
     if tool_data is None:
         elapsed_ms = (time.perf_counter() - t_start) * 1000
         logger.warning(
@@ -267,9 +229,7 @@ def sql_node(state: dict[str, Any]) -> dict[str, Any]:
         intent, tool_fn_name, len(tool_data), elapsed_ms,
     )
 
-    # ------------------------------------------------------------------
     # LLM narration
-    # ------------------------------------------------------------------
     response = _narrate(tool_data, query, intent)
     tool_result = json.dumps(tool_data, default=str)
 

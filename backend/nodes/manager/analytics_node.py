@@ -1,24 +1,10 @@
 """
-Manager Analytics Node
-======================
-LangGraph node for the manager chatbot.
-
 Handles intents that require aggregated analytics data:
     - SALES_ANALYTICS   → full_sales_analytics() — revenue, monthly, categories, top products
     - CUSTOMER_ANALYTICS → customer_analytics()   — highest spenders, customer count
     - PRODUCT_ANALYTICS  → top_selling_products() — top 10 by units sold
     - BUSINESS_SUMMARY   → combined KPIs + inventory + top products
 
-All data is computed by SQLAlchemy + Pandas in the service layer.
-The LLM only narrates the structured result — it does NOT calculate.
-
-Debug logging
--------------
-Every invocation logs:
-    - intent
-    - tool function called
-    - result key count
-    - execution time
 """
 
 from __future__ import annotations
@@ -39,9 +25,7 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # System prompt — LLM narrates analytics data in a management style
-# ---------------------------------------------------------------------------
 _SYSTEM_PROMPT = """You are an intelligent retail analytics assistant for store managers at RetailHub Technologies.
 
 You will be given structured analytics data calculated directly from the database.
@@ -77,23 +61,7 @@ def _narrate(tool_data: dict, query: str, intent: str) -> str:
 
 
 def analytics_node(state: dict[str, Any]) -> dict[str, Any]:
-    """
-    Manager analytics node — real implementation.
 
-    Routes to the appropriate analytics tool based on ``state["intent"]``:
-
-    - ``SALES_ANALYTICS``    → full_sales_analytics() (KPIs + monthly + categories + top products)
-    - ``CUSTOMER_ANALYTICS`` → customer_analytics() (highest spenders)
-    - ``PRODUCT_ANALYTICS``  → top_selling_products() (top 10 by units)
-    - ``BUSINESS_SUMMARY``   → sales_summary + inventory_summary + top_selling_products
-
-    Args:
-        state: Current LangGraph state.  Must contain ``"query"`` and ``"intent"``.
-
-    Returns:
-        Partial state dict with ``"tool_result"`` (raw JSON) and
-        ``"response"`` (LLM-narrated management summary).
-    """
     t_start = time.perf_counter()
     query: str = state.get("query", "")
     intent: str = state.get("intent", "GENERAL")
@@ -105,9 +73,7 @@ def analytics_node(state: dict[str, Any]) -> dict[str, Any]:
     tool_data: dict | None = None
     tool_fn_name: str = ""
 
-    # ------------------------------------------------------------------
     # Route to the correct analytics function
-    # ------------------------------------------------------------------
     if intent == "SALES_ANALYTICS":
         tool_fn_name = "full_sales_analytics"
         logger.info("Analytics node → calling full_sales_analytics()")
@@ -137,9 +103,7 @@ def analytics_node(state: dict[str, Any]) -> dict[str, Any]:
             "top_5_products": top_products.get("products", []),
         }
 
-    # ------------------------------------------------------------------
     # Guard — should never be reached (routing error if it is)
-    # ------------------------------------------------------------------
     if tool_data is None:
         logger.warning(
             "Analytics node — no handler for intent=%s, returning fallback", intent
@@ -158,9 +122,7 @@ def analytics_node(state: dict[str, Any]) -> dict[str, Any]:
         intent, tool_fn_name, len(tool_data), elapsed_ms,
     )
 
-    # ------------------------------------------------------------------
     # LLM narration
-    # ------------------------------------------------------------------
     response = _narrate(tool_data, query, intent)
     tool_result = json.dumps(tool_data, default=str)
 
